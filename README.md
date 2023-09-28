@@ -1,2 +1,2 @@
 # lianhin_frontend
-Virtual Showroom
+Virtual Showrooms
