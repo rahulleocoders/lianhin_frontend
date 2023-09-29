@@ -1,9 +1,9 @@
 'use client'
-import { ColorPalettes, Marbletexture } from "@/local_data"
+import { Marbletexture } from "@/local_data"
 import Image from "next/image"
-import { useState } from "react"
+// import { useState } from "react"
 
-let Tab = ({ label, active, onClick }) => { return (<button onClick={onClick} type="button" className={`capitalize flex-1 rounded-3xl py-1 border ${active ? 'bg-primary-color text-white border-primary-color' : 'text-secondary border-secondary'}`}>{label}</button>) }
+// let Tab = ({ label, active, onClick }) => { return (<button onClick={onClick} type="button" className={`capitalize flex-1 rounded-3xl py-1 border ${active ? 'bg-primary-color text-white border-primary-color' : 'text-secondary border-secondary'}`}>{label}</button>) }
 
 let Palletcard = ({ label, img, color, onClick }) => {
     return (
@@ -18,19 +18,19 @@ let Palletcard = ({ label, img, color, onClick }) => {
 }
 
 const SelectMaterial = () => {
-    const [activeTab, setActiveTab] = useState(true)
+    // const [activeTab, setActiveTab] = useState(true)
     return (
         <div className=''>
-            <div className="flex justify-between mb-3 gap-6">
+            {/* <div className="flex justify-between mb-3 gap-6">
                 <Tab label='surface' active={activeTab} onClick={() => setActiveTab(true)} />
                 <Tab label='color' active={!activeTab} onClick={() => setActiveTab(false)} />
-                {/*on second tab call function to  to get the color pallett*/}
-            </div>
+            </div> */}
+            {/*on second tab call function to  to get the color pallett*/}
 
             <div className=" flex gap-6 max-h-[64vh] overflow-y-scroll flex-wrap pe-1">
-                {activeTab && Marbletexture?.map((pallet, i) => <Palletcard key={`hhh${i}`} onClick={() => console.log('object')} label={pallet.lable} img={pallet.img} />)}
-
-                {!activeTab && ColorPalettes?.map((pallet) => <Palletcard key={pallet.name} onClick={() => console.log('object')} label={pallet.name} color={pallet.color} />)}
+                {Marbletexture?.map((pallet, i) => <Palletcard key={`hhh${i}`} onClick={() => console.log('object')} label={pallet.lable} img={pallet.img} />)}
+                {/* {activeTab && Marbletexture?.map((pallet, i) => <Palletcard key={`hhh${i}`} onClick={() => console.log('object')} label={pallet.lable} img={pallet.img} />)}
+                {!activeTab && ColorPalettes?.map((pallet) => <Palletcard key={pallet.name} onClick={() => console.log('object')} label={pallet.name} color={pallet.color} />)} */}
             </div>
         </div>
     )

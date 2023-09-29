@@ -1,6 +1,6 @@
 'use client'
 import CubeKitchenModel from "@/jsxModel/CubeKitchenModel"
-import KitchenModel from "@/jsxModel/KitchenModel"
+// import KitchenModel from "@/jsxModel/KitchenModel"
 import { Environment, Html, OrbitControls, useProgress } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Suspense, useRef, useState } from "react"

@@ -155,3 +155,36 @@ export let Marbletexture = [
     { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/g/pgvt_emperador_stone_marble_f1_glazed_vitrified_tile_wall_floor_tile_600x600mm.jpg", lable: "Ceramic Wall Tile" },
     { img: "https://cdn.pixabay.com/photo/2016/05/04/13/11/brick-wall-1371349_640.jpg", lable: "Ceramic Wall Tile" }
 ]
+
+export let Surface_brand = [
+    'Candeo',
+    'Arcus',
+    'Vulcan',
+    'Coverlam',
+    'Coverlam-5.6mm',
+]
+export let Surface_collection = [
+    'Granite',
+    'Quartz',
+    'Sintered',
+]
+export let Surface_Series = [
+    'Luxury',
+    'Signature',
+    'Classico',
+    'Etemal',
+    'marble',
+    'pattern',
+]
+export let Surface_models = [
+    'Imperial Black',
+    'Lotus Red',
+    'Avana',
+    'Cosmic',
+]
+export let Surface_Finishing = [
+    'Polished',
+    'Leather',
+    'Matt',
+    'Honed',
+]
