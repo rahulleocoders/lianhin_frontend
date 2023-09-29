@@ -8,10 +8,10 @@ const HeroSection = () => {
         </div>
     </div>)
     return (
-        <section className="h-[80vh] md:h-[calc(100vh-80px)] flex relative">
-            <div className=" absolute top-0 left-0 w-full h-full md:max-w-md bg-white bg-opacity-25 md:bg-opacity-40 p-2 z-10">
+        <section className="h-[94vh] md:h-[calc(100vh-80px)] flex relative">
+            <div className=" absolute top-0 left-0 w-full h-full md:max-w-md bg-white bg-opacity-10 md:bg-opacity-40 p-2 z-10">
             {/* <div className=" flex-1 bg-white bg-opacity-50 flex items-center justify-center "> */}
-                <div className=" w-full h-full flex items-center justify-center ">
+                <div className=" w-full h-full flex items-center justify-center border border-white rounded-md">
                     <div className="flex flex-col max-w-md  md:max-w-xs gap-6">
                         <h1 className=" font-bold text-primary-color text-5xl ">Create Your Dream Home!</h1>
                         <p className=" text-secondary text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the L1500s, when an unknown printer.</p>

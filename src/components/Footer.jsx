@@ -34,9 +34,9 @@ const Footer = () => {
         <div className=' bg-secondary text-white items-center flex flex-col gap-7 py-6 px-3 md:px-12'>
             <FooteNavigation />
             <SocialMedia />
-            <div className=" pt-4 border-t-2 w-full text-center border-gray-500">
+            {/* <div className=" pt-4 border-t-2 w-full text-center border-gray-500">
                 <p>© Copyright Lian Hin 2021 All Rights Reserved.</p>
-            </div>
+            </div> */}
         </div >
     )
 }

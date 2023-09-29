@@ -35,9 +35,6 @@ const ShareDemo = () => {
         return () => { document.removeEventListener('click', handleClickOutside); };
     }, [isOpen]);
 
-
-
-
     return (
         <div className="relative" ref={dropdownRef}>
             <div onClick={() => setIsOpen(!isOpen)}><HoverBtn><BsFillShareFill size={18} className=' text-primary-color' /></HoverBtn></div>

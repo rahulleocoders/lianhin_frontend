@@ -5,6 +5,17 @@ import undoable from "redux-undo";
 const initialState =
 {
     ActiveObject: {},
+    Backsplash: {},
+    Cabinet: {},
+    Countertop: {},
+    Floor: {},
+    Integrated_Sink: {},
+    Wall: {},
+
+
+
+
+
     floorParameter: {
         CureentfloorTexture: "Marbletexture[0]",
     },
