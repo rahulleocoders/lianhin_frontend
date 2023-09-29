@@ -1,4 +1,5 @@
 import EmployeeForm from "@/components/EmployeeForm"
+import { notFound } from "next/navigation";
 
 
 async function getData(id) {
@@ -12,9 +13,12 @@ async function getData(id) {
 const page = async ({ params }) => {
     let id = params.id
     const data = await getData(id);
+    if (!data) {
+        notFound()
+    }
     return (
         <div className="max-w-screen-xl mx-auto">
-            {data && <EmployeeForm data={data} methode='PUT'/>}
+            {data && <EmployeeForm data={data} methode='PUT' />}
         </div>
     )
 }
