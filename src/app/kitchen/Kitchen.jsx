@@ -36,26 +36,26 @@ const Kitchen = () => {
     return (
         <div className="flex w-full h-full flex-wrap">
             {/* <div className=" flex-1 aspect-video h-fit min-w-[300px]"> */}
-                {/* <Canvas gl={{ preserveDrawingBuffer: true }}> */}
-                <Canvas gl={{ preserveDrawingBuffer: true }}
+            {/* <Canvas gl={{ preserveDrawingBuffer: true }}> */}
+            <Canvas gl={{ preserveDrawingBuffer: true }}
                 camera={{ position: [8, 2, 12] }}
                 onPointerDown={() => setLerping(false)} onWheel={() => setLerping(false)}
-                >
-                    <Suspense fallback={<Html center>{progress} % loaded</Html>}>
-                        {/* <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@gltfjsx/public/img/forest_slope_1k.hdr" /> */}
-                        <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr" />
-                        {/* <ambientLight color={0xffffff} intensity={2} /> */}
-                        {/* <pointLight color={0xffffff} castShadow shadowMapHeight={1024} shadowMapWidth={1024} position={[3, 5, 0]} intensity={10} /> */}
-                        {/* <KitchenModel /> */}
-                        <CubeKitchenModel />
-                        <KitchenAnnotation gotoAnnotation={gotoAnnotation} />
-                        <Animate controls={ref} lerping={lerping} to={to} target={target} />
-                    </Suspense>
-                    <OrbitControls ref={ref}
-                        // target={[5, 6, 3]}
-                    target={[8, 2, 3]}
-                    />
-                </Canvas>
+            >
+                <Suspense fallback={<Html center>{progress} % loaded</Html>}>
+                    {/* <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@gltfjsx/public/img/forest_slope_1k.hdr" /> */}
+                    <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr" />
+                    {/* <ambientLight color={0xffffff} intensity={2} /> */}
+                    {/* <pointLight color={0xffffff} castShadow shadowMapHeight={1024} shadowMapWidth={1024} position={[3, 5, 0]} intensity={10} /> */}
+                    {/* <KitchenModel /> */}
+                    <CubeKitchenModel />
+                    <KitchenAnnotation gotoAnnotation={gotoAnnotation} />
+                    <Animate controls={ref} lerping={lerping} to={to} target={target} />
+                </Suspense>
+                <OrbitControls ref={ref}
+                    // target={[5, 6, 3]}
+                    // target={[8, 2, 3]}
+                />
+            </Canvas>
             {/* </div> */}
         </div>
     )

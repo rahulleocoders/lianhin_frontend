@@ -1,6 +1,11 @@
+import Demolayout from "@/components/DemoComponents/Demolayout"
+import Bathroom from "./Bathroom"
+
 const page = () => {
   return (
-    <div>page</div>
+    <Demolayout>
+      <Bathroom />
+    </Demolayout>
   )
 }
 

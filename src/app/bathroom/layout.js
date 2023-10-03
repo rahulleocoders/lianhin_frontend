@@ -6,7 +6,6 @@ export const metadata = {
 export default function bathroomLayout({ children }) {
   return (
     <section>
-      <h>swhuuhsuhwdsuh</h>
       {children}
     </section>
   )

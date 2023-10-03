@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ReduxProvider from '@/redux/ReduxProvider'
+import { Suspense } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
       {/* <body className={inter.className}> */}
       <body className='font-arial'>
         <ReduxProvider>
-          {children}
+          <Suspense fallback={<p>Loading feed...</p>}>
+            {children}
+          </Suspense>
         </ReduxProvider>
       </body>
     </html>

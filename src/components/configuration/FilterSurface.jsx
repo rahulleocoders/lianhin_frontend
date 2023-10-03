@@ -48,7 +48,7 @@ const FilterSurface = () => {
                     )}
                 </CheckboxFilter>
 
-                <CheckboxFilter title='Tile Collection' >
+                <CheckboxFilter title='Surface Collection' >
                     {Surface_brand?.map((tile) =>
                         <div key={`Tile-Collection${tile}`} className="flex items-start gap-3">
                             <input type="checkbox" name="" id={`Tile-Collection${tile}`} className="cursor-pointer outline-none focus:ring-transparent" />
