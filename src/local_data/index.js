@@ -133,27 +133,105 @@ export let KitchenAnnotationArray = [
     }
 ]
 
+export let BathroomAnnotationArray = [
+    {
+        title: "Floor",
+        spotNumber: 1,
+        description: "<p>Click on this to change the floor tiles</p>",
+        camPos: {
+            x: 5,
+            y: -5,
+            z: 2
+        },
+        position: {
+            x: 1,
+            y: 0,
+            z: -0.5
+        }
+    },
+    {
+        title: "wall",
+        spotNumber: 2,
+        description: "<p>wall tiles</p>",
+        camPos: {
+            x: 7.13,
+            y: 1.15,
+            z: 0.66
+        },
+        position: {
+            x: -3,
+            y: 1.3,
+            z: 0
+        }
+    },
+    {
+        title: "Counter",
+        spotNumber: 3,
+        description: "<p>Counter</p>",
+        camPos: {
+            x: 13.05,
+            y: 4.35,
+            z: 5.06
+        },
+        position: {
+            x: -0.25,
+            y: 0.5,
+            z: 1
+        }
+    },
+    {
+        title: "Door",
+        spotNumber: 4,
+        description: "<p>Door</p>",
+        camPos: {
+            x: 13.05,
+            y: 4.35,
+            z: 5.06
+        },
+        position: {
+            x: 0,
+            y: 1,
+            z: -2.1
+        }
+    },
+    {
+        title: "wallColor",
+        spotNumber: 5,
+        description: "<p>wall Color</p>",
+        camPos: {
+            x: 7.13,
+            y: 1.15,
+            z: 0.66
+        },
+        position: {
+            x: -2,
+            y: 2,
+            z: 1.5
+        }
+    },
+]
+
 export const ColorPalettes = [{ name: 'Classic White', color: '#FFFFFF' }, { name: 'Soft Beige', color: '#F3EFEF' }, { name: 'Light Gray', color: '#D3D3D3' }, { name: 'Sage Green', color: '#8CBEB2' }, { name: 'Aqua Blue', color: '#6FA6D6' }, { name: 'Powder Pink', color: '#F3C8E6' }, { name: 'Coral Peach', color: '#FF6B6B' }, { name: 'Lavender Bliss', color: '#967ADC' }, { name: 'Sunny Yellow', color: '#FAD02E' }, { name: 'Minty Fresh', color: '#9DF3C4' }, { name: 'Terracotta', color: '#E56B6F' }, { name: 'Royal Blue', color: '#2B59C3' }, { name: 'Goldenrod', color: '#FFD700' }, { name: 'Charcoal Gray', color: '#333333' }, { name: 'Ocean Teal', color: '#007B7F' }, { name: 'Lemon Zest', color: '#FFF500' }, { name: 'Cherry Red', color: '#FF0000' }, { name: 'Warm Taupe', color: '#B06A3B' }, { name: 'Ivory Cream', color: '#FFFFF0' }, { name: 'Forest Green', color: '#228B22' },];
 
 export let Marbletexture = [
-    { img: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg", lable: "Ceramic Wall surface" },
+    { img: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg", lable: "Ceramic Surface" },
     { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCBgnYstUWmaynJb2irvMu4V1AnZh6RowHbdNwEnJ8YG6fUC8FW7kHPul-6bZQT2Mss7g&usqp=CAU" },
     { img: "https://cdn11.bigcommerce.com/s-4990d/images/stencil/1280x1280/products/25612/34660/HD_fondi_decori10__55147.1535659503.jpg?c=2" },
     { img: "https://images.unsplash.com/flagged/photo-1622363405079-da46534ce5ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRpbGUlMjB0ZXh0dXJlfGVufDB8fDB8fHww&w=1000&q=80" },
-    { img: "https://as1.ftcdn.net/v2/jpg/01/25/45/06/1000_F_125450626_fERwEZKqViBUVa7ophDrfTgGDYt3rB8N.jpg", lable: "Ceramic Wall surface" },
+    { img: "https://as1.ftcdn.net/v2/jpg/01/25/45/06/1000_F_125450626_fERwEZKqViBUVa7ophDrfTgGDYt3rB8N.jpg", lable: "Ceramic Surface" },
     { img: "https://media.istockphoto.com/id/1221955356/photo/geometric-pattern-wooden-floor-and-wall-mosaic-decor-tile.jpg?s=612x612&w=0&k=20&c=EVcgTm4O4Jf7x5XnYQQTFZKxd7ddunjfPUQd0tzzpo0=" },
     { img: "https://media.istockphoto.com/id/895082378/photo/high-quality-high-resolution-seamless-wood-texture-flooring-parquet.jpg?s=170667a&w=0&k=20&c=Csw4Ybh1yYC0q3tKpLoiXUOf6eCzktDJzc9OXAXeMII=" },
     { img: "https://i0.wp.com/textures.world/wp-content/uploads/2018/10/8-Classic-Floor-Tile-Background-Texture-copy.jpg?ssl=1" },
-    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/h/f/hfm_anti-skid_ec_wooden_mosaic__ceramic_tile_floor_tile_300x300_mm.jpg", lable: "Ceramic Wall surface" },
-    { img: "https://tileswale.com/uploads/products/163937626741_8809_689469.jpg", lable: "Ceramic Wall surface" },
+    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/h/f/hfm_anti-skid_ec_wooden_mosaic__ceramic_tile_floor_tile_300x300_mm.jpg", lable: "Ceramic Surface" },
+    { img: "https://tileswale.com/uploads/products/163937626741_8809_689469.jpg", lable: "Ceramic Surface" },
     { img: "https://s7d1.scene7.com/is/image/TileShop/681708?$PDPNormal$" },
-    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/g/f/gft_bdf_arrow_bass_wood_ft.jpg", lable: "Ceramic Wall surface" },
-    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/c/pcg_3d_venn_blue_wave.jpg", lable: "Ceramic Wall surface" },
-    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/c/pcg_onyx_blue_bm.jpg", lable: "Ceramic Wall surface" },
-    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/c/pcg_swan_marble_blue_f3.jpg", lable: "Ceramic Wall surface" },
-    { img: "https://tiimg.tistatic.com/fp/1/004/515/cork-wood-mosaic-tile-206.jpg", lable: "Ceramic Wall surface" },
-    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/g/pgvt_emperador_stone_marble_f1_glazed_vitrified_tile_wall_floor_tile_600x600mm.jpg", lable: "Ceramic Wall surface" },
-    { img: "https://cdn.pixabay.com/photo/2016/05/04/13/11/brick-wall-1371349_640.jpg", lable: "Ceramic Wall surface" }
+    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/g/f/gft_bdf_arrow_bass_wood_ft.jpg", lable: "Ceramic Surface" },
+    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/c/pcg_3d_venn_blue_wave.jpg", lable: "Ceramic Surface" },
+    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/c/pcg_onyx_blue_bm.jpg", lable: "Ceramic Surface" },
+    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/c/pcg_swan_marble_blue_f3.jpg", lable: "Ceramic Surface" },
+    { img: "https://tiimg.tistatic.com/fp/1/004/515/cork-wood-mosaic-tile-206.jpg", lable: "Ceramic Surface" },
+    { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/g/pgvt_emperador_stone_marble_f1_glazed_vitrified_tile_wall_floor_tile_600x600mm.jpg", lable: "Ceramic Surface" },
+    { img: "https://cdn.pixabay.com/photo/2016/05/04/13/11/brick-wall-1371349_640.jpg", lable: "Ceramic Surface" }
 ]
 
 export let Surface_brand = [

@@ -8,7 +8,7 @@ const initialState =
         texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
     },
     wall: {
-        texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg"
+        texture: "https://m.media-amazon.com/images/I/41gPXlP844L._AC_UF894,1000_QL80_.jpg"
     },
     cabibate: {
         TopTexture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",

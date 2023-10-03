@@ -244,11 +244,17 @@ const BathroomModel = (props) => {
                 <mesh geometry={nodes.Ceiling.geometry} material={nodes.Ceiling.material}
                     material-color='white'
                 />
-                <mesh geometry={nodes.Floor.geometry} material={materials['Material.009']}
-                    position={[4.99, 0, 2.4]}
+                <mesh geometry={nodes.Floor.geometry}
+                    material={materials['Material.009']}
+                    // position={[4.99, 0, 2.4]}
                 >
-                    <boxGeometry args={[FloorSize.x, FloorSize.y, FloorSize.z]} />
-                    <meshStandardMaterial map={floorTexture} />
+                    {/* <boxGeometry args={[FloorSize.x, FloorSize.y, FloorSize.z]} /> */}
+                    <meshStandardMaterial
+                        map={floorTexture}
+                        side={THREE.DoubleSide}
+                        roughness={0.5} 
+                        metalness={0.2} 
+                    />
                 </mesh>
             </mesh>
             <mesh

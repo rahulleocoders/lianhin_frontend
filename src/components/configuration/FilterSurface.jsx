@@ -38,7 +38,7 @@ const FilterSurface = () => {
         <div className=' relative' ref={filterRef}>
             <FilterToggle />
 
-            <div className={`${filterOpen ? 'flex' : 'hidden'} min-w-[260px] absolute top-0 left-[150%] md:-left-[1010%] py-4 bg-white border rounded drop-shadow-md  flex-col gap-2 z-10 max-h-[82vh] overflow-y-scroll hide-scrollbar`}>
+            <div className={`${filterOpen ? 'flex' : 'hidden'} min-w-[260px] absolute top-0 left-[150%] md:-left-[1010%] py-4 bg-white border rounded drop-shadow-md  flex-col gap-2 max-h-[82vh] overflow-y-scroll hide-scrollbar z-[99999999999] select-none`}>
                 <CheckboxFilter title='Brand' >
                     {Surface_brand?.map((tile) =>
                         <div key={`Brand${tile}`} className="flex items-start gap-3">

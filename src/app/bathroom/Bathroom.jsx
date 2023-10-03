@@ -4,6 +4,7 @@ import BathroomModel from "@/jsxModel/BathroomModel"
 import { Environment, Html, OrbitControls, PerspectiveCamera, useProgress } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { Suspense, useRef } from "react"
+import BathroomAnnotation from "../Annotations/BathroomAnnotation"
 
 const Bathroom = () => {
     const bathroomcanvasRef = useRef()
@@ -26,11 +27,11 @@ const Bathroom = () => {
                 // far={100}
                 />
                 <Suspense fallback={<Html center>{progress} % loaded</Html>}>
-                    <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@gltfjsx/public/img/forest_slope_1k.hdr" />
-                    <ambientLight />
+                    <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr" />
+                    <ambientLight color={0xffffff} intensity={0.5} />
                     <BathroomModel />
-                    {/* <BathroomAnnotation /> */}
-                    <OrbitControls enablePan={true} enableZoom={true} enableRotate={true}
+                    <BathroomAnnotation />
+                    <OrbitControls enablePan={false} enableZoom={false} enableRotate={false}
                     // position={[3.5908, 1.7840, -1.734]}
                     //  minPolarAngle={0}
                     //  maxPolarAngle={Math.PI / 2} 
