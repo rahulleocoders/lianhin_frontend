@@ -1,3 +1,5 @@
+export let Backend_url = 'http://54.254.206.42:8080/'
+
 export let page_limit = 15
 export let NavLinks = [
     { title: "Home", url: "" },

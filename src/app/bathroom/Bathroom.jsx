@@ -5,6 +5,8 @@ import { Environment, Html, OrbitControls, PerspectiveCamera, useProgress } from
 import { Canvas } from "@react-three/fiber"
 import { Suspense, useRef } from "react"
 import BathroomAnnotation from "../Annotations/BathroomAnnotation"
+import Annotations from "../Annotations/Annotations"
+import { BathroomAnnotationArray } from "@/local_data"
 
 const Bathroom = () => {
     const bathroomcanvasRef = useRef()
@@ -30,7 +32,7 @@ const Bathroom = () => {
                     <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr" />
                     <ambientLight color={0xffffff} intensity={0.5} />
                     <BathroomModel />
-                    <BathroomAnnotation />
+                    <Annotations position={BathroomAnnotationArray} />
                     <OrbitControls enablePan={false} enableZoom={false} enableRotate={false}
                     // position={[3.5908, 1.7840, -1.734]}
                     //  minPolarAngle={0}

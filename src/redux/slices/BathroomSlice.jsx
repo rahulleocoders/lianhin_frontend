@@ -1,10 +1,18 @@
+import { BathroomAnnotationArray } from "@/local_data";
 import { createSlice } from "@reduxjs/toolkit";
 import undoable from "redux-undo";
 
 // Define the initial state
 const initialState =
 {
+    ActiveObject: BathroomAnnotationArray[0],
+    Backsplash: {
+        texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
+    },
     floor: {
+        texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
+    },
+    vanityTop: {
         texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
     },
     wall: {
