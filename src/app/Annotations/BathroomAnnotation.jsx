@@ -5,7 +5,6 @@ import { useState } from "react";
 ;
 const BathroomAnnotation = () => {
     const [activeAnnotation, setActiveAnnotation] = useState('')
-    console.log("activeAnnotation", activeAnnotation)
     return (
         <>
             {BathroomAnnotationArray?.map((anote, i) =>

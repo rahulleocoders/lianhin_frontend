@@ -1,9 +1,6 @@
-import React from 'react'
 import Header from './Header'
-// import SidebarConfig from '../configuration/SidebarConfig'
 import SidebarConfig from '@/components/configuration/SidebarConfig'
 import UndoRedoRestart from './UndoRedoRestart'
-// @/components/DemoComponents/Demolayout
 
 const Demolayout = ({ children }) => {
     return (<>

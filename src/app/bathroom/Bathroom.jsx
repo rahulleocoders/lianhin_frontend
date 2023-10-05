@@ -1,38 +1,41 @@
 'use client'
-
-import BathroomModel from "@/jsxModel/BathroomModel"
 import { Environment, Html, OrbitControls, PerspectiveCamera, useProgress } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { Suspense, useRef } from "react"
-import BathroomAnnotation from "../Annotations/BathroomAnnotation"
-import Annotations from "../Annotations/Annotations"
+import { Suspense, useEffect, useRef } from "react"
 import { BathroomAnnotationArray } from "@/local_data"
+import { useDispatch, useSelector } from "react-redux"
+import { updatebathroomSlice } from "@/redux/slices/BathroomSlice"
+import BathroomModel from "@/jsxModel/BathroomModel"
+import Annotations from "../Annotations/Annotations"
+import { updateCommonStateSlice } from "@/redux/slices/CommonStateSlice"
 
 const Bathroom = () => {
+    const dispatch = useDispatch()
     const bathroomcanvasRef = useRef()
     const { progress } = useProgress()
+    const BathroomParameter = useSelector((state) => state.BathroomParameter?.present);
+    // const CommonState = useSelector((state) => state.CommonState);
+    let bathroom_Active_element = BathroomParameter.ActiveObject
+
+    let UpdateBathActiveElement = (title) => {
+        dispatch(updatebathroomSlice({ ActiveObject: { ...bathroom_Active_element, title: title } }));
+    }
+
+    useEffect(() => {
+        dispatch(updateCommonStateSlice({ currentModelRef: bathroomcanvasRef.current }));
+    }, [bathroomcanvasRef])
+
+
     return (
         <div className="flex w-full h-full flex-wrap">
             <Canvas ref={bathroomcanvasRef} gl={{ preserveDrawingBuffer: true }}  >
-                <PerspectiveCamera
-                    // ref={cameraRef}
-                    makeDefault
-                    position={[3.5908, 1.7840, -1.734]}
-                    // position={[2.3520, 1.36927, -1.2965]}
-                    // position={[3.4368, 1.57895, -1.7096]}
-                    // position={[3.7722, 2.0562, -0.7930]}
-                    // position={[2.948, 1.5504, -2.110]}
-                    // position={[5.2013, 2.69735, -2.194]}
-                    // position={[4.5779, 1.727, -2.199]}
-                    // rotation={[Math.PI / 8, 0, 0]}
-                    fov={76} // Field of view
-                // far={100}
+                <PerspectiveCamera makeDefault position={[3.5908, 1.7840, -1.734]} fov={76} // Field of view
                 />
                 <Suspense fallback={<Html center>{progress} % loaded</Html>}>
                     <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr" />
                     <ambientLight color={0xffffff} intensity={0.5} />
                     <BathroomModel />
-                    <Annotations position={BathroomAnnotationArray} />
+                    <Annotations position={BathroomAnnotationArray} onClick={(title) => UpdateBathActiveElement(title)} />
                     <OrbitControls enablePan={false} enableZoom={false} enableRotate={false}
                     // position={[3.5908, 1.7840, -1.734]}
                     //  minPolarAngle={0}

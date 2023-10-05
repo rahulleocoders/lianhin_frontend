@@ -1,4 +1,4 @@
-export let Backend_url = 'http://54.254.206.42:8080/'
+export let Backend_url = 'http://13.228.25.141:8080/'
 
 export let page_limit = 15
 export let NavLinks = [
@@ -137,7 +137,7 @@ export let KitchenAnnotationArray = [
 
 export let BathroomAnnotationArray = [
     {
-        title: "Floor",
+        title: "floor",
         spotNumber: 1,
         description: "<p>Click on this to change the floor tiles</p>",
         camPos: {
@@ -167,9 +167,9 @@ export let BathroomAnnotationArray = [
         }
     },
     {
-        title: "Counter",
+        title: "cabibate",
         spotNumber: 3,
-        description: "<p>Counter</p>",
+        description: "<p>cabibate</p>",
         camPos: {
             x: 13.05,
             y: 4.35,
@@ -182,9 +182,9 @@ export let BathroomAnnotationArray = [
         }
     },
     {
-        title: "Door",
+        title: "door",
         spotNumber: 4,
-        description: "<p>Door</p>",
+        description: "<p>door</p>",
         camPos: {
             x: 13.05,
             y: 4.35,
@@ -213,7 +213,6 @@ export let BathroomAnnotationArray = [
     },
 ]
 
-export const ColorPalettes = [{ name: 'Classic White', color: '#FFFFFF' }, { name: 'Soft Beige', color: '#F3EFEF' }, { name: 'Light Gray', color: '#D3D3D3' }, { name: 'Sage Green', color: '#8CBEB2' }, { name: 'Aqua Blue', color: '#6FA6D6' }, { name: 'Powder Pink', color: '#F3C8E6' }, { name: 'Coral Peach', color: '#FF6B6B' }, { name: 'Lavender Bliss', color: '#967ADC' }, { name: 'Sunny Yellow', color: '#FAD02E' }, { name: 'Minty Fresh', color: '#9DF3C4' }, { name: 'Terracotta', color: '#E56B6F' }, { name: 'Royal Blue', color: '#2B59C3' }, { name: 'Goldenrod', color: '#FFD700' }, { name: 'Charcoal Gray', color: '#333333' }, { name: 'Ocean Teal', color: '#007B7F' }, { name: 'Lemon Zest', color: '#FFF500' }, { name: 'Cherry Red', color: '#FF0000' }, { name: 'Warm Taupe', color: '#B06A3B' }, { name: 'Ivory Cream', color: '#FFFFF0' }, { name: 'Forest Green', color: '#228B22' },];
 
 export let Marbletexture = [
     { img: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg", lable: "Ceramic Surface" },
@@ -235,36 +234,37 @@ export let Marbletexture = [
     { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/g/pgvt_emperador_stone_marble_f1_glazed_vitrified_tile_wall_floor_tile_600x600mm.jpg", lable: "Ceramic Surface" },
     { img: "https://cdn.pixabay.com/photo/2016/05/04/13/11/brick-wall-1371349_640.jpg", lable: "Ceramic Surface" }
 ]
+// export const ColorPalettes = [{ name: 'Classic White', color: '#FFFFFF' }, { name: 'Soft Beige', color: '#F3EFEF' }, { name: 'Light Gray', color: '#D3D3D3' }, { name: 'Sage Green', color: '#8CBEB2' }, { name: 'Aqua Blue', color: '#6FA6D6' }, { name: 'Powder Pink', color: '#F3C8E6' }, { name: 'Coral Peach', color: '#FF6B6B' }, { name: 'Lavender Bliss', color: '#967ADC' }, { name: 'Sunny Yellow', color: '#FAD02E' }, { name: 'Minty Fresh', color: '#9DF3C4' }, { name: 'Terracotta', color: '#E56B6F' }, { name: 'Royal Blue', color: '#2B59C3' }, { name: 'Goldenrod', color: '#FFD700' }, { name: 'Charcoal Gray', color: '#333333' }, { name: 'Ocean Teal', color: '#007B7F' }, { name: 'Lemon Zest', color: '#FFF500' }, { name: 'Cherry Red', color: '#FF0000' }, { name: 'Warm Taupe', color: '#B06A3B' }, { name: 'Ivory Cream', color: '#FFFFF0' }, { name: 'Forest Green', color: '#228B22' },];
 
-export let Surface_brand = [
-    'Candeo',
-    'Arcus',
-    'Vulcan',
-    'Coverlam',
-    'Coverlam-5.6mm',
-]
-export let Surface_collection = [
-    'Granite',
-    'Quartz',
-    'Sintered',
-]
-export let Surface_Series = [
-    'Luxury',
-    'Signature',
-    'Classico',
-    'Etemal',
-    'marble',
-    'pattern',
-]
-export let Surface_models = [
-    'Imperial Black',
-    'Lotus Red',
-    'Avana',
-    'Cosmic',
-]
-export let Surface_Finishing = [
-    'Polished',
-    'Leather',
-    'Matt',
-    'Honed',
-]
+// export let Surface_brand = [
+//     'Candeo',
+//     'Arcus',
+//     'Vulcan',
+//     'Coverlam',
+//     'Coverlam-5.6mm',
+// ]
+// export let Surface_collection = [
+//     'Granite',
+//     'Quartz',
+//     'Sintered',
+// ]
+// export let Surface_Series = [
+//     'Luxury',
+//     'Signature',
+//     'Classico',
+//     'Etemal',
+//     'marble',
+//     'pattern',
+// ]
+// export let Surface_models = [
+//     'Imperial Black',
+//     'Lotus Red',
+//     'Avana',
+//     'Cosmic',
+// ]
+// export let Surface_Finishing = [
+//     'Polished',
+//     'Leather',
+//     'Matt',
+//     'Honed',
+// ]
