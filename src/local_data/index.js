@@ -1,4 +1,4 @@
-export let Backend_url = 'http://13.228.25.141:8080/'
+export let Backend_url = 'http://52.221.222.111:8080/'
 
 export let page_limit = 15
 export let NavLinks = [
@@ -32,7 +32,7 @@ export let Textureimages = [
 export let Room_sence = [
     {
         img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        title: 'kitchen',
+        title: 'kitchen 1',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
         url: "kitchen"
     },
@@ -47,6 +47,18 @@ export let Room_sence = [
         title: 'living room',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
         url: "living-room"
+    },
+    {
+        img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'kitchen 2',
+        description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
+        url: "kitchen"
+    },
+    {
+        img: 'https://media.istockphoto.com/id/176864782/photo/a-tiled-bathroom-with-a-wood-counter-and-orange-towels.jpg?s=2048x2048&w=is&k=20&c=gPIARORJCpk679rmS_7Nh5T039jlCgmmWV5qa4iaNGY=',
+        title: 'bathroom 2',
+        description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
+        url: "bathroom"
     },
 ]
 

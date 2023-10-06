@@ -21,7 +21,7 @@ const UndoRedoRestart = () => {
     }
 
     return (
-        <div className=" absolute bottom-7 left-8 flex gap-3">
+        <div className=" absolute bottom-7 right-8 flex gap-3">
             <Tooltip title='Undo' >
                 <HoverBtn><BiUndo size={27} className="text-primary-color" onClick={handleUndo} /></HoverBtn>
             </Tooltip>

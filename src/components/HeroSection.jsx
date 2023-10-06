@@ -8,21 +8,23 @@ const HeroSection = () => {
         </div>
     </div>)
     return (
-        <section className="h-[94vh] md:h-[calc(100vh-80px)] flex relative">
-            <div className=" absolute top-0 left-0 w-full h-full md:max-w-md bg-white bg-opacity-10 md:bg-opacity-40 p-2 z-10">
-            {/* <div className=" flex-1 bg-white bg-opacity-50 flex items-center justify-center "> */}
+        <section className="h-[90vh] md:h-[calc(100vh-80px)] flex relative">
+            <div className=" absolute top-0 left-0 w-full h-full md:max-w-xl bg-white bg-opacity-20  md:bg-opacity-75 p-2 z-10">
+                {/* <div className=" flex-1 bg-white bg-opacity-50 flex items-center justify-center "> */}
                 <div className=" w-full h-full flex items-center justify-center border border-white rounded-md">
-                    <div className="flex flex-col max-w-md  md:max-w-xs gap-6">
-                        <h1 className=" font-bold text-primary-color text-5xl ">Create Your Dream Home!</h1>
-                        <p className=" text-secondary text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the L1500s, when an unknown printer.</p>
-                        <SmallCard />
+                    <div className="flex flex-col max-w-md  gap-6 px-2 md:px-0">
+                        <h1 className=" font-bold text-primary-color text-5xl text-center">Lian Hin <br/> Online Visualiser</h1>
+                        <p className="text-black text-lg">Our online visualizer lets you experiment with our brands&apos; wide range of surfaces and models in a virtual environment.</p>
+                        <p className="text-black text-lg">Choose your desired space and model and visualize your choice!</p>
+                        {/* <SmallCard /> */}
+                        <div className="hidden md:block my-7"></div>
                         <ShowDemo />
                     </div>
 
                 </div>
             </div>
             <div className="flex-[2] placeholder-indigo-300">
-                <video className=" w-full h-full object-cover md:object-fill"  loop  muted autoPlay>
+                <video className=" w-full h-full object-cover md:object-fill" loop muted autoPlay>
                     <source src="https://lianhin1.netlify.app/video/ModernKitchen.mp4" type="video/mp4" />
                     {/* <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" /> */}
                     {/* <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type='video /ogg' /> */}

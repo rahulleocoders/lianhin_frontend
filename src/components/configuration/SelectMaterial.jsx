@@ -2,6 +2,7 @@
 import { Marbletexture } from "@/local_data"
 import { updatebathroomSlice } from "@/redux/slices/BathroomSlice"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { useDispatch, useSelector } from "react-redux"
 // import { useState } from "react"
 
@@ -24,11 +25,15 @@ let Palletcard = ({ label, img, color, onClick }) => {
 const SelectMaterial = () => {
     // const [activeTab, setActiveTab] = useState(true)
     const dispatch = useDispatch()
+    const pathname = usePathname()
+    let currentPage = pathname.split("/")[1]
     const BathroomParameter = useSelector((state) => state.BathroomParameter?.present);
     let bathroom_Active_element = BathroomParameter.ActiveObject.title
 
     let ApplySurface = (imgurl) => {
-        dispatch(updatebathroomSlice({ [bathroom_Active_element]: { texture: imgurl } }));
+        if (currentPage == "bathroom") {
+            dispatch(updatebathroomSlice({ [bathroom_Active_element]: { texture: imgurl } }));
+        }
     }
 
     return (
@@ -39,7 +44,7 @@ const SelectMaterial = () => {
             </div> */}
             {/*on second tab call function to  to get the color pallett*/}
 
-            <div className=" flex gap-6 max-h-[64vh] overflow-y-scroll flex-wrap pe-1">
+            <div className=" flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1">  {/* max-h-[64vh] */}
                 {Marbletexture?.map((surface, i) =>
                     <Palletcard key={`hhh${i}`}
                         label={surface.lable} img={surface.img}
