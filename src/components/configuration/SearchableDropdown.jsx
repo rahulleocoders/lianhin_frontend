@@ -40,7 +40,7 @@ const SearchableDropdown = ({ options }) => {
                 </div>
 
                 {/* Options list */}
-                {isOpen && <ul className=" absolute border drop-shadow-lg  border-t-0 w-full bg-white z-10">
+                {isOpen && <ul className=" absolute max-h-52 overflow-y-scroll hide-scrollbar  border drop-shadow-lg  border-t-0 w-full bg-white z-10">
                     {filteredOptions?.map((option) => (
                         <li key={option.label} className="cursor-pointer text-secondary hover:bg-gray-200 p-2"
                             onClick={() => handleOptionClick(option)}

@@ -1,12 +1,12 @@
-import Image from "next/image"
+// import Image from "next/image"
 import ShowDemo from "./ShowDemo"
 const HeroSection = () => {
 
-    let SmallCard = () => (<div className=" p-2 rounded-xl bg-white aspect-video md:aspect-auto md:h-40">
-        <div className="flex items-center justify-center rounded-md border-2 h-full overflow-hidden">
-            <Image src='https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' alt="demo" className=" w-full mx-auto h-full object-cover " width={100} height={100} />
-        </div>
-    </div>)
+    // let SmallCard = () => (<div className=" p-2 rounded-xl bg-white aspect-video md:aspect-auto md:h-40">
+    //     <div className="flex items-center justify-center rounded-md border-2 h-full overflow-hidden">
+    //         <Image src='https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' alt="demo" className=" w-full mx-auto h-full object-cover " fill={true} />
+    //     </div>
+    // </div>)
     return (
         <section className="h-[90vh] md:h-[calc(100vh-80px)] flex relative">
             <div className=" absolute top-0 left-0 w-full h-full md:max-w-xl bg-white bg-opacity-20  md:bg-opacity-75 p-2 z-10">

@@ -1,12 +1,25 @@
 'use client'
+import { updatebathroomSlice } from "@/redux/slices/BathroomSlice";
 import { Html } from "@react-three/drei";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const Annotations = ({ position, onClick }) => {
+const Annotations = ({ position }) => {
+    const dispatch = useDispatch()
+    const pathname = usePathname()
+    let currentPage = pathname.split("/")[1]
     const [activeAnnotation, setActiveAnnotation] = useState('')
+    const BathroomParameter = useSelector((state) => state.BathroomParameter?.present);
+    // const CommonState = useSelector((state) => state.CommonState);
+    let bathroom_Active_element = BathroomParameter.ActiveObject
+
     let HandleClick = (title) => {
         setActiveAnnotation(title === activeAnnotation ? '' : title)
-        onClick(title)
+        if (currentPage == "bathroom") {
+            dispatch(updatebathroomSlice({ ActiveObject: { ...bathroom_Active_element, title: title } }));
+        }
+        // onClick(title)
     }
 
 

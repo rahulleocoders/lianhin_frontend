@@ -8,7 +8,7 @@ const ModalCard = ({ card }) => {
     <Link href={card?.url} className='group shadow-lg border border-gray-100 rounded-md flex-1 min-w-[300px] md:max-w-[351px]'>
       <div className=" border border-primary-color rounded-md ">
         <div className=" aspect-video overflow-hidden rounded-md relative bg-secondary">
-          <Image src={card?.img} alt={card?.title} width={100} height={100} className='group-hover:scale-125 transition-all w-full h-full object-center' />
+          <Image src={card?.img} alt={card?.title} fill={true} className='group-hover:scale-125 transition-all w-full h-full object-center' />
           <ModalCardCameraPos />
         </div>
         <div className="p-3">

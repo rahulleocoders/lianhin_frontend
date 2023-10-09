@@ -8,14 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 const SelectFilter = () => {
     const dispatch = useDispatch()
     const filterData = useSelector(state => state.apiResponce.filterData);
-
+    const abortController = new AbortController();
     const fetchData = async () => {
         try {
             const urlsEndpoints = [`surface`, `brand`, `collection`, `series`, `color`];
             const responses = await Promise.all(
                 urlsEndpoints.map(async (url) => {
                     try {
-                        const response = await axios.get(`${Backend_url}${url}/`);
+                        // const response = await axios.get(`${Backend_url}${url}/`);
+                        const response = await axios.get(`${Backend_url}${url}/`, { signal: abortController.signal });
                         const data = response.data;
                         return { [url]: data?.message };
                     } catch (error) {
@@ -31,28 +32,34 @@ const SelectFilter = () => {
             console.error('Error:', error);
         }
     };
-    useEffect(() => { fetchData() }, [])
+
+
+    useEffect(() => {
+        fetchData();
+        return () => { abortController.abort(); };
+    }, []);
+
 
     return (
         <div className="flex flex-col gap-3 mb-3">
             <select className="select">
                 <option className=' hidden capitalize'> Select brand</option>
-                {filterData?.brand?.map((item) => <option key={item.brand_name} value={item.id}>{item.brand_name}</option>)}
+                {filterData?.brand?.map((item) => <option key={item.id + item.brand_name} value={item.id}>{item.brand_name}</option>)}
             </select>
 
             <select className="select">
                 <option className=' hidden capitalize'>Select Collection</option>
-                {filterData?.collection?.map((item) => <option key={item.collection_name} value={item.id}>{item.collection_name}</option>)}
+                {filterData?.collection?.map((item) => <option key={item.id + item.collection_name} value={item.id}>{item.collection_name}</option>)}
             </select>
 
             <select className="select">
                 <option className=' hidden capitalize'>Select series</option>
-                {filterData?.series?.map((item) => <option key={item.series_name} value={item.id}>{item.series_name}</option>)}
+                {filterData?.series?.map((item) => <option key={item.id + item.series_name} value={item.id}>{item.series_name}</option>)}
             </select>
 
             <select className="select">
                 <option className=' hidden capitalize'>Select colors</option>
-                {filterData?.color?.map((item) => <option key={item.color_name} value={item.id}>{item.color_name}</option>)}
+                {filterData?.color?.map((item) => <option key={item.id + item.color_name} value={item.id}>{item.color_name}</option>)}
             </select>
 
             <select className="select">

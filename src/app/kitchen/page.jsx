@@ -1,5 +1,7 @@
 import Demolayout from "@/components/DemoComponents/Demolayout"
-import Kitchen from "./Kitchen"
+import CanvasEnvironment from "@/components/CanvasEnvironment";
+import CubeKitchenModel from "@/jsxModel/CubeKitchenModel";
+import { BathroomAnnotationArray } from "@/local_data";
 // export const metadata = {
 //     title: 'Next.js',
 //     description: 'The React Framework for the Web',
@@ -32,8 +34,14 @@ export const metadata = {
 
 const page = () => {
     return (
+        // <Demolayout> <Kitchen /> </Demolayout>
         <Demolayout>
-            <Kitchen />
+            <CanvasEnvironment
+                CameraPosition={[3.5908, 1.7840, -1.734]}
+                Annotationposition={BathroomAnnotationArray}
+            >
+                <CubeKitchenModel />
+            </CanvasEnvironment>
         </Demolayout>
     )
 }

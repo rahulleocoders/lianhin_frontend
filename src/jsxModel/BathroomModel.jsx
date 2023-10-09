@@ -1,3 +1,4 @@
+'use client'
 import { useGLTF, useTexture } from "@react-three/drei"
 import { useRef } from "react"
 import { useSelector } from "react-redux";
@@ -15,7 +16,7 @@ const BathroomModel = (props) => {
 
     const floorTexture = useTexture(BathroomParameter.floor?.texture);
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
-    floorTexture.repeat.set(12, 5);
+    floorTexture.repeat.set(4, 10);
 
     // console.log(floorTexture.image.complete)
     const TileWallSize = new THREE.Vector3();
@@ -246,14 +247,18 @@ const BathroomModel = (props) => {
                 />
                 <mesh geometry={nodes.Floor.geometry}
                     material={materials['Material.009']}
-                    // position={[4.99, 0, 2.4]}
+                    position={[4.99, 0, 2.420]}
+                    // position={[4.99, 0, 2.570]}
+                    rotation={[0, 1.6, 0]}
                 >
-                    {/* <boxGeometry args={[FloorSize.x, FloorSize.y, FloorSize.z]} /> */}
+                    <boxGeometry args={[FloorSize.z, FloorSize.y + 0.1, FloorSize.x]}
+                    // <boxGeometry args={[FloorSize.x, FloorSize.y + 0.1, FloorSize.z]}
+                    />
                     <meshStandardMaterial
                         map={floorTexture}
                         side={THREE.DoubleSide}
-                        roughness={0.5} 
-                        metalness={0.2} 
+                        roughness={0.5}
+                        metalness={0.2}
                     />
                 </mesh>
             </mesh>

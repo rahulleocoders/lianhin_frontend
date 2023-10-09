@@ -1,10 +1,17 @@
 import Demolayout from "@/components/DemoComponents/Demolayout"
-import Bathroom from "./Bathroom"
+import CanvasEnvironment from "@/components/CanvasEnvironment"
+import BathroomModel from "@/jsxModel/BathroomModel"
+import { BathroomAnnotationArray } from "@/local_data"
 
 const page = () => {
   return (
     <Demolayout>
-      <Bathroom />
+      <CanvasEnvironment
+        CameraPosition={[3.5908, 1.7840, -1.734]}
+        Annotationposition={BathroomAnnotationArray}
+      >
+        <BathroomModel />
+      </CanvasEnvironment>
     </Demolayout>
   )
 }
