@@ -33,10 +33,11 @@ const SelectMaterial = () => {
     const BathroomParameter = useSelector((state) => state.BathroomParameter?.present);
     let bathroom_Active_element = BathroomParameter.ActiveObject.title
 
-    const abortController = new AbortController();
+    // const abortController = new AbortController();
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`, { signal: abortController.signal });
+            const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`);
+            // const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`, { signal: abortController.signal });
             const data = response.data.data;
             setSetsurfaceData(data)
             // return { [url]: data?.message };
@@ -49,7 +50,7 @@ const SelectMaterial = () => {
 
     useEffect(() => {
         fetchData();
-        return () => { abortController.abort(); };
+        // return () => { abortController.abort(); };
     }, []);
 
 

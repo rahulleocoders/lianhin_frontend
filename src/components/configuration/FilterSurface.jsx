@@ -49,14 +49,14 @@ const FilterSurface = () => {
     }, [])
 
     //  global click event listener to close the dropdown when clicking outside
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (filterRef.current && !filterRef.current.contains(event.target)) { setFilterOpen(false); }
-        };
-        if (filterOpen) { document.addEventListener('click', handleClickOutside); }
-        else { document.removeEventListener('click', handleClickOutside); }
-        return () => { document.removeEventListener('click', handleClickOutside); };
-    }, [filterOpen]);
+    // useEffect(() => {
+    //     const handleClickOutside = (event) => {
+    //         if (filterRef.current && !filterRef.current.contains(event.target)) { setFilterOpen(false); }
+    //     };
+    //     if (filterOpen) { document.addEventListener('click', handleClickOutside); }
+    //     else { document.removeEventListener('click', handleClickOutside); }
+    //     return () => { document.removeEventListener('click', handleClickOutside); };
+    // }, [filterOpen]);
 
 
     let FilterToggle = () => {

@@ -17,7 +17,7 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition }) => 
 
     useEffect(() => {
         dispatch(updateCommonStateSlice({ currentModelRef: canvasRef.current }));
-    }, [canvasRef])
+    }, [])
 
     return (
         <div className="flex w-full h-full flex-wrap">

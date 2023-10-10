@@ -1,4 +1,4 @@
-export let Backend_url = 'http://52.221.222.111:8080/'
+export let Backend_url = 'http://13.212.221.232:8080/'
 
 export let page_limit = 15
 export let NavLinks = [
@@ -17,8 +17,6 @@ export let FootLinks = [
     { title: "Privacy Policy", url: "privacy.html" },
     { title: "Sitemap", url: "sitemap.html" },
 ]
-
-
 
 export let RatingOptionArr = [{ lable: "1", value: 1 }, { lable: "2", value: 2 }, { lable: "3", value: 3 }, { lable: "4", value: 4 }, { lable: "5", value: 5 },]
 
@@ -228,8 +226,10 @@ export let BathroomAnnotationArray = [
 
 export let Marbletexture = [
     { img: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg", lable: "Ceramic Surface" },
+    { img: "https://lianhin1.netlify.app/images/surface_Glacier.jpg", lable: "Ceramic Surface" },
     { img: "https://www.kajariaceramics.com/product-picture/PW03730_b.jpg", lable: "Ceramic Surface" },
     { img: "https://lianhin1.netlify.app/_next/static/media/linhanlogo.51a805e9.png", lable: "Ceramic Surface" },
+    { img: "https://lianhinapplication.s3.amazonaws.com/model/DSC02667_Platino.jpg?AWSAccessKeyId=AKIAX6OLFX2T5PHCJSPW&Signature=nsqFn2fAZuG7Rze2W4a49PavHHI%3D&Expires=1696939157", lable: "Ceramic Surface" },
     { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCBgnYstUWmaynJb2irvMu4V1AnZh6RowHbdNwEnJ8YG6fUC8FW7kHPul-6bZQT2Mss7g&usqp=CAU" },
     { img: "https://cdn11.bigcommerce.com/s-4990d/images/stencil/1280x1280/products/25612/34660/HD_fondi_decori10__55147.1535659503.jpg?c=2" },
     { img: "https://images.unsplash.com/flagged/photo-1622363405079-da46534ce5ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRpbGUlMjB0ZXh0dXJlfGVufDB8fDB8fHww&w=1000&q=80" },
@@ -246,7 +246,8 @@ export let Marbletexture = [
     { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/c/pcg_swan_marble_blue_f3.jpg", lable: "Ceramic Surface" },
     { img: "https://tiimg.tistatic.com/fp/1/004/515/cork-wood-mosaic-tile-206.jpg", lable: "Ceramic Surface" },
     { img: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/p/g/pgvt_emperador_stone_marble_f1_glazed_vitrified_tile_wall_floor_tile_600x600mm.jpg", lable: "Ceramic Surface" },
-    { img: "https://cdn.pixabay.com/photo/2016/05/04/13/11/brick-wall-1371349_640.jpg", lable: "Ceramic Surface" }
+    { img: "https://cdn.pixabay.com/photo/2016/05/04/13/11/brick-wall-1371349_640.jpg", lable: "Ceramic Surface" },
+    { img: "https://aniket-ghodmare.netlify.app/assets/personimg-55a473ef.jpg", lable: "Ceramic Surface" }
 ]
 // export const ColorPalettes = [{ name: 'Classic White', color: '#FFFFFF' }, { name: 'Soft Beige', color: '#F3EFEF' }, { name: 'Light Gray', color: '#D3D3D3' }, { name: 'Sage Green', color: '#8CBEB2' }, { name: 'Aqua Blue', color: '#6FA6D6' }, { name: 'Powder Pink', color: '#F3C8E6' }, { name: 'Coral Peach', color: '#FF6B6B' }, { name: 'Lavender Bliss', color: '#967ADC' }, { name: 'Sunny Yellow', color: '#FAD02E' }, { name: 'Minty Fresh', color: '#9DF3C4' }, { name: 'Terracotta', color: '#E56B6F' }, { name: 'Royal Blue', color: '#2B59C3' }, { name: 'Goldenrod', color: '#FFD700' }, { name: 'Charcoal Gray', color: '#333333' }, { name: 'Ocean Teal', color: '#007B7F' }, { name: 'Lemon Zest', color: '#FFF500' }, { name: 'Cherry Red', color: '#FF0000' }, { name: 'Warm Taupe', color: '#B06A3B' }, { name: 'Ivory Cream', color: '#FFFFF0' }, { name: 'Forest Green', color: '#228B22' },];
 

@@ -23,7 +23,7 @@ const Bathroom = () => {
 
     useEffect(() => {
         dispatch(updateCommonStateSlice({ currentModelRef: bathroomcanvasRef.current }));
-    }, [bathroomcanvasRef])
+    }, [])
 
 
     return (
