@@ -14,9 +14,22 @@ const BathroomModel = (props) => {
     nodes.Floor.geometry.computeBoundingBox();
     nodes.Floor.geometry.boundingBox.getSize(FloorSize);
 
-    const floorTexture = useTexture(BathroomParameter.floor?.texture);
-    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
-    floorTexture.repeat.set(4, 10);
+    // const floorTexture = useTexture(BathroomParameter.floor?.texture);
+    // floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
+    // floorTexture.repeat.set(4, 10);
+
+
+    const loader = new THREE.TextureLoader();
+    loader.crossOrigin = '';
+    loader.setCrossOrigin('*');
+    loader.setRequestHeader('Access-Control-Allow-Origin', '*');
+    const floorTexture = loader.load(BathroomParameter.floor?.texture, (texture) => {
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(4, 10);
+    });
+
+
+
 
     // console.log(floorTexture.image.complete)
     const TileWallSize = new THREE.Vector3();
