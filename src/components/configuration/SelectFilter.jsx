@@ -2,6 +2,7 @@
 import { Backend_url } from "@/local_data";
 import { updateApiResponceSlice } from "@/redux/slices/ApiResponceSlice";
 import axios from "axios";
+import Image from "next/image";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,12 +12,12 @@ const SelectFilter = () => {
     const abortController = new AbortController();
     const fetchData = async () => {
         try {
-            const urlsEndpoints = [`surface`, `brand`, `collection`, `series`, `color`];
+            const urlsEndpoints = [`surface`, `brand`, `collection`, `series`, `color`, 'profile'];
             const responses = await Promise.all(
                 urlsEndpoints.map(async (url) => {
                     try {
                         // const response = await axios.get(`${Backend_url}${url}/`);
-                        const response = await axios.get(`${Backend_url}${url}/`, { signal: abortController.signal });
+                        const response = await axios.get(`${Backend_url}/${url}/`, { signal: abortController.signal });
                         const data = response.data;
                         return { [url]: data?.message };
                     } catch (error) {
@@ -64,10 +65,13 @@ const SelectFilter = () => {
 
             <select className="select">
                 <option className=' hidden'>3D profiles</option>
-                <option value="xsjnxj">Sort by: Price: Low to High</option>
+                {filterData?.profile?.map((item) => <option key={item.id + item.profile_name} value={item.id}>
+                    <Image src={item.profile_icon} alt={item.profile_name} width={20} height={20} />  {item.profile_name}
+                </option>)}
+                {/* <option value="xsjnxj">Sort by: Price: Low to High</option>
                 <option value="xsjnxj">Sort by: Price: High to Low</option>
                 <option value="xsjnxj">Sort by: Newest</option>
-                <option value="xsjnxj">Sort by: Most selling</option>
+                <option value="xsjnxj">Sort by: Most selling</option> */}
             </select>
 
         </div>

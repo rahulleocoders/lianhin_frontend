@@ -36,7 +36,7 @@ const SelectMaterial = () => {
     // const abortController = new AbortController();
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`);
+            const response = await axios.get(`${Backend_url}/model/?brand=&color=&surfacefinish=&sort=&profile=`);
             // const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`, { signal: abortController.signal });
             const data = response.data.data;
             setSetsurfaceData(data)
@@ -74,8 +74,8 @@ const SelectMaterial = () => {
                 {setsurfaceData?.map((surface) =>
                     <Palletcard key={`${surface.id}${surface.model_name}`}
                         recommended={surface.is_recommended}
-                        label={surface.model_name} img={surface.model_image}
-                        onClick={() => { ApplySurface(surface.model_image) }}
+                        label={surface.model_name} img={`${Backend_url}${surface.model_image}`}
+                        onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
                     />
                 )}
                 {Marbletexture?.map((surface, i) =>

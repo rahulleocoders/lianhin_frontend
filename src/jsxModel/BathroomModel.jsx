@@ -1,5 +1,6 @@
 'use client'
 import { useGLTF, useTexture } from "@react-three/drei"
+import { useLoader } from "@react-three/fiber";
 import { useRef } from "react"
 import { useSelector } from "react-redux";
 import * as THREE from 'three';
@@ -14,19 +15,35 @@ const BathroomModel = (props) => {
     nodes.Floor.geometry.computeBoundingBox();
     nodes.Floor.geometry.boundingBox.getSize(FloorSize);
 
+    // const floorTexture = useTexture('./images/surface_Glacier.jpg');
     // const floorTexture = useTexture(BathroomParameter.floor?.texture);
     // floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
     // floorTexture.repeat.set(4, 10);
 
 
     const loader = new THREE.TextureLoader();
-    loader.crossOrigin = '';
-    loader.setCrossOrigin('*');
+    // loader.crossOrigin = '';
+    // loader.setCrossOrigin('*');
     loader.setRequestHeader('Access-Control-Allow-Origin', '*');
+    loader.setCrossOrigin("anonymous");
     const floorTexture = loader.load(BathroomParameter.floor?.texture, (texture) => {
+        // texture.setCrossOrigin('*');
+        // texture.setRequestHeader('Access-Control-Allow-Origin', '*');
+        // texture.needsUpdate = true;
+        // texture.crossOrigin = '';
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(4, 10);
     });
+
+    // THREE.TextureLoader.prototype.crossOrigin = "anonymous";
+    // function Scene() {
+    //     const textureRaw = useLoader(
+    //         THREE.TextureLoader,
+    //         "https://dahli-demo-api.s3.us-east-2.amazonaws.com/the_great_masturbator_1929_jpg_Large_2920d864f2.jpg"
+    //     );
+    // }
+
+    // const floorTexture = useLoader(THREE.TextureLoader, BathroomParameter.floor?.texture)
 
 
 
