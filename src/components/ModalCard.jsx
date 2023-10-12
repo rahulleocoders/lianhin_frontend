@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import ModalCardCameraPos from './ModalCardCameraPos'
+// import ModalCardCameraPos from './ModalCardCameraPos'
 
 const ModalCard = ({ card }) => {
   return (
@@ -9,7 +9,7 @@ const ModalCard = ({ card }) => {
       <div className=" border border-primary-color rounded-md ">
         <div className=" aspect-video overflow-hidden rounded-md relative bg-secondary">
           <Image src={card?.img} alt={card?.title} fill={true} className='group-hover:scale-125 transition-all w-full h-full object-center' />
-          <ModalCardCameraPos />
+          {/* <ModalCardCameraPos /> */}
         </div>
         <div className="p-3">
           <h3 className=' text-primary-color font-bold text-xl capitalize'>{card?.title}</h3>

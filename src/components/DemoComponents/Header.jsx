@@ -1,8 +1,8 @@
 import Savedemo from './Savedemo'
 import ShareDemo from './ShareDemo'
 import ChangeRoom from './ChangeRoom'
-import ChangeCameraAngle from '../ChangeCameraAngle'
-import CommonBtn from '../CommonBtn'
+// import ChangeCameraAngle from '../ChangeCameraAngle'
+// import CommonBtn from '../CommonBtn'
 // import Image from 'next/image'
 // import logo from "../../../public/images/linhanlogo.png"
 // import Link from 'next/link'
@@ -16,7 +16,7 @@ const Header = () => {
         <div className=" mr-2">
           <ChangeRoom />
         </div>
-        <CommonBtn label='abc' />
+        {/* <CommonBtn label='abc' /> */}
         {/* <ChangeCameraAngle /> */}
         <div className="flex gap-5">
           <Savedemo />

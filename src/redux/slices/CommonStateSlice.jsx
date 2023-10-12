@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState =
 {
-    currentModelRef: null
+    currentModelRef: null,
+    SelctFilterData: {}
 };
 
 

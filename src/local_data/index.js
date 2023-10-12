@@ -29,34 +29,37 @@ export let Textureimages = [
 
 export let Room_sence = [
     {
-        img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        title: 'kitchen 1',
-        description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
-        url: "kitchen"
-    },
-    {
         img: 'https://media.istockphoto.com/id/176864782/photo/a-tiled-bathroom-with-a-wood-counter-and-orange-towels.jpg?s=2048x2048&w=is&k=20&c=gPIARORJCpk679rmS_7Nh5T039jlCgmmWV5qa4iaNGY=',
         title: 'bathroom',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
         url: "bathroom"
     },
     {
-        img: 'https://plus.unsplash.com/premium_photo-1671269943553-3781c823e625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1966&q=80',
-        title: 'living room',
+        img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        title: 'kitchen 1 - coming soon',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
-        url: "living-room"
+        url: "/"
+    },
+    {
+        img: 'https://plus.unsplash.com/premium_photo-1671269943553-3781c823e625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1966&q=80',
+        title: 'living room - coming soon',
+        description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
+        url: ""
+        // url: "living-room"
     },
     {
         img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        title: 'kitchen 2',
+        title: 'kitchen 2 - coming soon',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
-        url: "kitchen"
+        url: ""
+        // url: "kitchen"
     },
     {
         img: 'https://media.istockphoto.com/id/176864782/photo/a-tiled-bathroom-with-a-wood-counter-and-orange-towels.jpg?s=2048x2048&w=is&k=20&c=gPIARORJCpk679rmS_7Nh5T039jlCgmmWV5qa4iaNGY=',
-        title: 'bathroom 2',
+        title: 'bathroom 2 - coming soon',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
-        url: "bathroom"
+        url: ""
+        // url: "bathroom"
     },
 ]
 
@@ -176,51 +179,51 @@ export let BathroomAnnotationArray = [
             z: 0
         }
     },
-    {
-        title: "cabibate",
-        spotNumber: 3,
-        description: "<p>cabibate</p>",
-        camPos: {
-            x: 13.05,
-            y: 4.35,
-            z: 5.06
-        },
-        position: {
-            x: -0.25,
-            y: 0.5,
-            z: 1
-        }
-    },
-    {
-        title: "door",
-        spotNumber: 4,
-        description: "<p>door</p>",
-        camPos: {
-            x: 13.05,
-            y: 4.35,
-            z: 5.06
-        },
-        position: {
-            x: 0,
-            y: 1,
-            z: -2.1
-        }
-    },
-    {
-        title: "wallColor",
-        spotNumber: 5,
-        description: "<p>wall Color</p>",
-        camPos: {
-            x: 7.13,
-            y: 1.15,
-            z: 0.66
-        },
-        position: {
-            x: -2,
-            y: 2,
-            z: 1.5
-        }
-    },
+    // {
+    //     title: "cabibate",
+    //     spotNumber: 3,
+    //     description: "<p>cabibate</p>",
+    //     camPos: {
+    //         x: 13.05,
+    //         y: 4.35,
+    //         z: 5.06
+    //     },
+    //     position: {
+    //         x: -0.25,
+    //         y: 0.5,
+    //         z: 1
+    //     }
+    // },
+    // {
+    //     title: "door",
+    //     spotNumber: 4,
+    //     description: "<p>door</p>",
+    //     camPos: {
+    //         x: 13.05,
+    //         y: 4.35,
+    //         z: 5.06
+    //     },
+    //     position: {
+    //         x: 0,
+    //         y: 1,
+    //         z: -2.1
+    //     }
+    // },
+    // {
+    //     title: "wallColor",
+    //     spotNumber: 5,
+    //     description: "<p>wall Color</p>",
+    //     camPos: {
+    //         x: 7.13,
+    //         y: 1.15,
+    //         z: 0.66
+    //     },
+    //     position: {
+    //         x: -2,
+    //         y: 2,
+    //         z: 1.5
+    //     }
+    // },
 ]
 
 

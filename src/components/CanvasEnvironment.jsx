@@ -24,7 +24,10 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition }) => 
             <Canvas ref={canvasRef} gl={{ preserveDrawingBuffer: true }} >
                 <PerspectiveCamera makeDefault position={CameraPosition} fov={76} // Field of view
                 />
-                <Suspense fallback={<Html center>{progress} % loaded</Html>}>
+                <Suspense fallback={<Html center>
+                    <div className=" flex items-center justify-center w-full h-full">Loading...</div>
+                </Html>}>
+                    {/* <Suspense fallback={<Html center>{progress} % loaded</Html>}> */}
                     <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr" />
                     <ambientLight color={0xffffff} intensity={0.5} />
                     {/* <BathroomModel /> */}

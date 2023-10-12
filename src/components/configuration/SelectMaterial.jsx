@@ -1,6 +1,7 @@
 'use client'
 import { Backend_url, Marbletexture } from "@/local_data"
 import { updatebathroomSlice } from "@/redux/slices/BathroomSlice"
+import { updateCommonStateSlice } from "@/redux/slices/CommonStateSlice"
 import axios from "axios"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -32,11 +33,14 @@ const SelectMaterial = () => {
     let currentPage = pathname.split("/")[1]
     const BathroomParameter = useSelector((state) => state.BathroomParameter?.present);
     let bathroom_Active_element = BathroomParameter.ActiveObject.title
+    const CommonState = useSelector(state => state.CommonState);
+    const SelctFilterData = CommonState.SelctFilterData
 
     // const abortController = new AbortController();
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${Backend_url}/model/?brand=&color=&surfacefinish=&sort=&profile=`);
+            const response = await axios.get(`${Backend_url}/model/?brand=${SelctFilterData?.brand ? SelctFilterData?.brand : ""}&collection=${SelctFilterData?.collection ? SelctFilterData?.collection : ""}&series=${SelctFilterData?.series ? SelctFilterData?.series : ""}&color=${SelctFilterData?.color ? SelctFilterData?.color : ""}&surfacefinish=&profile=${SelctFilterData?.profile ? SelctFilterData?.profile : ""}&sort=`);
+
             // const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`, { signal: abortController.signal });
             const data = response.data.data;
             setSetsurfaceData(data)
@@ -51,7 +55,7 @@ const SelectMaterial = () => {
     useEffect(() => {
         fetchData();
         // return () => { abortController.abort(); };
-    }, []);
+    }, [CommonState.SelctFilterData]);
 
 
 
@@ -61,6 +65,10 @@ const SelectMaterial = () => {
             dispatch(updatebathroomSlice({ [bathroom_Active_element]: { texture: imgurl } }));
         }
     }
+    let ResetFilter = () => {
+        dispatch(updateCommonStateSlice({ 'SelctFilterData': {} }));
+    }
+
 
     return (
         <div className=''>
@@ -71,19 +79,25 @@ const SelectMaterial = () => {
             {/*on second tab call function to  to get the color pallett*/}
 
             <div className=" flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1">  {/* max-h-[64vh] */}
-                {setsurfaceData?.map((surface) =>
-                    <Palletcard key={`${surface.id}${surface.model_name}`}
-                        recommended={surface.is_recommended}
-                        label={surface.model_name} img={`${Backend_url}${surface.model_image}`}
-                        onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
-                    />
-                )}
-                {Marbletexture?.map((surface, i) =>
+                {setsurfaceData?.length > 0 ?
+                    setsurfaceData?.map((surface) =>
+                        <Palletcard key={`${surface.id}${surface.model_name}`}
+                            recommended={surface.is_recommended}
+                            label={surface.model_name} img={`${Backend_url}${surface.model_image}`}
+                            onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
+                        />
+                    ) :
+                    <div className=" text-primary-color py-2 text-center w-full font-bold ">
+                        <p>No Surfaces Available</p>
+                        <button onClick={() => ResetFilter()} type="button" className=" py-2 rounded-xl w-2/3 mx-auto mt-3 px-3 bg-primary-color text-white">Reset Filter</button>
+                    </div>
+                }
+                {/* {Marbletexture?.map((surface, i) =>
                     <Palletcard key={`hhh${i}`}
                         label={surface.lable} img={surface.img}
                         onClick={() => { ApplySurface(surface.img) }}
                     />
-                )}
+                )} */}
 
                 {/* {activeTab && Marbletexture?.map((pallet, i) => <Palletcard key={`hhh${i}`} onClick={() => console.log('object')} label={pallet.lable} img={pallet.img} />)}
                 {!activeTab && ColorPalettes?.map((pallet) => <Palletcard key={pallet.name} onClick={() => console.log('object')} label={pallet.name} color={pallet.color} />)} */}
