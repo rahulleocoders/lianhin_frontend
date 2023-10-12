@@ -7,7 +7,8 @@ const page = () => {
   return (
     <Demolayout>
       <CanvasEnvironment
-        CameraPosition={[3.5908, 1.7840, -1.734]}
+        CameraPosition={[3, 1.8, -1.3]}
+        // CameraPosition={[2.488216180937358, 1.7840, -1.4360092328221363]}
         Annotationposition={BathroomAnnotationArray}
       >
         <BathroomModel />

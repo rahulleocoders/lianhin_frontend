@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 let Palletcard = ({ label, img, color, onClick, recommended }) => {
     return (
-        <div className=" p-1  border border-secondary flex-1 min-w-[110px] rounded-md cursor-pointer"
+        <div className=" p-1  border border-secondary flex-1 min-w-[110px] rounded-md cursor-pointer max-w-[46%]"
             onClick={onClick}>
             <div className=" aspect-square rounded-md overflow-hidden border relative" style={{ background: color ? color : '#707070' }}>
                 {img && <Image src={img} alt={img} fill={true} className=" w-full h-full object-cover" />}
@@ -25,7 +25,7 @@ let Palletcard = ({ label, img, color, onClick, recommended }) => {
     )
 }
 
-const SelectMaterial = () => {
+const SelectMaterial = ({ }) => {
     // const [activeTab, setActiveTab] = useState(true)
     const [setsurfaceData, setSetsurfaceData] = useState([])
     const dispatch = useDispatch()
@@ -40,10 +40,16 @@ const SelectMaterial = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get(`${Backend_url}/model/?brand=${SelctFilterData?.brand ? SelctFilterData?.brand : ""}&collection=${SelctFilterData?.collection ? SelctFilterData?.collection : ""}&series=${SelctFilterData?.series ? SelctFilterData?.series : ""}&color=${SelctFilterData?.color ? SelctFilterData?.color : ""}&surfacefinish=&profile=${SelctFilterData?.profile ? SelctFilterData?.profile : ""}&sort=`);
-
             // const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`, { signal: abortController.signal });
             const data = response.data.data;
             setSetsurfaceData(data)
+            if (data[0].model_image) {
+                dispatch(updatebathroomSlice({ floor: { texture: `${Backend_url}${data[0]?.model_image}` } }));
+                dispatch(updatebathroomSlice({ cabibate: { texture: `${Backend_url}${data[0]?.model_image}` } }));
+            }
+            if (data[1].model_image) {
+                dispatch(updatebathroomSlice({ wall: { texture: `${Backend_url}${data[1]?.model_image}` } }));
+            }
             // return { [url]: data?.message };
         } catch (error) {
             console.log("object", error)
@@ -78,7 +84,7 @@ const SelectMaterial = () => {
             </div> */}
             {/*on second tab call function to  to get the color pallett*/}
 
-            <div className=" flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1">  {/* max-h-[64vh] */}
+            <div className=" flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth">  {/* max-h-[64vh] */}
                 {setsurfaceData?.length > 0 ?
                     setsurfaceData?.map((surface) =>
                         <Palletcard key={`${surface.id}${surface.model_name}`}

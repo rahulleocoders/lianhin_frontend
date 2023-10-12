@@ -18,6 +18,11 @@ export let FootLinks = [
     { title: "Sitemap", url: "sitemap.html" },
 ]
 
+export let Background_Envirnment = [
+    "https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@gltfjsx/public/img/forest_slope_1k.hdr",
+    "https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr"
+]
+
 export let RatingOptionArr = [{ lable: "1", value: 1 }, { lable: "2", value: 2 }, { lable: "3", value: 3 }, { lable: "4", value: 4 }, { lable: "5", value: 5 },]
 
 export let Textureimages = [
@@ -179,21 +184,21 @@ export let BathroomAnnotationArray = [
             z: 0
         }
     },
-    // {
-    //     title: "cabibate",
-    //     spotNumber: 3,
-    //     description: "<p>cabibate</p>",
-    //     camPos: {
-    //         x: 13.05,
-    //         y: 4.35,
-    //         z: 5.06
-    //     },
-    //     position: {
-    //         x: -0.25,
-    //         y: 0.5,
-    //         z: 1
-    //     }
-    // },
+    {
+        title: "cabibate",
+        spotNumber: 3,
+        description: "<p>cabibate</p>",
+        camPos: {
+            x: 13.05,
+            y: 4.35,
+            z: 5.06
+        },
+        position: {
+            x: 0,
+            y: 1,
+            z: 1.15
+        }
+    },
     // {
     //     title: "door",
     //     spotNumber: 4,

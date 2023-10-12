@@ -7,10 +7,11 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const SelectFilter = () => {
+const SelectFilter = ({ }) => {
     const dispatch = useDispatch()
     const filterData = useSelector(state => state.apiResponce.filterData);
     const CommonState = useSelector(state => state.CommonState);
+    const SelctFilterData = CommonState.SelctFilterData
     const abortController = new AbortController();
     const fetchData = async () => {
         try {
@@ -46,28 +47,30 @@ const SelectFilter = () => {
     }
 
     return (
-        <div className="flex flex-col gap-3 mb-3">
-            <select className="select" onChange={(e) => { UpdateFilter('brand', e.target.value) }}  >
+        <div className="flex flex-col gap-3 mb-3" >
+            <select
+                value={SelctFilterData?.brand ? SelctFilterData?.brand : ""}
+                className="select" onChange={(e) => { UpdateFilter('brand', e.target.value) }}  >
                 <option className=' hidden capitalize'> Select brand</option>
                 {filterData?.brand?.map((item) => <option key={item.id + item.brand_name} value={item.id}>{item.brand_name}</option>)}
             </select>
 
-            <select className="select" onChange={(e) => { UpdateFilter('collection', e.target.value) }}>
+            <select value={SelctFilterData?.collection ? SelctFilterData?.collection : ""} className="select" onChange={(e) => { UpdateFilter('collection', e.target.value) }}>
                 <option className=' hidden capitalize'>Select Collection</option>
                 {filterData?.collection?.map((item) => <option key={item.id + item.collection_name} value={item.id}>{item.collection_name}</option>)}
             </select>
 
-            <select className="select" onChange={(e) => { UpdateFilter('series', e.target.value) }}>
+            <select value={SelctFilterData?.series ? SelctFilterData?.series : ""} className="select" onChange={(e) => { UpdateFilter('series', e.target.value) }}>
                 <option className=' hidden capitalize'>Select series</option>
                 {filterData?.series?.map((item) => <option key={item.id + item.series_name} value={item.id}>{item.series_name}</option>)}
             </select>
 
-            <select className="select" onChange={(e) => { UpdateFilter('color', e.target.value) }}>
+            <select value={SelctFilterData?.color ? SelctFilterData?.color : ""} className="select" onChange={(e) => { UpdateFilter('color', e.target.value) }}>
                 <option className=' hidden capitalize'>Select colors</option>
                 {filterData?.color?.map((item) => <option key={item.id + item.color_name} value={item.id}>{item.color_name}</option>)}
             </select>
 
-            <select className="select" onChange={(e) => { UpdateFilter('profile', e.target.value) }}>
+            <select value={SelctFilterData?.profile ? SelctFilterData?.profile : ""} className="select" onChange={(e) => { UpdateFilter('profile', e.target.value) }}>
                 <option className=' hidden'>3D profiles</option>
                 {filterData?.profile?.map((item) => <option key={item.id + item.profile_name} value={item.id}>
                     {item.profile_name}

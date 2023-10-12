@@ -50,13 +50,14 @@ const handleSavePdf = async (ImageRef) => {
       // Define the content of the PDF document
       const documentDefinition = {
         content: [
-          'Hello, this is some text!',
-          { text: 'This is a subtitle', fontSize: 14 },
+          'Hello, this bathroom created by lian hin 3D visualization Concept!',
+          { text: 'try 3D word with lian hin', fontSize: 14 },
+          { text: 'Up comming models', fontSize: 14 },
           {
             ul: [
-              'Item 1',
-              'Item 2',
-              'Item 3',
+              'bathroom 2',
+              'kitchen',
+              'living room',
             ],
           },
           {

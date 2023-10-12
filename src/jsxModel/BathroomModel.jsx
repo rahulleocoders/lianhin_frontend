@@ -62,11 +62,12 @@ const BathroomModel = (props) => {
     nodes.mainCabinateTop.geometry.computeBoundingBox();
     nodes.mainCabinateTop.geometry.boundingBox.getSize(cabinateTopSize);
 
-    const CabinateTopTexture = useTexture(BathroomParameter?.cabibate.TopTexture);
+    const CabinateTopTexture = useTexture(BathroomParameter?.cabibate.texture);
     CabinateTopTexture.wrapS = CabinateTopTexture.wrapT = THREE.RepeatWrapping;
     CabinateTopTexture.repeat.set(1, 1);
 
-    const CabinateBodyTexture = useTexture(BathroomParameter?.cabibate.BodyTexture);
+    // const CabinateBodyTexture = useTexture(BathroomParameter?.cabibate.BodyTexture);
+    const CabinateBodyTexture = useTexture('https://media.istockphoto.com/id/1415424219/photo/white-marble-with-blue-and-golden-orange-patterns.jpg?s=612x612&w=0&k=20&c=2_J_djQp7SDuSnVBsNy9CxhFDeAYNsmuqxFV1PE3V0I=');
     CabinateBodyTexture.wrapS = CabinateBodyTexture.wrapT = THREE.RepeatWrapping;
     CabinateBodyTexture.repeat.set(1, 1);
 
@@ -124,8 +125,6 @@ const BathroomModel = (props) => {
                 material={nodes.washBasing2.material}
                 position={[0.12, 1.2, 0.5]}
                 rotation={[-Math.PI, 0, -Math.PI]}
-            // material-color='white'
-
             />
             <mesh
                 geometry={nodes.tileWall.geometry}
@@ -139,7 +138,6 @@ const BathroomModel = (props) => {
                 scale={[1.7, 1, 1.43]}
                 // rotation={[0, 0, 1.57]}
                 // scale={[1.47, 1.47, 1.74]}
-
                 castShadow
                 receiveShadow
             >
@@ -163,7 +161,6 @@ const BathroomModel = (props) => {
                 material={materials['Material.010']}
                 position={[0.05, 0.1, -1.52]}
                 scale={[0.58, 1, 0.32]}
-                material-color='green'
             />
 
             <mesh
@@ -253,24 +250,35 @@ const BathroomModel = (props) => {
                     position={[0, 0.7, 0]}
                 />
             </mesh>
-            <mesh
+            {/* <mesh
                 geometry={nodes.divider.geometry}
                 material={materials['Material.004']}
                 position={[-1.01, 1.39, -1.61]}
                 rotation={[0, 0, -1.57]}
                 scale={[1.28, 1, 0.67]}
             >
-                {/* <GlassMaterial /> */}
-            </mesh>
+                <GlassMaterial />
+            </mesh> */}
             <mesh
                 geometry={nodes.RoomWall.geometry}
                 material={materials['Ceiling_material.002']}
                 position={[-2.99, 0.09, -2.29]}
                 scale={[1, 1, 0.71]}
                 material-color='#E7412B'
-            // material-color='#52031d'
-
+            // material-color='#52031d' E7412B
             >
+                {/* <mesh
+                    geometry={nodes.tileWall.geometry}
+                    position={[1, 1, 1]}
+                    rotation={[1.57, 0, 3]}
+                    scale={[1.7, 1, 1.43]}
+                    castShadow
+                    receiveShadow
+                >
+                    <boxGeometry args={[TileWallSize.x, TileWallSize.y, TileWallSize.z]} />
+                    <meshStandardMaterial map={WallTexture} />
+                </mesh> */}
+
                 <mesh geometry={nodes.Baseboard.geometry} material={nodes.Baseboard.material} />
                 <mesh geometry={nodes.Ceiling.geometry} material={nodes.Ceiling.material}
                     material-color='white'
@@ -279,7 +287,7 @@ const BathroomModel = (props) => {
                     material={materials['Material.009']}
                     position={[4.99, 0, 2.420]}
                     // position={[4.99, 0, 2.570]}
-                    rotation={[0, 1.6, 0]}
+                    rotation={[0, 1.57, 0]}
                 >
                     <boxGeometry args={[FloorSize.z, FloorSize.y + 0.1, FloorSize.x]}
                     // <boxGeometry args={[FloorSize.x, FloorSize.y + 0.1, FloorSize.z]}

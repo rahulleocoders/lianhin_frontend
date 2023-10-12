@@ -44,7 +44,7 @@ const ShareDemo = () => {
                     <MenuItem>
                         <WhatsAppShareButton
                             url='https://650a8bce34ff5b0af18cbd0e--prismatic-elf-09f091.netlify.app/kitchen'
-                            text='hi aniket'
+                            text='virtual 3d bathroom'
                         />
                     </MenuItem>
 
