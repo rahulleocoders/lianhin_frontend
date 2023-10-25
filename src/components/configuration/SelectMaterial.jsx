@@ -12,13 +12,14 @@ import { useDispatch, useSelector } from "react-redux"
 
 // commented code is code of old design
 
-let Palletcard = ({ label, img, color, onClick, recommended }) => {
+let Palletcard = ({ label, img, color, onClick, recommended, popular }) => {
     return (
         <div className=" p-1  border border-secondary flex-1 min-w-[110px] rounded-md cursor-pointer max-w-[46%]"
             onClick={onClick}>
             <div className=" aspect-square rounded-md overflow-hidden border relative" style={{ background: color ? color : '#707070' }}>
                 {img && <Image src={img} alt={img} fill={true} className=" w-full h-full object-cover" />}
                 {recommended && <div className=" absolute top-1 left-1 px-1 py-0 bg-green-500 text-white rounded-2xl capitalize text-[10px]">recommended</div>}
+                {popular && <div className=" absolute bottom-1 left-1 px-2 py-0 bg-primary-color text-white rounded-md capitalize text-[10px]">popular</div>}
             </div>
             <p className=" capitalize text-secondary text-xs mt-1  text-center">{label}</p>
         </div>
@@ -88,7 +89,8 @@ const SelectMaterial = ({ }) => {
                 {setsurfaceData?.length > 0 ?
                     setsurfaceData?.map((surface) =>
                         <Palletcard key={`${surface.id}${surface.model_name}`}
-                            recommended={surface.is_recommended}
+                            recommended={surface?.is_recommended}
+                            popular={surface?.is_most_popular}
                             label={surface.model_name} img={`${Backend_url}${surface.model_image}`}
                             onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
                         />

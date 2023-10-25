@@ -1,4 +1,4 @@
-export let Backend_url = 'http://13.212.221.232:8080'
+export let Backend_url = 'http://admin.interiorsparkle.com'
 
 export let page_limit = 15
 export let NavLinks = [
