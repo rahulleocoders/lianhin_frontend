@@ -8,12 +8,15 @@ import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { AiFillFileImage, AiFillFilePdf } from 'react-icons/ai'
+import { useSelector } from 'react-redux'
 
 const handleSaveImage = (ImageRef) => {
-  if (ImageRef.current) {
+  if (ImageRef) {
+    // if (ImageRef.current) {
     let currentdate = new Date()
     let timestamp = `${currentdate.getMinutes()}_${currentdate.getSeconds()}`
-    html2canvas(ImageRef.current, {
+    html2canvas(ImageRef, {
+      // html2canvas(ImageRef.current, {
       scale: 2, // Increase the scale
       logging: true, // Enable logging for debugging
       dpi: 300, // Set a higher DPI
@@ -36,7 +39,7 @@ const handleSavePdf = async (ImageRef) => {
   let currentdate = new Date();
   let timestamp = `${currentdate.getMinutes()}_${currentdate.getSeconds()}`;
   try {
-    html2canvas(ImageRef.current, {
+    html2canvas(ImageRef, {
       scale: 1, // Increase the scale
       logging: true, // Enable logging for debugging
       dpi: 300, // Set a higher DPI
@@ -47,13 +50,14 @@ const handleSavePdf = async (ImageRef) => {
       // Define the content of the PDF document
       const documentDefinition = {
         content: [
-          'Hello, this is some text!',
-          { text: 'This is a subtitle', fontSize: 14 },
+          'Hello, this bathroom created by lian hin 3D visualization Concept!',
+          { text: 'try 3D word with lian hin', fontSize: 14 },
+          { text: 'Up comming models', fontSize: 14 },
           {
             ul: [
-              'Item 1',
-              'Item 2',
-              'Item 3',
+              'bathroom 2',
+              'kitchen',
+              'living room',
             ],
           },
           {
@@ -83,6 +87,7 @@ const handleSavePdf = async (ImageRef) => {
 const Savedemo = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const currentModelRef = useSelector((state) => state.CommonState?.currentModelRef);
 
   //  global click event listener to close the dropdown when clicking outside
   useEffect(() => {
@@ -100,10 +105,10 @@ const Savedemo = () => {
       {isOpen && (
         <ul className="absolute py-1 z-50 shadow-md transform translate-y-6 -translate-x-1/2 bg-white border border-primary-color rounded flex gap-1 flex-col">
           <MenuItem>
-            <button onClick={() => handleSaveImage(dropdownRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFileImage size={20} className=' text-primary-color' /> save image</button>
+            <button onClick={() => handleSaveImage(currentModelRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFileImage size={20} className=' text-primary-color' /> save image</button>
           </MenuItem>
           <MenuItem>
-            <button onClick={() => handleSavePdf(dropdownRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
+            <button disabled={true} onClick={() => handleSavePdf(currentModelRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
           </MenuItem>
         </ul>
       )}

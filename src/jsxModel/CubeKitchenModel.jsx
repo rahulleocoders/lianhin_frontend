@@ -1,3 +1,4 @@
+'use client'
 import { useRef } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
 import { Textureimages } from '@/local_data'
