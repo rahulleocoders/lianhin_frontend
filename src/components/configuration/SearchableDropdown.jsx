@@ -1,12 +1,17 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { updateCommonStateSlice } from "@/redux/slices/CommonStateSlice";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FiSearch } from 'react-icons/fi'
+import { useDispatch, useSelector } from "react-redux";
 
 const SearchableDropdown = ({ options }) => {
+    const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [query, setQuery] = useState('')
     const [selectedOption, setSelectedOption] = useState(null);
     const dropdownRef = useRef(null);
+    const CommonState = useSelector((state) => state.CommonState);
+    let all_surfaces = CommonState?.all_surfaces
 
     //  global click event listener to close the dropdown when clicking outside
     useEffect(() => {
@@ -19,29 +24,43 @@ const SearchableDropdown = ({ options }) => {
     }, [isOpen]);
 
     // Filter the options based on the search term
-    let filteredOptions = options.filter((option) => option.label.toLowerCase().includes(searchTerm.toLowerCase()));
+    // let filteredOptions = useMemo(() =>
+    //     options.filter((option) => option.label.toLowerCase().includes(query.toLowerCase()))
+    //     , [query]
+    // )
 
     // Handle option selection
-    const handleOptionClick = (option) => { setSelectedOption(option); setIsOpen(false); setSearchTerm(option.label) };
+    const handleOptionClick = (option) => {
+        setSelectedOption(option); setIsOpen(false); setQuery(option.model_name)
+        dispatch(updateCommonStateSlice({ selected_surface: option.model_name }));
+    };
 
     return (
         <div className="pt-5 pb-3 relative " ref={dropdownRef}>
-            <div className="  border w-full relative">
+            <div className=" border  border-secondary w-full relative">
                 {/* Search input */}
                 <div className="flex items-center ">
                     <input type="text" placeholder="Search..."
                         className=" flex-1 text-secondary border-none active:ring-transparent focus:ring-transparent active:border-secondary focus:border-secondary"
-                        value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
+                        value={query} onChange={(e) => {
+                            setQuery(e.target.value); setIsOpen(true)
+                            dispatch(updateCommonStateSlice({ selected_surface: e.target.value }));
+                        }}
                         onClick={() => setIsOpen(pre => !pre)}
                     /><FiSearch size={20} className="text-secondary mr-1 cursor-pointer" />
                 </div>
 
                 {/* Options list */}
-                {isOpen && <ul className=" absolute border  border-t-0 w-full bg-white">
-                    {filteredOptions?.map((option) => (
-                        <li key={option.value} className="cursor-pointer text-secondary hover:bg-gray-200 p-2"
+                {isOpen && <ul className=" absolute max-h-52 overflow-y-scroll hide-scrollbar  border drop-shadow-lg  border-t-0 w-full bg-white z-10">
+                    {/* {filteredOptions?.map((option) => (
+                        <li key={option.label} className="cursor-pointer text-secondary hover:bg-gray-200 p-2"
                             onClick={() => handleOptionClick(option)}
                         > {option.label} </li>
+                    ))} */}
+                    {all_surfaces && all_surfaces.filter((option) => option.model_name.toLowerCase().includes(query.toLowerCase()))?.map((option) => (
+                        <li key={option.model_name} className="cursor-pointer text-secondary hover:bg-gray-200 p-2"
+                            onClick={() => handleOptionClick(option)}
+                        > {option.model_name} </li>
                     ))}
                 </ul>}
             </div>

@@ -5,7 +5,8 @@ import TableRows from '@/components/TableRows';
 import { page_limit } from '@/local_data';
 
 async function getData() {
-    const res = await fetch(`https://retoolapi.dev/pKJXiw/data`,
+    const res = await fetch(process.env.BACKEND_URL,
+        // const res = await fetch(`https://retoolapi.dev/pKJXiw/data`,
         // const res = await fetch(`https://api-generator.retool.com/pKJXiw/data?_page=1&_limit=${page_limit}`,
         { cache: "no-store" });
     if (!res.ok) { return notFound() }
