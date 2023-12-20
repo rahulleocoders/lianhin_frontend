@@ -1,20 +1,34 @@
 'use client'
 import CanvasEnvironment from "@/components/CanvasEnvironment"
 import Demolayout from "@/components/DemoComponents/Demolayout"
-import LivingModel from "@/jsxModel/LivingModel"
+import HallModel from "@/jsxModel/HallModel"
+// import Living_1_Model from "@/jsxModel/living_1_Model"
+// import LivingModel from "@/jsxModel/LivingModel"
 import { LivingroomAnnotationArray } from "@/local_data"
 import React from 'react'
-
+// {
+//     "x": -15.901403083865738,
+//     "y": 12.274800863762897,
+//     "z": 17.699922904473013
+// }
 const Page = () => {
     return (
         <div className="relative">
             <Demolayout>
                 <CanvasEnvironment
-                    CameraPosition={[-9.0, 8.49464, 26.772]}
-                    Cameratarget={[-9, 8, -25]}
+                    CameraPosition={[-18.5, 12, 18.699922]}
+                    Cameratarget={[-18.5, 12, 10]}
+
+                    // CameraPosition={[-17, 15, 100]}
+                    // Cameratarget={[-17, 10, 10]}
+
+                    // CameraPosition={[-9.0, 8.49464, 26.772]}
+                    // Cameratarget={[-9, 8, -25]}
                     Annotationposition={LivingroomAnnotationArray}
                 >
-                    <LivingModel />
+                    <HallModel />
+                    {/* <Living_1_Model /> */}
+                    {/* <LivingModel /> */}
                 </CanvasEnvironment>
             </Demolayout>
         </div >
@@ -29,7 +43,7 @@ export default Page
 // 'use client'
 // import CanvasEnvironment from "@/components/CanvasEnvironment"
 // import Demolayout from "@/components/DemoComponents/Demolayout"
-// import LivingModel from "@/jsxModel/LivingModel"
+import LivingModel from "@/jsxModel/LivingModel"
 // // import BathroomModel from "@/jsxModel/BathroomModel"
 // // import { BathroomAnnotationArray } from "@/local_data"
 // // import { useState } from "react"
