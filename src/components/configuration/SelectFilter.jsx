@@ -15,7 +15,7 @@ const SelectFilter = ({ }) => {
     const abortController = new AbortController();
     const fetchData = async () => {
         try {
-            const urlsEndpoints = [`surface`, `brand`, `collection`, `series`, `color`, 'profile'];
+            const urlsEndpoints = [`surface`, `brand`, `collection`, `series`, `color`, 'profile', 'wall_color'];
             const responses = await Promise.all(
                 urlsEndpoints.map(async (url) => {
                     try {

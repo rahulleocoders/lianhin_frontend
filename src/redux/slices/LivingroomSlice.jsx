@@ -20,7 +20,7 @@ const initialState =
     },
     wall: {
         texture: "https://m.media-amazon.com/images/I/41gPXlP844L._AC_UF894,1000_QL80_.jpg",
-        color: "red"
+        color: "white"
     },
     Feature_Wall: {
         texture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlykLyQp5Ik6LXl5gQLCiNNymmlbu2MmVIXCNDuQJoeoiCX69woZ6BQ3hflMQyAYiNes4&usqp=CAU"

@@ -23,7 +23,8 @@ const SidebarConfig = () => {
                     // ref={SelectFilterRef}
                     />
                 </div>
-                {/* <SelectMaterial // SelectFilterRef={SelectFilterRef} /> */}
+                {/* <SelectMaterial // SelectFilterRef={SelectFilterRef} 
+                /> */}
                 {Is_wall_selected ?
                     <SelectColor />
                     :
