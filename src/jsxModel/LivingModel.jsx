@@ -135,8 +135,6 @@ const LivingModel = (props) => {
                     roughness={0.5} metalness={0.2}
                 />
             </mesh>
-
-
             <mesh
                 geometry={nodes.wallplate2.geometry}
                 material={nodes.wallplate2.material}

@@ -7,13 +7,16 @@ const initialState =
 {
     ActiveObject: LivingroomAnnotationArray[0],
     floor: {
-        texture: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/h/f/hfm_anti-skid_ec_wooden_mosaic__ceramic_tile_floor_tile_300x300_mm.jpg",
+        texture: "http://admin.interiorsparkle.com/media/model/DSC02619_Glacier.jpg",
+        // texture: "https://images.orientbell.com/media/catalog/product/cache/b9393dc52362842095b7f55239e9b36f/h/f/hfm_anti-skid_ec_wooden_mosaic__ceramic_tile_floor_tile_300x300_mm.jpg",
     },
     CoffeTable: {
-        texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
+        // texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
+        texture: "http://admin.interiorsparkle.com/media/model/DSC02849_Glorioso.jpg",
     },
     TVConsole: {
-        texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
+        // texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
+        texture: "http://admin.interiorsparkle.com/media/model/lian_him1.png",
     },
     wall: {
         texture: "https://m.media-amazon.com/images/I/41gPXlP844L._AC_UF894,1000_QL80_.jpg",

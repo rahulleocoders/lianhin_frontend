@@ -29,6 +29,7 @@ let Palletcard = ({ label, img, color, onClick, recommended, popular }) => {
 
 const SelectMaterial = ({ }) => {
     // const [activeTab, setActiveTab] = useState(true)
+
     const [setsurfaceData, setSetsurfaceData] = useState([])
     const dispatch = useDispatch()
     const pathname = usePathname()
@@ -38,10 +39,11 @@ const SelectMaterial = ({ }) => {
 
     const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present);
     let livingroom_Active_element = LivingroomParameter.ActiveObject.title
-
+    const filterData = useSelector(state => state.apiResponce.filterData);
     const CommonState = useSelector(state => state.CommonState);
     const SelctFilterData = CommonState.SelctFilterData
     let selected_surface = CommonState?.selected_surface ? CommonState?.selected_surface : ""
+    let Is_wall_selected = CommonState?.Is_wall_selected
 
     // const abortController = new AbortController();
     const fetchData = async () => {
@@ -81,6 +83,18 @@ const SelectMaterial = ({ }) => {
             dispatch(updatelivingroomSlice({ [livingroom_Active_element]: { texture: imgurl } }));
         }
     }
+
+    let ApplyColor = (color) => {
+        if (currentPage == "bathroom") {
+            dispatch(updatebathroomSlice({ [bathroom_Active_element]: { color: color } }));
+        }
+        if (currentPage == "living") {
+            dispatch(updatelivingroomSlice({ [livingroom_Active_element]: { color: color } }));
+        }
+    }
+
+
+
     let ResetFilter = () => {
         dispatch(updateCommonStateSlice({ 'SelctFilterData': {} }));
     }
@@ -94,31 +108,78 @@ const SelectMaterial = ({ }) => {
             </div> */}
             {/*on second tab call function to  to get the color pallett*/}
 
-            <div className=" flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth">  {/* max-h-[64vh] */}
-                {setsurfaceData?.length > 0 ?
-                    // setsurfaceData?.map((surface) =>
-                    setsurfaceData.filter((option) => option.model_name.toLowerCase().includes(selected_surface.toLowerCase()))?.map((surface) =>
-                        <Palletcard key={`${surface.id}${surface.model_name}`}
-                            recommended={surface?.is_recommended}
-                            popular={surface?.is_most_popular}
-                            label={surface.model_name} img={`${Backend_url}${surface.model_image}`}
-                            onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
-                        />
-                    ) :
-                    <div className=" text-primary-color py-2 text-center w-full font-bold ">
-                        <p>No Surfaces Available</p>
-                        <button onClick={() => ResetFilter()} type="button" className=" py-2 rounded-xl w-2/3 mx-auto mt-3 px-3 bg-primary-color text-white">Reset Filter</button>
-                    </div>
+            {/* <div className={`flex gap-6 max-h-[${Is_wall_selected ? '90vh' : '52vh'}] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth`}>  max-h-[64vh] */}
+            <div className={`flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth`}>  {/* max-h-[64vh] */}
+
+                {
+                    setsurfaceData?.length > 0 ?
+                        setsurfaceData.filter((option) => option.model_name.toLowerCase().includes(selected_surface.toLowerCase()))?.map((surface) =>
+                            <Palletcard key={`${surface.id}${surface.model_name}`}
+                                recommended={surface?.is_recommended}
+                                popular={surface?.is_most_popular}
+                                label={surface.model_name} img={`${Backend_url}${surface.model_image}`}
+                                onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
+                            />
+                        ) :
+                        <div className=" text-primary-color py-2 text-center w-full font-bold ">
+                            <p>No Surfaces Available</p>
+                            <button onClick={() => ResetFilter()} type="button" className=" py-2 rounded-xl w-2/3 mx-auto mt-3 px-3 bg-primary-color text-white">Reset Filter</button>
+                        </div>
                 }
-                {/* {Marbletexture?.map((surface, i) =>
-                    <Palletcard key={`hhh${i}`}
-                        label={surface.lable} img={surface.img}
-                        onClick={() => { ApplySurface(surface.img) }}
-                    />
-                )} */}
+
+
+                {/* {Is_wall_selected ?
+                    filterData?.color?.length > 0 ?
+                        filterData?.color.map((clr) =>
+                            <Palletcard key={`${clr.color_name}`}
+                                recommended={false}
+                                popular={false}
+                                label={clr.color_name}
+                                color={clr.color_name}
+                                onClick={() => { ApplyColor(clr.color_name) }}
+                            />
+                        ) :
+                        <div className=" text-primary-color py-2 text-center w-full font-bold ">
+                            <p className="capitalize">Color not Available</p>
+                            <button onClick={() => ResetFilter()} type="button" className=" py-2 rounded-xl w-2/3 mx-auto mt-3 px-3 bg-primary-color text-white">Reset Filter</button>
+                        </div>
+                    :
+                    setsurfaceData?.length > 0 ?
+                        setsurfaceData.filter((option) => option.model_name.toLowerCase().includes(selected_surface.toLowerCase()))?.map((surface) =>
+                            <Palletcard key={`${surface.id}${surface.model_name}`}
+                                recommended={surface?.is_recommended}
+                                popular={surface?.is_most_popular}
+                                label={surface.model_name} img={`${Backend_url}${surface.model_image}`}
+                                onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
+                            />
+                        ) :
+                        <div className=" text-primary-color py-2 text-center w-full font-bold ">
+                            <p>No Surfaces Available</p>
+                            <button onClick={() => ResetFilter()} type="button" className=" py-2 rounded-xl w-2/3 mx-auto mt-3 px-3 bg-primary-color text-white">Reset Filter</button>
+                        </div>
+                } */}
+
 
                 {/* {activeTab && Marbletexture?.map((pallet, i) => <Palletcard key={`hhh${i}`} onClick={() => console.log('object')} label={pallet.lable} img={pallet.img} />)}
                 {!activeTab && ColorPalettes?.map((pallet) => <Palletcard key={pallet.name} onClick={() => console.log('object')} label={pallet.name} color={pallet.color} />)} */}
+
+                {/* filterData?.color?.length > 0 ?
+                        filterData?.color.map((clr) =>
+                <Palletcard key={`${clr.color_name}`}
+                    recommended={false}
+                    popular={false}
+                    label={clr.color_name}
+                    // onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
+                    onClick={() => { alert("xjsix") }}
+                />
+                            // color_name
+                ) :
+                <div className=" text-primary-color py-2 text-center w-full font-bold ">
+                    <p className="capitalize">Color not Available</p>
+                    <button onClick={() => ResetFilter()} type="button" className=" py-2 rounded-xl w-2/3 mx-auto mt-3 px-3 bg-primary-color text-white">Reset Filter</button>
+                </div> */}
+
+
             </div>
         </div>
     )

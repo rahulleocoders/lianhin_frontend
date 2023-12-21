@@ -65,7 +65,7 @@ export let Room_sence = [
         title: 'kitchen 1 - coming soon',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
         url: "/"
-    },   
+    },
     {
         // img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
         img: './images/Kitchen_Scene_2.jpg',
@@ -251,9 +251,9 @@ export let LivingroomAnnotationArray = [
             z: 20
         },
         position: {
-            x: -10,
+            x: -25,
             y: 0,
-            z: 8
+            z: 0
         }
     },
     {
@@ -266,9 +266,9 @@ export let LivingroomAnnotationArray = [
             z: 0.66
         },
         position: {
-            x: -17,
-            y: 3.5,
-            z: 8
+            x: -18,
+            y: 6.5,
+            z: 7
         }
     },
     {
@@ -281,26 +281,26 @@ export let LivingroomAnnotationArray = [
             z: 5.06
         },
         position: {
-            x: -16.6,
-            y: 18,
+            x: -16.35,
+            y: 21,
             z: 0
         }
     },
-    // {
-    //     title: "wall",
-    //     spotNumber: 4,
-    //     description: "<p>door</p>",
-    //     camPos: {
-    //         x: 13.05,
-    //         y: 4.35,
-    //         z: 5.06
-    //     },
-    //     position: {
-    //         x: 5,
-    //         y: 11,
-    //         z: 8
-    //     }
-    // },
+    {
+        title: "wall",
+        spotNumber: 4,
+        description: "<p>door</p>",
+        camPos: {
+            x: 13.05,
+            y: 4.35,
+            z: 5.06
+        },
+        position: {
+            x: 5,
+            y: 15,
+            z: 0
+        }
+    },
     // {
     //     title: "Feature_Wall",
     //     spotNumber: 4,

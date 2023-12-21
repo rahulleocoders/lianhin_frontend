@@ -22,19 +22,16 @@ const cabinetTopData = [
 ];
 
 const cabinetBottomData = [
-    { position: [-1.49, 2.06, 73.11], rotation: [0, 0, 0], scale: [11.68, 1.97, 0.89] },
-    { position: [6.32, 2.22, 74.08], rotation: [0, 0, 0], scale: [2.21, 1.72, 0.09] },
-    { position: [-14.14, 2.02, 80.45], rotation: [0, -Math.PI / 2, 0], scale: [8.16, 2, 0.89] },
-    { position: [-2.59, 2.22, 74.08], rotation: [0, 0, 0], scale: [2.21, 1.72, 0.09] },
-    { position: [-7.05, 2.22, 74.08], rotation: [0, 0, 0], scale: [2.21, 1.72, 0.09] },
-    { position: [-10.29, 2.22, 74.09], rotation: [0, 0, 0], scale: [1, 1.72, 0.08] },
     { position: [-12.26, 2.22, 74.09], rotation: [0, 0, 0], scale: [0.94, 1.72, 0.08] },
-    { position: [-14.99, 4.61, 75.91], rotation: [-Math.PI / 2, 0, 0], scale: [0.01, 0.16, 0.01] },
+    { position: [-10.29, 2.22, 74.09], rotation: [0, 0, 0], scale: [1, 1.72, 0.08] },
+    { position: [-7.05, 2.22, 74.08], rotation: [0, 0, 0], scale: [2.21, 1.72, 0.09] },
+    { position: [-2.59, 2.22, 74.08], rotation: [0, 0, 0], scale: [2.21, 1.72, 0.09] },
+    { position: [1.86, 2.22, 74.08], rotation: [0, 0, 0], scale: [2.21, 1.72, 0.09] },
+    { position: [6.32, 2.22, 74.08], rotation: [0, 0, 0], scale: [2.21, 1.72, 0.09] },
+    { position: [-13.21, 2.22, 77.31], rotation: [0, Math.PI / 2, 0], scale: [2.21, 1.72, 0.09] },
     { position: [-13.21, 2.22, 74.67], rotation: [0, Math.PI / 2, 0], scale: [0.4, 1.72, 0.08] },
-    { position: [-14.12, 2.21, 81.38], rotation: [Math.PI, 0, Math.PI], scale: [0.86, 1.81, 0.08] },
+    { position: [-13.21, 2.22, 80.51], rotation: [0, Math.PI / 2, 0], scale: [0.94, 1.72, 0.08] },
 ];
-
-
 
 const Kitchen_1_model = (props) => {
     const loader = new THREE.TextureLoader();
@@ -118,13 +115,27 @@ const Kitchen_1_model = (props) => {
                     metalness={0.2}
                 />
             </mesh>
-            {cabinetBottomData.map((data, index) => (
+            <mesh
+                geometry={nodes.botom_cabinate_top1001.geometry}
+                material={nodes.botom_cabinate_top1001.material}
+                position={[2.59, 4.14, 73.22]}
+                scale={[15.81, 0.12, 0.94]}
+            >
+                <meshStandardMaterial
+                    map={tvTopLeft}
+                    side={THREE.DoubleSide}
+                    roughness={0.5}
+                    metalness={0.2}
+                />
+            </mesh>
+
+            {cabinetBottomData?.map((data, index) => (
                 <mesh
                     key={index}
                     geometry={nodes[`cabinate_${index + 1}`]?.geometry}
                     material={nodes[`cabinate_${index + 1}`]?.material}
                     position={data.position}
-                    // rotation={data.rotation}
+                    rotation={data.rotation}
                     scale={data.scale}
                 >
                     <meshStandardMaterial map={CoffeeTableTexture} side={THREE.DoubleSide} roughness={0.5} metalness={0.2} />
@@ -194,17 +205,18 @@ const Kitchen_1_model = (props) => {
                 position={[-13.21, 2.22, 80.51]}
                 rotation={[0, Math.PI / 2, 0]}
                 scale={[0.94, 1.72, 0.08]}
-            />
+            /> */}
 
 
-            <mesh
+            {/* <mesh
                 geometry={nodes.cabinate_1006.geometry}
                 material={nodes.cabinate_1006.material}
                 position={[-14.12, 2.21, 81.38]}
                 rotation={[Math.PI, 0, Math.PI]}
                 scale={[0.86, 1.81, 0.08]}
-                material-color='blue'
             /> */}
+
+
             <mesh
                 geometry={nodes.Cube019.geometry}
                 material={materials['Material.005']}
@@ -368,27 +380,27 @@ const Kitchen_1_model = (props) => {
                 material={nodes.wall_plane.material}
                 position={[-3.23, 6.14, 72.28]}
                 scale={[11.85, 1.93, 0.02]}
-            />
+            >
+                <meshStandardMaterial
+                    map={floorTexture}
+                    side={THREE.DoubleSide}
+                    roughness={0.5} metalness={0.2}
+                />
+            </mesh>
             <mesh
                 geometry={nodes.wall_plane_1.geometry}
                 material={nodes.wall_plane_1.material}
                 position={[-15.02, 6.14, 76.44]}
                 rotation={[0, Math.PI / 2, 0]}
                 scale={[4.19, 1.93, 0.02]}
-            />
-            <mesh
-                geometry={nodes.botom_cabinate_top1001.geometry}
-                material={nodes.botom_cabinate_top1001.material}
-                position={[2.59, 4.14, 73.22]}
-                scale={[15.81, 0.12, 0.94]}
             >
                 <meshStandardMaterial
-                    map={tvTopLeft}
+                    map={floorTexture}
                     side={THREE.DoubleSide}
-                    roughness={0.5}
-                    metalness={0.2}
+                    roughness={0.5} metalness={0.2}
                 />
             </mesh>
+
 
             <mesh
                 geometry={nodes.Cube002.geometry}

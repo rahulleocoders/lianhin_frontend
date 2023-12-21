@@ -87,15 +87,20 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     />
                     <OrbitControls enablePan={true} enableZoom={true} enableRotate={true}
                         target={Cameratarget}
-                    // target={[-9, 8, -25]}
-                    // args={[1, 1, 1]}
-                    // position={[-12, 6, 26]}
-                    //  minPolarAngle={0}
-                    //  maxPolarAngle={Math.PI / 2} 
+                        // args={[1, 1, 1]} // position={[-12, 6, 26]}
+
+                        minPolarAngle={-Math.PI / 8} // maximum top
+                        maxPolarAngle={Math.PI / 2}  // maximum bottom
+
+                        minAzimuthAngle={6} // maximum left
+                        maxAzimuthAngle={7} // maximum right
+
+                        minDistance={7} // min zoom
+                        maxDistance={13} // min zoom
                     />
                 </Suspense>
             </Canvas >
-            <button onClick={CurrentCameraPosition} className=' absolute top-0 right-0'>Move</button>
+            {/* <button onClick={CurrentCameraPosition} className=' absolute top-0 right-0'>Move</button> */}
 
         </div >
     )

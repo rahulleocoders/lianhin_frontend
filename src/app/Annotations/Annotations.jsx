@@ -1,5 +1,6 @@
 'use client'
 import { updatebathroomSlice } from "@/redux/slices/BathroomSlice";
+import { updateCommonStateSlice } from "@/redux/slices/CommonStateSlice";
 import { updatelivingroomSlice } from "@/redux/slices/LivingroomSlice";
 import { Html } from "@react-three/drei";
 import { usePathname } from "next/navigation";
@@ -19,6 +20,7 @@ const Annotations = ({ position }) => {
     let livingroom_Active_element = LivingroomParameter.ActiveObject
 
     let HandleClick = (title) => {
+        dispatch(updateCommonStateSlice({ Is_wall_selected: title === 'wall' }));
         setActiveAnnotation(title === activeAnnotation ? '' : title)
         if (currentPage == "bathroom") {
             dispatch(updatebathroomSlice({ ActiveObject: { ...bathroom_Active_element, title: title } }));
@@ -26,7 +28,6 @@ const Annotations = ({ position }) => {
         if (currentPage == "living") {
             dispatch(updatelivingroomSlice({ ActiveObject: { ...livingroom_Active_element, title: title } }));
         }
-        // onClick(title)
     }
 
 
