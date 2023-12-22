@@ -99,7 +99,7 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     />
                 </Suspense>
             </Canvas >
-            {/* <button onClick={CurrentCameraPosition} className=' absolute top-0 right-0'>Move</button> */}
+            <button onClick={CurrentCameraPosition} className=' absolute top-0 right-0'>Move</button>
 
         </div >
     )
