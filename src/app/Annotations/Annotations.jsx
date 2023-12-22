@@ -34,7 +34,7 @@ const Annotations = ({ position }) => {
     return (
         <>
             {position?.map((anote, i) =>
-                <Html position={[anote.position.x, anote.position.y, anote.position.z]} key={`bathanote${i}`}>
+                <Html position={[anote.position.x, anote.position.y, anote.position.z]} key={`bathanote${i}`} >
                     <div // className=" p-[3px] rounded-full border-[5px] border-transparent hover:border-primary-color border-dotted hover:animate-spin  duration-[4s]" 
                         className={`group p-1 rounded-full border-4  ${activeAnnotation == anote.title ? 'speener-loader' : 'border-transparent'}  cursor-pointer`}
                         onClick={() => HandleClick(anote.title)}>

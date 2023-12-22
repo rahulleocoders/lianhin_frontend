@@ -7,7 +7,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { Suspense, useEffect, useRef, useState } from "react"
 import { useDispatch } from "react-redux"
 
-const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Cameratarget }) => {
+const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Cameratarget, minPolarAngle, maxPolarAngle, minAzimuthAngle, maxAzimuthAngle, minDistance, maxDistance, }) => {
     const dispatch = useDispatch()
     const canvasRef = useRef()
     const cameraRef = useRef();
@@ -89,14 +89,13 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                         target={Cameratarget}
                         // args={[1, 1, 1]} // position={[-12, 6, 26]}
 
-                        minPolarAngle={-Math.PI / 8} // maximum top
-                        maxPolarAngle={Math.PI / 2}  // maximum bottom
+                        minPolarAngle={minPolarAngle} // maximum top
+                        maxPolarAngle={maxPolarAngle}  // maximum bottom
+                        minAzimuthAngle={minAzimuthAngle} // maximum left
+                        maxAzimuthAngle={maxAzimuthAngle} // maximum right
+                        minDistance={minDistance} // max zoom
+                        maxDistance={maxDistance} // min zoom    
 
-                        minAzimuthAngle={6} // maximum left
-                        maxAzimuthAngle={7} // maximum right
-
-                        minDistance={7} // min zoom
-                        maxDistance={13} // min zoom
                     />
                 </Suspense>
             </Canvas >

@@ -26,14 +26,10 @@ const SelectColor = () => {
         }
     }
     return (
-        <div className=" flex gap-2   flex-wrap">
+        <div className=" flex gap-2   flex-wrap max-h-[52vh] overflow-y-scroll">
             {filterData?.wall_color?.map((clr) =>
-                <div key={clr.wallcolor} className="w-14 aspect-square rounded-2xl cursor-pointer"
-                    style={{ backgroundColor: clr.wallcolor }}
-                    onClick={() => ApplyColor(clr.wallcolor)}
-                ></div>
+                <div key={clr.wallcolor} className="w-14 aspect-square rounded-2xl cursor-pointer" style={{ backgroundColor: clr.wallcolor }} onClick={() => ApplyColor(clr.wallcolor)} ></div>
             )}
-
         </div>
     )
 }
