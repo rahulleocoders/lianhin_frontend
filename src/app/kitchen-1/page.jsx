@@ -1,6 +1,7 @@
 'use client'
 import CanvasEnvironment from "@/components/CanvasEnvironment"
 import Demolayout from "@/components/DemoComponents/Demolayout"
+import Kitche_final_1_Model from "@/jsxModel/Kitche_final_1_Model"
 import Kitchen_fafaModel from "@/jsxModel/Kitchen_fafaModel"
 import Kitchen_1_model from "@/jsxModel/kitchen_1_model"
 import { LivingroomAnnotationArray } from "@/local_data"
@@ -27,7 +28,8 @@ const Page = () => {
                     Annotationposition={LivingroomAnnotationArray}
                 >
                     {/* <Kitchen_1_model /> */}
-                    <Kitchen_fafaModel />
+                    {/* <Kitchen_fafaModel /> */}
+                    <Kitche_final_1_Model />
                 </CanvasEnvironment>
             </Demolayout>
         </div >

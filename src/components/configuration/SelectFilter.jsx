@@ -7,6 +7,19 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+export const EdgeTypes = [
+    'Flat_Polish',
+    'Bullnose',
+    'Round_Edge',
+    'Chamfer_Edge',
+    'Bevel_Edge',
+    'Double_Flat_Polish',
+    'Double_Bullnose',
+    'Mitre_Joint',
+    'Non-Drip',
+    'Bird-Mouth',
+];
+
 const SelectFilter = ({ }) => {
     const dispatch = useDispatch()
     const filterData = useSelector(state => state.apiResponce.filterData);
@@ -72,9 +85,10 @@ const SelectFilter = ({ }) => {
 
             <select value={SelctFilterData?.profile ? SelctFilterData?.profile : ""} className="select" onChange={(e) => { UpdateFilter('profile', e.target.value) }}>
                 <option className=' hidden'>3D profiles</option>
-                {filterData?.profile?.map((item) => <option key={item.id + item.profile_name} value={item.id}>
+                {/* {filterData?.profile?.map((item) => <option key={item.id + item.profile_name} value={item.id}>
                     {item.profile_name}
-                </option>)}
+                </option>)} */}
+                {EdgeTypes?.map((edge, index) => <option key={edge} value={index + 1}>{edge.replace(/_/g, ' ')}</option>)}
                 {/* <option value="xsjnxj">Sort by: Price: Low to High</option>
                 <option value="xsjnxj">Sort by: Price: High to Low</option>
                 <option value="xsjnxj">Sort by: Newest</option>
