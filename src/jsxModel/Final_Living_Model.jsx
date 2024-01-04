@@ -3,10 +3,37 @@ import { useGLTF } from "@react-three/drei"
 import { useRef } from "react"
 import { useSelector } from "react-redux"
 import * as THREE from 'three';
+import { Reflector, MeshReflectorMaterial } from '@react-three/drei';
+import { useThree } from "react-three-fiber";
 
+export let GlassMaterial = () => {
+    return (
+        <meshStandardMaterial
+            color="white" // Adjust this color to your preference
+            roughness={0.1} // Adjust the roughness
+            metalness={0.5} // Adjust the metalness
+            reflectivity={0.9} // Adjust the reflectivity
+            transparent // Enable transparency
+            opacity={0.7} // Adjust the opacity to control transparency level
+        />
+    )
+}
+export const MirrorMaterial = () => {
+    return (
+        <meshStandardMaterial
+            color="white" // Adjust this color to your preference
+            roughness={0.1} // Adjust the roughness
+            metalness={0.5} // Adjust the metalness
+            envMapIntensity={1} // Adjust the environment map intensity
+            reflectivity={1} // Set reflectivity to 1 for a mirror-like surface
+            side={THREE.DoubleSide} // Render the material on both sides of the geometry
+        />
+    );
+};
 const Final_Living_Model = (props) => {
     const loader = new THREE.TextureLoader();
     const group = useRef()
+    const { scene } = useThree();
     const { nodes, materials } = useGLTF('./blender_model/FinalHall.glb')
     const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present);
     const floorTexture = loader.load(LivingroomParameter.floor?.texture, (texture) => {
@@ -94,7 +121,6 @@ const Final_Living_Model = (props) => {
                 material={nodes.celling.material}
                 position={[-15.71, 25.91, 11.98]}
                 scale={[17.94, 0.37, 12.41]}
-
             />
             <mesh
                 geometry={nodes.wall_wood.geometry}

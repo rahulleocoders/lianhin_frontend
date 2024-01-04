@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@react-three/cannon": "^6.6.0",
-    "@react-three/drei": "^9.83.9",
+    "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.14.1",
     "@reduxjs/toolkit": "^1.9.5",
     "autoprefixer": "10.4.15",
@@ -26,6 +26,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
     "react-redux": "^8.1.2",
+    "react-three-fiber": "^6.0.13",
     "redux-undo": "^1.1.0",
     "sharp": "^0.32.6",
     "tailwindcss": "3.3.3",

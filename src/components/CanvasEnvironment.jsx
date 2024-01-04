@@ -82,8 +82,8 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     {/* <Environment preset="warehouse" /> */}
                     {/*preset "city" "sunset" "night" "warehouse" "forest" */}
                     <Environment preset="city" />
-                    <ambientLight color={0xfffff} intensity={0.5} />
-                    <directionalLight intensity={1} position={[1, 10, 10]} />
+                    <ambientLight color={0xfffff} intensity={1} />
+                    <directionalLight intensity={3} position={[2, 10, 45]} />
                     {/* <directionalLight intensity={1} position={[0, 0.5, 1]} /> */}
                     {children}
                     <Annotations position={Annotationposition}  // onClick={(title) => UpdateBathActiveElement(title)}
