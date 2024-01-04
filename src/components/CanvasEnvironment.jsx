@@ -79,9 +79,12 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                 <Suspense fallback={<Html center> <div className=" flex items-center justify-center w-full h-full text-3xl text-primary-color font-bold">Loading...</div>  </Html>}>
                     {/* <Suspense fallback={<Html center>{progress} % loaded</Html>}> */}
                     {/* <Environment files={Background_Envirnment[0]} /> */}
-                    <Environment preset="warehouse" />
-                    {/* <ambientLight color={0xfffff} intensity={0.1} /> */}
-                    {/* <directionalLight intensity={0.4} position={[2, 2, 2]} /> */}
+                    {/* <Environment preset="warehouse" /> */}
+                    {/*preset "city" "sunset" "night" "warehouse" "forest" */}
+                    <Environment preset="city" />
+                    <ambientLight color={0xfffff} intensity={0.5} />
+                    <directionalLight intensity={1} position={[1, 10, 10]} />
+                    {/* <directionalLight intensity={1} position={[0, 0.5, 1]} /> */}
                     {children}
                     <Annotations position={Annotationposition}  // onClick={(title) => UpdateBathActiveElement(title)}
                     />
