@@ -1,5 +1,5 @@
 'use client'
-import { useGLTF } from "@react-three/drei"
+import { MeshTransmissionMaterial, useGLTF } from "@react-three/drei"
 import { useRef } from "react"
 import { useSelector } from "react-redux"
 import * as THREE from 'three';
@@ -14,7 +14,7 @@ export let GlassMaterial = () => {
             metalness={0.5} // Adjust the metalness
             reflectivity={0.9} // Adjust the reflectivity
             transparent // Enable transparency
-            opacity={0.7} // Adjust the opacity to control transparency level
+            opacity={0.2} // Adjust the opacity to control transparency level
         />
     )
 }
@@ -83,6 +83,46 @@ const Final_Living_Model = (props) => {
                 rotation={[0, 0, -Math.PI]}
                 scale={[-17.55, -10.99, -0.33]}
             />
+
+            {/* <mesh
+                geometry={nodes.flore.geometry}
+                material={materials['Procedural Tiles']}
+                position={[-15.75, 3.55, 12.7]}
+                rotation={[-Math.PI, 0, -Math.PI]}
+                scale={[-17.93, -0.23, -13.15]}
+            >
+                <meshStandardMaterial
+                    map={floorTexture}
+                    side={THREE.DoubleSide}
+                    roughness={0.5}
+                    metalness={0.2}
+                />
+            </mesh> */}
+
+            {/* <mesh
+                geometry={nodes.flore.geometry}
+                material={materials['Procedural Tiles']}
+                position={[-15.75, 3.55, 12.7]}
+                rotation={[-Math.PI, 0, -Math.PI]}
+                scale={[-17.93, -0.23, -13.15]}
+            >
+                <meshStandardMaterial
+                    map={floorTexture}
+                    side={THREE.DoubleSide}
+                    roughness={0.5}
+                    metalness={0.2}
+                />
+                <MeshTransmissionMaterial
+                    ior={1.3}
+                    thickness={0.8}
+                    reflectivity={0.9} // Set reflectivity to 1 for a perfect mirror
+                    textureMatrix={{
+                        flipY: true, // Flip reflection in the Y-axis
+                    }}
+                />
+            </mesh> */}
+
+
             <mesh
                 geometry={nodes.flore.geometry}
                 material={materials['Procedural Tiles']}
@@ -97,6 +137,30 @@ const Final_Living_Model = (props) => {
                     metalness={0.2}
                 />
             </mesh>
+
+            {/* <mesh
+                // geometry={nodes.flore.geometry}
+                // material={materials['Procedural Tiles']}
+                position={[-15.75, 3.80, 12.7]}
+                rotation={[-Math.PI, 0, -Math.PI]}
+                scale={[-17.93, -0.23, -13.15]}
+            >
+                <boxGeometry args={[2, 0.01, 2]} />
+               
+                <MeshTransmissionMaterial
+                    ior={2}
+                    thickness={0.2}
+                    reflectivity={1} // Set reflectivity to 1 for a perfect mirror
+                    textureMatrix={{
+                        flipY: true, // Flip reflection in the Y-axis
+                    }}
+                />
+            </mesh> */}
+
+
+
+
+
             <mesh
                 geometry={nodes.wall001.geometry}
                 material={nodes.wall001.material}
@@ -170,7 +234,7 @@ const Final_Living_Model = (props) => {
             /> */}
             <group position={[-15.69, 14.32, 0.67]} rotation={[Math.PI / 2, 0, 0]} scale={[3.89, 2.73, 3.81]}>
                 <mesh geometry={nodes.Plane.geometry} material={materials['Material.009']} />
-                <mesh geometry={nodes.Plane_1.geometry} material={materials['Material.010']} />
+                <mesh geometry={nodes.Plane_1.geometry} material={materials['Material.010']} material-color='#000000' />
             </group>
             <group position={[-15.74, 6.01, 1.22]} scale={[12.53, 1.32, 0.75]}>
                 <mesh geometry={nodes.Cube018.geometry} material={materials['Material.001']}

@@ -6,6 +6,8 @@ import { Environment, Html, OrbitControls, PerspectiveCamera, useProgress } from
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Suspense, useEffect, useRef, useState } from "react"
 import { useDispatch } from "react-redux"
+import { PointLight } from "three"
+
 
 const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Cameratarget, minPolarAngle, maxPolarAngle, minAzimuthAngle, maxAzimuthAngle, minDistance, maxDistance, }) => {
     const dispatch = useDispatch()
@@ -81,10 +83,15 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     {/* <Environment files={Background_Envirnment[0]} /> */}
                     {/* <Environment preset="warehouse" /> */}
                     {/*preset "city" "sunset" "night" "warehouse" "forest" */}
-                    <Environment preset="city" />
+                    {/* <Environment preset="city" /> */}
+                    <Environment files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@gltfjsx/public/img/forest_slope_1k.hdr" />
                     <ambientLight color={0xfffff} intensity={1} />
-                    <directionalLight intensity={3} position={[2, 10, 45]} />
+                    <directionalLight intensity={2} position={[2, 10, 45]} />
                     {/* <directionalLight intensity={1} position={[0, 0.5, 1]} /> */}
+                    <pointLight position={[-10, 10, 10]} color="yellow" intensity={1} distance={50} />
+                    <pointLight position={[1, 1, 1]} color="yellow" intensity={1} />
+                    <pointLight position={[-10, -10, 10]} color="yellow" intensity={1} />
+                    <pointLight position={[10, -10, 10]} color="yellow" intensity={1} />
                     {children}
                     <Annotations position={Annotationposition}  // onClick={(title) => UpdateBathActiveElement(title)}
                     />
