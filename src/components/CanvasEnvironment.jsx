@@ -88,16 +88,20 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     <ambientLight color={0xfffff} intensity={1} />
                     <directionalLight intensity={2} position={[2, 10, 45]} />
                     {/* <directionalLight intensity={1} position={[0, 0.5, 1]} /> */}
-                    <pointLight position={[-10, 10, 10]} color="yellow" intensity={1} distance={50} />
-                    <pointLight position={[1, 1, 1]} color="yellow" intensity={1} />
-                    <pointLight position={[-10, -10, 10]} color="yellow" intensity={1} />
-                    <pointLight position={[10, -10, 10]} color="yellow" intensity={1} />
+
+                    {/* Blue Light near the ceiling */}
+                    {/* <pointLight position={[-3, 3, 2]} intensity={20} color={0xff0000} /> */}
+                    {/* Green Light near the floor */}
+                    {/* <pointLight position={[2, 3, 2]} intensity={18} color={0x00ff00} /> */}
+
+                    <pointLight position={[-6, 25, 2]} intensity={20} color={'#ffe191'} />
+                    <pointLight position={[-12, 25, 2]} intensity={20} color={'#ffe191'} />
+
+                    <pointLight position={[-20, 25, 2]} intensity={20} color={'#ffe191'} />
+                    <pointLight position={[-26, 25, 2]} intensity={20} color={'#ffe191'} />
+
+
                     {children}
-
-
-                    
-
-
 
                     <Annotations position={Annotationposition}  // onClick={(title) => UpdateBathActiveElement(title)}
                     />

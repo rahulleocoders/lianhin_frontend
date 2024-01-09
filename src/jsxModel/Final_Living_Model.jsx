@@ -62,6 +62,13 @@ const Final_Living_Model = (props) => {
     let wall_color = LivingroomParameter?.wall.color
     return (
         <group ref={group} {...props} dispose={null}>
+            {/* small room */}
+            {/* <mesh>
+                <boxGeometry args={[7, 7, 7]} />
+                <meshStandardMaterial color={'pink'} side={THREE.BackSide} />
+            </mesh> */}
+
+
             <group position={[-34.19, 0.5, 4.42]} scale={[1, 1.92, 1.47]}>
                 <mesh
                     geometry={nodes.Plane002.geometry}
@@ -204,7 +211,8 @@ const Final_Living_Model = (props) => {
                 <planeGeometry args={[35, 27]} />
                 <MeshReflectorMaterial
                     map={floorTexture} // Apply the texture here
-                    resolution={512}
+                    // resolution={512}
+                    resolution={720}
                     args={[35, 27]} // Adjust the size of the reflector
                     mirror={0.7}
                     mixBlur={8}
