@@ -1,5 +1,6 @@
 'use client'
-import { MeshTransmissionMaterial, useGLTF } from "@react-three/drei"
+import { MeshTransmissionMaterial, useGLTF, } from "@react-three/drei"
+
 import { useRef } from "react"
 import { useSelector } from "react-redux"
 import * as THREE from 'three';
@@ -38,7 +39,7 @@ const Final_Living_Model = (props) => {
     const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present);
     const floorTexture = loader.load(LivingroomParameter.floor?.texture, (texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set(35, 35);
+        texture.repeat.set(9, 9);
     });
 
     const tvTopLeft = loader.load(LivingroomParameter.TVConsole?.texture, (texture) => {
@@ -84,21 +85,7 @@ const Final_Living_Model = (props) => {
                 scale={[-17.55, -10.99, -0.33]}
             />
 
-            {/* <mesh
-                geometry={nodes.flore.geometry}
-                material={materials['Procedural Tiles']}
-                position={[-15.75, 3.55, 12.7]}
-                rotation={[-Math.PI, 0, -Math.PI]}
-                scale={[-17.93, -0.23, -13.15]}
-            >
-                <meshStandardMaterial
-                    map={floorTexture}
-                    side={THREE.DoubleSide}
-                    roughness={0.5}
-                    metalness={0.2}
-                />
-            </mesh> */}
-
+            {/* mirror effect for bathroom refenece */}
             {/* <mesh
                 geometry={nodes.flore.geometry}
                 material={materials['Procedural Tiles']}
@@ -115,15 +102,32 @@ const Final_Living_Model = (props) => {
                 <MeshTransmissionMaterial
                     ior={1.3}
                     thickness={0.8}
-                    reflectivity={0.9} // Set reflectivity to 1 for a perfect mirror
+                    reflectivity={1} // Set reflectivity to 1 for a perfect mirror
                     textureMatrix={{
                         flipY: true, // Flip reflection in the Y-axis
                     }}
                 />
             </mesh> */}
 
+            {/* <mesh
+                // geometry={nodes.flore.geometry}
+                // material={materials['Procedural Tiles']}
+                position={[-15.75, 3.80, 12.7]}
+                rotation={[-Math.PI, 0, -Math.PI]}
+                scale={[-17.93, -0.23, -13.15]}
+            >
+                <boxGeometry args={[2, 0.01, 2]} /> 
+                <MeshTransmissionMaterial
+                    ior={1.3}
+                    thickness={0.8}
+                    reflectivity={1} // Set reflectivity to 1 for a perfect mirror
+                    textureMatrix={{
+                        flipY: true, // Flip reflection in the Y-axis
+                    }}
+                />
+            </mesh> */}
 
-            <mesh
+            {/* <mesh
                 geometry={nodes.flore.geometry}
                 material={materials['Procedural Tiles']}
                 position={[-15.75, 3.55, 12.7]}
@@ -135,30 +139,78 @@ const Final_Living_Model = (props) => {
                     side={THREE.DoubleSide}
                     roughness={0.5}
                     metalness={0.2}
-                />
-            </mesh>
-
-            {/* <mesh
-                // geometry={nodes.flore.geometry}
-                // material={materials['Procedural Tiles']}
-                position={[-15.75, 3.80, 12.7]}
-                rotation={[-Math.PI, 0, -Math.PI]}
-                scale={[-17.93, -0.23, -13.15]}
-            >
-                <boxGeometry args={[2, 0.01, 2]} />
-               
-                <MeshTransmissionMaterial
-                    ior={2}
-                    thickness={0.2}
-                    reflectivity={1} // Set reflectivity to 1 for a perfect mirror
-                    textureMatrix={{
-                        flipY: true, // Flip reflection in the Y-axis
-                    }}
+                    reflectivity={1}
                 />
             </mesh> */}
 
+            {/* <mesh>
+                <mesh geometry={nodes.flore.geometry}>
+                    <meshStandardMaterial
+                        map={floorTexture}
+                        side={THREE.DoubleSide}
+                        roughness={0.5}
+                        metalness={0.2}
+                        reflectivity={1} 
+                    />
+                </mesh>
+               
+            </mesh>
+
+            <Reflector
+                resolution={1024}
+                args={[17.93 * 2, 13.15 * 2]} // Adjust the size according to your floor dimensions
+                rotation={[-Math.PI / 2, 0, 0]}
+                position={[-15.75, 0, 12.7]}
+                mirror={1} // Adjust the mirror factor to control reflection intensity
+                mixBlur={0.5} // Adjust the blur factor for a smoother reflection
+                mixStrength={1} // Adjust the mix strength for the reflection
+                depthScale={0.5} // Adjust the depth scale for the reflection
+            /> */}
 
 
+            {/* <mesh
+                // rotation={[-Math.PI / 2, 0, 0]}
+                position-y={-2}
+                // geometry={nodes.flore.geometry}
+                // material={materials['Procedural Tiles']}
+                // position={[-15.75, 3.55, 12.7]}
+                // rotation={[-Math.PI, 0, -Math.PI]}
+                scale={[1, 1, 1]}
+            >
+                <planeGeometry args={[170, 170]} />
+                <meshStandardMaterial
+                    map={floorTexture}
+                    side={THREE.DoubleSide}
+                    roughness={0.5}
+                    metalness={0.2}
+                    reflectivity={1}
+                />
+                <MeshReflectorMaterial
+                    blur={[300, 100]}
+                    resolution={2048}
+                    mixBlur={1}
+                    mixStrength={40}
+                    roughness={1}
+                    depthScale={1.2}
+                    minDepthThreshold={0.4}
+                    maxDepthThreshold={1.4}
+                    color="#101010"
+                    metalness={0.5}
+                />
+
+            </mesh> */}
+
+            <mesh position={[-15.6, 3.9, 13]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+                <planeGeometry args={[35, 27]} />
+                <MeshReflectorMaterial
+                    map={floorTexture} // Apply the texture here
+                    resolution={512}
+                    args={[35, 27]} // Adjust the size of the reflector
+                    mirror={0.7}
+                    mixBlur={8}
+                    mixStrength={0.5}
+                />
+            </mesh>
 
 
             <mesh

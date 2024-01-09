@@ -2,7 +2,7 @@
 import Annotations from "@/app/Annotations/Annotations"
 import { Background_Envirnment } from "@/local_data"
 import { updateCommonStateSlice } from "@/redux/slices/CommonStateSlice"
-import { Environment, Html, OrbitControls, PerspectiveCamera, useProgress } from "@react-three/drei"
+import { Environment, Html, MeshReflectorMaterial, OrbitControls, PerspectiveCamera, useProgress } from "@react-three/drei"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Suspense, useEffect, useRef, useState } from "react"
 import { useDispatch } from "react-redux"
@@ -93,6 +93,12 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     <pointLight position={[-10, -10, 10]} color="yellow" intensity={1} />
                     <pointLight position={[10, -10, 10]} color="yellow" intensity={1} />
                     {children}
+
+
+                    
+
+
+
                     <Annotations position={Annotationposition}  // onClick={(title) => UpdateBathActiveElement(title)}
                     />
                     <OrbitControls enablePan={true} enableZoom={true} enableRotate={true}
