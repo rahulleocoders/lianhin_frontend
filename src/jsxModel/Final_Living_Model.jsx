@@ -63,10 +63,17 @@ const Final_Living_Model = (props) => {
     return (
         <group ref={group} {...props} dispose={null}>
             {/* small room */}
-            {/* <mesh>
+            <mesh>
                 <boxGeometry args={[7, 7, 7]} />
                 <meshStandardMaterial color={'pink'} side={THREE.BackSide} />
+            </mesh>
+
+            {/* Dome-like light effect */}
+            {/* <mesh position={[-26, 22, 0.7]}>
+                <circleGeometry args={[2, 60, 0, Math.PI]} />
+                <meshBasicMaterial color={'#ffe191'} transparent opacity={0.1} />
             </mesh> */}
+
 
 
             <group position={[-34.19, 0.5, 4.42]} scale={[1, 1.92, 1.47]}>
@@ -207,6 +214,8 @@ const Final_Living_Model = (props) => {
 
             </mesh> */}
 
+
+            {/* reflective surface */}
             <mesh position={[-15.6, 3.9, 13]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
                 <planeGeometry args={[35, 27]} />
                 <MeshReflectorMaterial
@@ -219,6 +228,9 @@ const Final_Living_Model = (props) => {
                     mixStrength={0.5}
                 />
             </mesh>
+
+
+
 
 
             <mesh

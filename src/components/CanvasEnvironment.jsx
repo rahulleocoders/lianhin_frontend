@@ -98,8 +98,14 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     <pointLight position={[-12, 25, 2]} intensity={20} color={'#ffe191'} />
 
                     <pointLight position={[-20, 25, 2]} intensity={20} color={'#ffe191'} />
-                    <pointLight position={[-26, 25, 2]} intensity={20} color={'#ffe191'} />
+                    {/* <pointLight position={[-26, 25, 2]} intensity={20} color={'#ffe191'} /> */}
 
+                    <pointLight position={[-26, 25, 2]} intensity={1} color={'#ffe191'} />
+                    {/* <pointLight position={[-26, 23, 1.2]} intensity={10} color={'#ffe191'} distance={100}  /> */}
+                    <spotLight position={[-26, 23, 1.2]} angle={Math.PI / 4} intensity={10} color={0xffe191}
+                        // penumbra={10} // Adjust the penumbra for softer edges
+                        // distance={100} // Increase the distance to cover a larger area
+                    />
 
                     {children}
 
