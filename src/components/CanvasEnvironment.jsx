@@ -94,18 +94,26 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     {/* Green Light near the floor */}
                     {/* <pointLight position={[2, 3, 2]} intensity={18} color={0x00ff00} /> */}
 
-                    <pointLight position={[-6, 25, 2]} intensity={20} color={'#ffe191'} />
-                    <pointLight position={[-12, 25, 2]} intensity={20} color={'#ffe191'} />
+                    <pointLight position={[-6, 25, 2]} intensity={5} color={'#ffe191'} />
+                    <pointLight position={[-12, 25, 2]} intensity={5} color={'#ffe191'} />
 
-                    <pointLight position={[-20, 25, 2]} intensity={20} color={'#ffe191'} />
+                    <pointLight position={[-20, 25, 2]} intensity={5} color={'#ffe191'} />
                     {/* <pointLight position={[-26, 25, 2]} intensity={20} color={'#ffe191'} /> */}
 
-                    <pointLight position={[-26, 25, 2]} intensity={1} color={'#ffe191'} />
+                    <pointLight position={[-26, 25, 2]} intensity={5} color={'#ffe191'} />
+                    {/* <spotLight intensity={15} color={0xffe191}
+                        position={[-20, 25, 2]}
+                        rotation={[90, 90, 90]}
+                        angle={Math.PI / 4}
+                    // penumbra={10}
+                    // ref={spotLightRef}
+                    /> */}
                     {/* <pointLight position={[-26, 23, 1.2]} intensity={10} color={'#ffe191'} distance={100}  /> */}
-                    <spotLight position={[-26, 23, 1.2]} angle={Math.PI / 4} intensity={10} color={0xffe191}
-                        // penumbra={10} // Adjust the penumbra for softer edges
-                        // distance={100} // Increase the distance to cover a larger area
-                    />
+                    {/* <spotLight position={[-26, 23, 1.2]} angle={Math.PI / 4} intensity={10} color={0xffe191}
+                  
+                    // penumbra={10} // Adjust the penumbra for softer edges
+                    // distance={100} // Increase the distance to cover a larger area
+                    /> */}
 
                     {children}
 
@@ -125,7 +133,7 @@ const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Camer
                     />
                 </Suspense>
             </Canvas >
-            <button onClick={CurrentCameraPosition} className=' absolute top-0 right-0'>Move</button>
+            {/* <button onClick={CurrentCameraPosition} className=' absolute top-0 right-0'>Move</button> */}
 
         </div >
     )

@@ -1,7 +1,7 @@
 'use client'
 import { MeshTransmissionMaterial, useGLTF, } from "@react-three/drei"
 
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useSelector } from "react-redux"
 import * as THREE from 'three';
 import { Reflector, MeshReflectorMaterial } from '@react-three/drei';
@@ -34,7 +34,18 @@ export const MirrorMaterial = () => {
 const Final_Living_Model = (props) => {
     const loader = new THREE.TextureLoader();
     const group = useRef()
+    const spotLightRef = useRef();
     const { scene } = useThree();
+
+    useEffect(() => {
+        if (spotLightRef.current) {
+            // Rotate the spotlight by changing its position
+            spotLightRef.current.position.set(1, 1, 0);
+            // Adjust the spotlight target position as needed
+            spotLightRef.current.target.position.set(-180, 90, 90);
+        }
+    }, []);
+
     const { nodes, materials } = useGLTF('./blender_model/FinalHall.glb')
     const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present);
     const floorTexture = loader.load(LivingroomParameter.floor?.texture, (texture) => {
@@ -69,9 +80,26 @@ const Final_Living_Model = (props) => {
             </mesh>
 
             {/* Dome-like light effect */}
-            {/* <mesh position={[-26, 22, 0.7]}>
-                <circleGeometry args={[2, 60, 0, Math.PI]} />
-                <meshBasicMaterial color={'#ffe191'} transparent opacity={0.1} />
+
+            {/* <group position={[-25, 23, 1]} rotation={[0, 0, -1]}>
+                <mesh rotation={[0, 0, -15]} >
+                    <circleGeometry args={[2, 60, 0, Math.PI]} />
+                    <meshBasicMaterial color={'#ffe191'} transparent opacity={0.2} />
+                    <spotLight intensity={15} color={0xffe191}
+                        position={[2, 1, 0]}
+                        // target={[1, 1, 1]}
+                        // angle={1}
+                        angle={Math.PI / 4}
+                    // penumbra={10}
+                    // ref={spotLightRef}
+                    />
+                </mesh>
+
+            </group> */}
+
+
+            {/* <mesh position={[-26, 22, 0.7]}  rotation={[1, 0, 0]}>
+                <spotLight angle={Math.PI /4} intensity={10} color={0xffe191} position={[0, 0, 0]}  />
             </mesh> */}
 
 
@@ -223,7 +251,7 @@ const Final_Living_Model = (props) => {
                     // resolution={512}
                     resolution={720}
                     args={[35, 27]} // Adjust the size of the reflector
-                    mirror={0.7}
+                    mirror={0.3}
                     mixBlur={8}
                     mixStrength={0.5}
                 />
