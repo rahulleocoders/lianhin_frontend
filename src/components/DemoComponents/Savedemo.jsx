@@ -9,6 +9,20 @@ import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { AiFillFileImage, AiFillFilePdf } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
+import axios from 'axios'
+
+
+// Convert data URI to blob
+function dataURItoBlob(dataURI) {
+  const byteString = atob(dataURI.split(',')[1]);
+  const ab = new ArrayBuffer(byteString.length);
+  const ia = new Uint8Array(ab);
+  for (let i = 0; i < byteString.length; i++) {
+    ia[i] = byteString.charCodeAt(i);
+  }
+  return new Blob([ab], { type: 'image/png' });
+}
+
 
 const handleSaveImage = (ImageRef) => {
   if (ImageRef) {
@@ -29,7 +43,34 @@ const handleSaveImage = (ImageRef) => {
       link.download = `bathroom_${timestamp}.png`;
       // Trigger a click event to download the screenshot
       link.click();
+
+
+
+      // Convert data URI to a Blob
+      const blob = dataURItoBlob(screenshotDataUrl);
+
+      // Create a FormData object and append the blob
+      const formData = new FormData();
+      formData.append('image', screenshotDataUrl);
+
+      // Replace 'your-upload-api-endpoint' with the actual API endpoint
+      const uploadApiEndpoint = 'http://admin.interiorsparkle.com/share_image/';
+
+      // Make a POST request using Axios to upload the image
+      axios.post(uploadApiEndpoint, formData)
+        .then((response) => {
+          // Handle the response from the server if needed
+          alert("Image uploaded successfully")
+          console.log('Image uploaded successfully:', response.data);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error('Error uploading image:', error);
+        });
+
+
     });
+
   }
 };
 

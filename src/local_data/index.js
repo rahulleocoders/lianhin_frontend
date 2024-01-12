@@ -38,6 +38,7 @@ export let Room_sence = [
     {
         // img: 'https://plus.unsplash.com/premium_photo-1671269943553-3781c823e625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1966&q=80',
         img: './images/Living_Room_Scene_1.jpg',
+        id: "living_room",
         title: 'living room',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
         url: "/living"
@@ -46,13 +47,16 @@ export let Room_sence = [
     {
         // img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
         img: './images/Kitchen_Scene_1.jpg',
-        title: 'kitchen 1',
+        id: "",
+        title: 'kitchen 1 - coming soon',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
-        url: "/kitchen-1"
+        url: "",
+        // url: "/kitchen-1"
     },
     {
         // img: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
         img: './images/Kitchen_Scene_2.jpg',
+        id: "",
         title: 'kitchen 2 - coming soon',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
         url: ""
@@ -61,6 +65,7 @@ export let Room_sence = [
     {
         // img: 'https://media.istockphoto.com/id/176864782/photo/a-tiled-bathroom-with-a-wood-counter-and-orange-towels.jpg?s=2048x2048&w=is&k=20&c=gPIARORJCpk679rmS_7Nh5T039jlCgmmWV5qa4iaNGY=',
         img: './images/Bathroom_Scene_1.jpg',
+        id: "",
         title: 'bathroom 1 - coming soon',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
         url: ""
@@ -69,6 +74,7 @@ export let Room_sence = [
     {
         // img: 'https://media.istockphoto.com/id/176864782/photo/a-tiled-bathroom-with-a-wood-counter-and-orange-towels.jpg?s=2048x2048&w=is&k=20&c=gPIARORJCpk679rmS_7Nh5T039jlCgmmWV5qa4iaNGY=',
         img: './images/Bathroom_Scene_2.jpg',
+        id: "",
         title: 'bathroom 2 - coming soon',
         description: 'Lorem ipsum dolor sit amet, con sectetur adipisi cing elit. Po ssimus placeat repe llendus, volu ptatem optio a tis, fu git ipsam par iatur sunt do lor odio aliquid.',
         url: ""

@@ -5,14 +5,14 @@ import React from 'react'
 
 const ModalCard = ({ card }) => {
   return (
-    <Link href={card?.url} className='group shadow-lg border border-gray-100 rounded-md flex-1 min-w-[300px] md:max-w-[351px]'>
-      <div className=" border border-primary-color rounded-md ">
+    <Link href={card?.url} className=' group shadow-lg border border-gray-100 rounded-md flex-1 min-w-[300px] md:max-w-[351px]'>
+      <div className="one-room border border-primary-color rounded-md ">
         <div className=" aspect-video overflow-hidden rounded-md relative bg-secondary">
           <Image src={card?.img} alt={card?.title} fill={true} className='group-hover:scale-125 transition-all w-full h-full object-center' />
           {/* <ModalCardCameraPos /> */}
         </div>
         <div className="p-3">
-          <h3 className=' text-primary-color font-bold text-xl capitalize'>{card?.title}</h3>
+          <h3 id={card.id} className=' text-primary-color font-bold text-xl capitalize'>{card?.title}</h3>
         </div>
       </div>
     </Link>

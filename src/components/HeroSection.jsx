@@ -9,7 +9,7 @@ const HeroSection = () => {
     // </div>)
     return (
         <section className="h-[90vh] md:h-[calc(100vh-80px)] flex relative">
-            <div className=" absolute top-0 left-0 w-full h-full md:max-w-xl bg-white bg-opacity-20  md:bg-opacity-75 p-2 z-10">
+            <div className=" absolute top-0 left-0 w-full h-full md:max-w-xl bg-white bg-opacity-20  md:bg-opacity-75 p-2 z-[2]">
                 {/* <div className=" flex-1 bg-white bg-opacity-50 flex items-center justify-center "> */}
                 <div className=" w-full h-full flex items-center justify-center border border-white rounded-md">
                     <div className="flex flex-col max-w-md  gap-6 px-2 md:px-0">

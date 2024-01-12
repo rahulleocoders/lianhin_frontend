@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection"
 import Navbar from "@/components/Navbar"
 import WelcomPopup from "@/components/WelcomPopup"
 
-
 const page = () => {
   return (
     <>

@@ -20,7 +20,7 @@ const Header = () => {
         {/* <ChangeCameraAngle /> */}
         <div className="flex gap-5">
           <Savedemo />
-          {/* <ShareDemo /> */}
+          <ShareDemo />
         </div>
       </div>
       <Link href="/" className="flex items-center md:ml-5">

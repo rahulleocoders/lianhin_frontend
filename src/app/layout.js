@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import ReduxProvider from '@/redux/ReduxProvider'
 import { Suspense } from 'react'
+import "driver.js/dist/driver.css";
 
 const inter = Inter({ subsets: ['latin'] })
 
