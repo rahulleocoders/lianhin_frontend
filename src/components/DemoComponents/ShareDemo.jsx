@@ -24,9 +24,7 @@ export const MenuItem = ({ children }) => { return (<li className='px-2 hover:bg
 const ShareDemo = () => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
-    let Imageshare = () => {
-        alert("xjnsxn")
-    }
+
     //  global click event listener to close the dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -36,7 +34,6 @@ const ShareDemo = () => {
         else { document.removeEventListener('click', handleClickOutside); }
         return () => { document.removeEventListener('click', handleClickOutside); };
     }, [isOpen]);
-
     return (
         <div className="relative" ref={dropdownRef}>
             <div onClick={() => setIsOpen(!isOpen)}><HoverBtn><BsFillShareFill size={18} className=' text-primary-color' /></HoverBtn></div>
@@ -49,7 +46,6 @@ const ShareDemo = () => {
                             text='virtual 3d bathroom'
                         />
                     </MenuItem>
-                    <p className='cursor-pointer ' onClick={() => Imageshare()}>upload image</p>
                 </ul>
             )}
         </div>

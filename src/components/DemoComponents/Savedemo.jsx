@@ -10,6 +10,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { AiFillFileImage, AiFillFilePdf } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import Loadercomp from '../Loadercomp'
 
 
 // Convert data URI to blob
@@ -51,7 +52,7 @@ const handleSaveImage = (ImageRef) => {
 
       // Create a FormData object and append the blob
       const formData = new FormData();
-      formData.append('image', screenshotDataUrl);
+      formData.append('image', blob);
 
       // Replace 'your-upload-api-endpoint' with the actual API endpoint
       const uploadApiEndpoint = 'http://admin.interiorsparkle.com/share_image/';
@@ -141,19 +142,22 @@ const Savedemo = () => {
   }, [isOpen]);
 
   return (
-    <div className="relative" ref={dropdownRef}>
-      <div onClick={() => setIsOpen(!isOpen)}><HoverBtn><AiFillSave size={22} className=' text-primary-color' /></HoverBtn></div>
-      {isOpen && (
-        <ul className="absolute py-1 z-50 shadow-md transform translate-y-6 -translate-x-1/2 bg-white border border-primary-color rounded flex gap-1 flex-col">
-          <MenuItem>
-            <button onClick={() => handleSaveImage(currentModelRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFileImage size={20} className=' text-primary-color' /> save image</button>
-          </MenuItem>
-          <MenuItem>
-            <button disabled={true} onClick={() => handleSavePdf(currentModelRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
-          </MenuItem>
-        </ul>
-      )}
-    </div>
+    <>
+      <div className="relative" ref={dropdownRef}>
+        <div onClick={() => setIsOpen(!isOpen)}><HoverBtn><AiFillSave size={22} className=' text-primary-color' /></HoverBtn></div>
+        {isOpen && (
+          <ul className="absolute py-1 z-50 shadow-md transform translate-y-6 -translate-x-1/2 bg-white border border-primary-color rounded flex gap-1 flex-col">
+            <MenuItem>
+              <button onClick={() => handleSaveImage(currentModelRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFileImage size={20} className=' text-primary-color' /> save image</button>
+            </MenuItem>
+            <MenuItem>
+              <button disabled={true} onClick={() => handleSavePdf(currentModelRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
+            </MenuItem>
+          </ul>
+        )}
+      </div>
+      <Loadercomp  />
+    </>
   )
 }
 
