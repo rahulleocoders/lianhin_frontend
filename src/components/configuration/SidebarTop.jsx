@@ -3,8 +3,8 @@ import SortSurface from "./SortSurface"
 
 const SidebarTop = () => {
     return (
-        <div className="py-7 px-5 border-b border-secondary flex justify-between items-center">
-            <FilterSurface />
+        <div className="py-2 px-5 border-b border-secondary flex justify-between items-center">
+            {/* <FilterSurface /> */}
             <SortSurface />
         </div>
     )

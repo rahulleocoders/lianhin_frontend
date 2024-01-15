@@ -4,6 +4,7 @@ import SearchableDropdown from './SearchableDropdown'
 import SelectFilter from './SelectFilter'
 import SelectMaterial from './SelectMaterial'
 import SelectColor from './SelectColor';
+import SidebarTop from './SidebarTop';
 
 const SidebarConfig = () => {
     // const SelectFilterRef = useRef()
@@ -12,7 +13,7 @@ const SidebarConfig = () => {
 
     return (
         <div className=' border flex-1 md:max-w-[350px] h-[calc(100vh-67px)]'>
-            {/* <SidebarTop /> */}
+            <SidebarTop />
             <div className="px-3">
                 <div className={`${Is_wall_selected ? "pointer-events-none opacity-50" : ""}`}>
                     <SearchableDropdown

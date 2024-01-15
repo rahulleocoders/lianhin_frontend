@@ -11,10 +11,11 @@ import { AiFillFileImage, AiFillFilePdf } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import Loadercomp from '../Loadercomp'
+import { Backend_url } from '@/local_data'
 
 
 // Convert data URI to blob
-function dataURItoBlob(dataURI) {
+export function  dataURItoBlob(dataURI) {
   const byteString = atob(dataURI.split(',')[1]);
   const ab = new ArrayBuffer(byteString.length);
   const ia = new Uint8Array(ab);
@@ -25,8 +26,9 @@ function dataURItoBlob(dataURI) {
 }
 
 
-const handleSaveImage = (ImageRef) => {
+const handleSaveImage = (ImageRef, setLoadingMessage) => {
   if (ImageRef) {
+    setLoadingMessage("Generating Image for download")
     // if (ImageRef.current) {
     let currentdate = new Date()
     let timestamp = `${currentdate.getMinutes()}_${currentdate.getSeconds()}`
@@ -41,28 +43,29 @@ const handleSaveImage = (ImageRef) => {
       // Create a download link
       const link = document.createElement('a');
       link.href = screenshotDataUrl;
-      link.download = `bathroom_${timestamp}.png`;
+      link.download = `living${timestamp}.png`;
       // Trigger a click event to download the screenshot
       link.click();
 
-
+      setLoadingMessage("")
 
       // Convert data URI to a Blob
       const blob = dataURItoBlob(screenshotDataUrl);
 
       // Create a FormData object and append the blob
       const formData = new FormData();
-      formData.append('image', blob);
+      // formData.append('image', blob);
+      formData.append('image', new File([blob], `living${timestamp}.png`, { type: 'image/png', lastModified: Date.now(), }));
 
       // Replace 'your-upload-api-endpoint' with the actual API endpoint
-      const uploadApiEndpoint = 'http://admin.interiorsparkle.com/share_image/';
+      const uploadApiEndpoint = `${Backend_url}/share_image/`;
 
       // Make a POST request using Axios to upload the image
       axios.post(uploadApiEndpoint, formData)
         .then((response) => {
           // Handle the response from the server if needed
-          alert("Image uploaded successfully")
-          console.log('Image uploaded successfully:', response.data);
+          // alert("Image uploaded successfully", `${Backend_url}/${response.data.message.image}`)
+          console.log('Image uploaded successfully:', `${Backend_url}${response.data.message.image}`);
         })
         .catch((error) => {
           // Handle errors
@@ -76,7 +79,8 @@ const handleSaveImage = (ImageRef) => {
 };
 
 
-const handleSavePdf = async (ImageRef) => {
+const handleSavePdf = async (ImageRef, setLoadingMessage) => {
+  setLoadingMessage('Generating PDF for download')
   let screenshotDataUrl
   let currentdate = new Date();
   let timestamp = `${currentdate.getMinutes()}_${currentdate.getSeconds()}`;
@@ -119,6 +123,7 @@ const handleSavePdf = async (ImageRef) => {
 
       // Download the PDF
       pdfDoc.download(`example_${timestamp}.pdf`);
+      setLoadingMessage('')
     });
   } catch (error) {
     console.error('Error generating PDF:', error);
@@ -128,6 +133,7 @@ const handleSavePdf = async (ImageRef) => {
 
 const Savedemo = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('')
   const dropdownRef = useRef(null);
   const currentModelRef = useSelector((state) => state.CommonState?.currentModelRef);
 
@@ -148,15 +154,15 @@ const Savedemo = () => {
         {isOpen && (
           <ul className="absolute py-1 z-50 shadow-md transform translate-y-6 -translate-x-1/2 bg-white border border-primary-color rounded flex gap-1 flex-col">
             <MenuItem>
-              <button onClick={() => handleSaveImage(currentModelRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFileImage size={20} className=' text-primary-color' /> save image</button>
+              <button onClick={() => { handleSaveImage(currentModelRef, setLoadingMessage); setIsOpen(!isOpen) }} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFileImage size={20} className=' text-primary-color' /> save image</button>
             </MenuItem>
             <MenuItem>
-              <button disabled={true} onClick={() => handleSavePdf(currentModelRef)} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
+              <button onClick={() => { handleSavePdf(currentModelRef, setLoadingMessage); setIsOpen(!isOpen) }} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
             </MenuItem>
           </ul>
         )}
       </div>
-      <Loadercomp  />
+      {loadingMessage && <Loadercomp message={loadingMessage} />}
     </>
   )
 }

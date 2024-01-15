@@ -48,7 +48,7 @@ const SelectMaterial = ({ }) => {
     // const abortController = new AbortController();
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${Backend_url}/model/?brand=${SelctFilterData?.brand ? SelctFilterData?.brand : ""}&collection=${SelctFilterData?.collection ? SelctFilterData?.collection : ""}&series=${SelctFilterData?.series ? SelctFilterData?.series : ""}&color=${SelctFilterData?.color ? SelctFilterData?.color : ""}&surfacefinish=&profile=${SelctFilterData?.profile ? SelctFilterData?.profile : ""}&sort=`);
+            const response = await axios.get(`${Backend_url}/model/?brand=${SelctFilterData?.brand ? SelctFilterData?.brand : ""}&collection=${SelctFilterData?.collection ? SelctFilterData?.collection : ""}&series=${SelctFilterData?.series ? SelctFilterData?.series : ""}&color=${SelctFilterData?.color ? SelctFilterData?.color : ""}&surfacefinish=&profile=${SelctFilterData?.profile ? SelctFilterData?.profile : ""}&sort=desc`);
             // const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`, { signal: abortController.signal });
             const data = response.data.data;
             setSetsurfaceData(data)

@@ -1,11 +1,11 @@
 const SortSurface = () => {
     return (
-        <div className="">
-            <select className=" rounded-3xl py-1 border-secondary text-secondary active:ring-transparent focus:ring-transparent active:border-secondary focus:border-secondary text-xs">
-                <option value="xsjnxj">Sort by: Price: Low to High</option>
-                <option value="xsjnxj">Sort by: Price: High to Low</option>
-                <option value="xsjnxj">Sort by: Newest</option>
-                <option value="xsjnxj">Sort by: Most selling</option>
+        <div className="w-full">
+            <select className="w-full rounded-3xl py-2 border-secondary text-secondary active:ring-transparent focus:ring-transparent active:border-secondary focus:border-secondary text-xs">
+                <option value="xsjnxj">Sort by: Newest tiles</option>
+                <option value="xsjnxj">Sort by: Popular tiles</option>
+                <option value="xsjnxj">Sort by: Pricing - low to high</option>
+                <option value="xsjnxj">Sort by: Pricing - high to low</option>
             </select>
         </div>
     )
