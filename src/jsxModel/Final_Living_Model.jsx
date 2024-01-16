@@ -6,6 +6,7 @@ import { useSelector } from "react-redux"
 import * as THREE from 'three';
 import { Reflector, MeshReflectorMaterial } from '@react-three/drei';
 import { useThree } from "react-three-fiber";
+import { driver } from "driver.js";
 
 export let GlassMaterial = () => {
     return (
@@ -31,19 +32,76 @@ export const MirrorMaterial = () => {
         />
     );
 };
+
+const model_Walkthrough = () => {
+    let driverobj = driver({
+        showProgress: true,
+        steps: [
+            {
+                element: "#TVConsole",
+                popover: {
+                    className: "first-step-popover-class",
+                    title: "Select Hotspot",
+                    description: "Explore different surfaces by selecting areas with hotspots.",
+                    position: "left",
+                    side: "left",
+                    align: 'start'
+                },
+            },
+            {
+                element: ".material-conatiner .material:nth-child(1)",
+                popover: {
+                    className: "first-step-popover-class",
+                    title: "Select Surfaces",
+                    description: "Choosing surfaces enables you to visualize changes in the selected area as you apply different surface options.",
+                    position: "left",
+                    side: "left",
+                    align: 'start'
+                },
+            },
+            {
+                element: "#filter_surface",
+                popover: {
+                    className: "first-step-popover-class",
+                    title: "Surface Filtering Options",
+                    description: "Explore advanced filtering options to refine surfaces based on brand, collection, series, and color preferences.",
+                    position: "left",
+                    side: "left",
+                    align: 'start'
+                },
+            },
+            {
+                element: "#sort_surface",
+                popover: {
+                    className: "first-step-popover-class",
+                    title: "Surface Sorting Options",
+                    description: "Sort the surfaces based on newness, popularity, and price.",
+                    position: "left",
+                    side: "left",
+                    align: 'start'
+                },
+            },
+        ]
+    });
+
+    driverobj.drive();
+};
+
 const Final_Living_Model = (props) => {
     const loader = new THREE.TextureLoader();
     const group = useRef()
-    const spotLightRef = useRef();
-    const { scene } = useThree();
+    const spotLightRef = useRef();// const { scene } = useThree();
 
     useEffect(() => {
+
         if (spotLightRef.current) {
             // Rotate the spotlight by changing its position
             spotLightRef.current.position.set(1, 1, 0);
             // Adjust the spotlight target position as needed
             spotLightRef.current.target.position.set(-180, 90, 90);
         }
+        setTimeout(() => model_Walkthrough(), 10);
+
     }, []);
 
     const { nodes, materials } = useGLTF('./blender_model/FinalHall.glb')

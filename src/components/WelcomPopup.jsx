@@ -2,26 +2,29 @@
 import { Modal } from "flowbite-react"
 import { driver } from "driver.js";
 import { useState } from "react"
+
+export const StartWalkthrough = driver({
+    // showProgress: true,
+    // allowClose: false,
+    steps: [
+        {
+            element: "#let_start_now",
+            popover: {
+                className: "first-step-popover-class",
+                title: "Title on Popover",
+                description: "Body of the popover",
+                position: "left",
+            },
+        },
+    ]
+});
+
 const WelcomPopup = () => {
     const [open, setOpen] = useState(true)
-    const driverObj = driver({
-        showProgress: true,
-        // allowClose: false,
-        steps: [
-            {
-                element: "#let_start_now",
-                popover: {
-                    className: "first-step-popover-class",
-                    title: "Title on Popover",
-                    description: "Body of the popover",
-                    position: "left",
-                },
-            },
-        ]
-    });
+
     return (
         <>
-            <Modal className=" " show={open} size="lg" onClose={() => { setOpen(false); driverObj.drive(); }} >
+            <Modal className=" " show={open} size="lg" onClose={() => { setOpen(false); StartWalkthrough.drive(); }} >
                 <Modal.Header className=" border-none pb-0">
                 </Modal.Header>
                 <Modal.Body className=" pt-0">

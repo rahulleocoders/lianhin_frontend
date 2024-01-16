@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState =
 {
     currentModelRef: null,
-    SelctFilterData: {}
+    SelctFilterData: {},
+    sortingParameter:"sort=&is_most_popular=&is_new="
 };
 
 

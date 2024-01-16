@@ -6,14 +6,14 @@ import { Environment, Html, MeshReflectorMaterial, OrbitControls, PerspectiveCam
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Suspense, useEffect, useRef, useState } from "react"
 import { useDispatch } from "react-redux"
-import { PointLight } from "three"
+// import { PointLight } from "three"
 
 
 const CanvasEnvironment = ({ children, CameraPosition, Annotationposition, Cameratarget, minPolarAngle, maxPolarAngle, minAzimuthAngle, maxAzimuthAngle, minDistance, maxDistance, }) => {
     const dispatch = useDispatch()
     const canvasRef = useRef()
     const cameraRef = useRef();
-    // const { progress } = useProgress()
+    // const { active, progress } = useProgress()
     // const BathroomParameter = useSelector((state) => state.BathroomParameter?.present);
     // const CommonState = useSelector((state) => state.CommonState);
     // let bathroom_Active_element = BathroomParameter.ActiveObject

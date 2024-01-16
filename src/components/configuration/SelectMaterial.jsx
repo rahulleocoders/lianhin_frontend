@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 let Palletcard = ({ label, img, color, onClick, recommended, popular }) => {
     return (
-        <div className=" p-1  border border-secondary flex-1 min-w-[110px] rounded-md cursor-pointer max-w-[46%]"
+        <div className="material p-1 border border-secondary flex-1 min-w-[110px] rounded-md cursor-pointer max-w-[46%]"
             onClick={onClick}>
             <div className=" aspect-square rounded-md overflow-hidden border relative" style={{ background: color ? color : '#707070' }}>
                 {img && <Image src={img} alt={img} fill={true} className=" w-full h-full object-cover" />}
@@ -48,7 +48,8 @@ const SelectMaterial = ({ }) => {
     // const abortController = new AbortController();
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${Backend_url}/model/?brand=${SelctFilterData?.brand ? SelctFilterData?.brand : ""}&collection=${SelctFilterData?.collection ? SelctFilterData?.collection : ""}&series=${SelctFilterData?.series ? SelctFilterData?.series : ""}&color=${SelctFilterData?.color ? SelctFilterData?.color : ""}&surfacefinish=&profile=${SelctFilterData?.profile ? SelctFilterData?.profile : ""}&sort=desc`);
+            const response = await axios.get(`${Backend_url}/model/?brand=${SelctFilterData?.brand ? SelctFilterData?.brand : ""}&collection=${SelctFilterData?.collection ? SelctFilterData?.collection : ""}&series=${SelctFilterData?.series ? SelctFilterData?.series : ""}&color=${SelctFilterData?.color ? SelctFilterData?.color : ""}&surfacefinish=&profile=${SelctFilterData?.profile ? SelctFilterData?.profile : ""}&${CommonState.sortingParameter}`);
+            // const response = await axios.get(`${Backend_url}/model/?brand=${SelctFilterData?.brand ? SelctFilterData?.brand : ""}&collection=${SelctFilterData?.collection ? SelctFilterData?.collection : ""}&series=${SelctFilterData?.series ? SelctFilterData?.series : ""}&color=${SelctFilterData?.color ? SelctFilterData?.color : ""}&surfacefinish=&profile=${SelctFilterData?.profile ? SelctFilterData?.profile : ""}&sort=desc`);
             // const response = await axios.get(`${Backend_url}model/?brand=&color=&surfacefinish=&sort=`, { signal: abortController.signal });
             const data = response.data.data;
             setSetsurfaceData(data)
@@ -73,7 +74,7 @@ const SelectMaterial = ({ }) => {
         fetchData();
         // return () => { abortController.abort(); };
         // }, []);
-    }, [CommonState.SelctFilterData]);
+    }, [CommonState.SelctFilterData, CommonState.sortingParameter]);
 
     let ApplySurface = (imgurl) => {
         if (currentPage == "bathroom") {
@@ -109,7 +110,7 @@ const SelectMaterial = ({ }) => {
             {/*on second tab call function to  to get the color pallett*/}
 
             {/* <div className={`flex gap-6 max-h-[${Is_wall_selected ? '90vh' : '52vh'}] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth`}>  max-h-[64vh] */}
-            <div className={`flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth`}>  {/* max-h-[64vh] */}
+            <div className={`material-conatiner flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth`}>  {/* max-h-[64vh] */}
 
                 {
                     setsurfaceData?.length > 0 ?

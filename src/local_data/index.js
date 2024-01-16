@@ -250,6 +250,7 @@ export let BathroomAnnotationArray = [
 export let LivingroomAnnotationArray = [
     {
         title: "floor",
+        id: "",
         spotNumber: 1,
         description: "<p>Click on this to change the floor tiles</p>",
         camPos: {
@@ -268,6 +269,7 @@ export let LivingroomAnnotationArray = [
     },
     {
         title: "CoffeTable",
+        id: "",
         spotNumber: 2,
         description: "<p>wall tiles</p>",
         camPos: {
@@ -283,6 +285,7 @@ export let LivingroomAnnotationArray = [
     },
     {
         title: "TVConsole",
+        id: "TVConsole",
         spotNumber: 3,
         description: "<p>cabibate</p>",
         camPos: {
@@ -298,6 +301,7 @@ export let LivingroomAnnotationArray = [
     },
     {
         title: "wall",
+        id: "",
         spotNumber: 4,
         description: "<p>door</p>",
         camPos: {

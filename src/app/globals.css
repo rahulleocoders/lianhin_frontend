@@ -8,11 +8,16 @@
   box-sizing: border-box;
 }
 
-.speener-loader {
-  @apply  drop-shadow-2xl border-t-amber-500 border-r-blue-500 border-b-rose-500 border-l-green-500 rounded-full animate-spin
+.driver-overlay {
+  z-index: 100999900 !important;
 }
-.select{
-  @apply  capitalize rounded-3xl py-1 border-secondary text-secondary active:ring-transparent focus:ring-transparent active:border-secondary focus:border-secondary text-base w-full
+
+.speener-loader {
+  @apply drop-shadow-2xl border-t-amber-500 border-r-blue-500 border-b-rose-500 border-l-green-500 rounded-full animate-spin
+}
+
+.select {
+  @apply capitalize rounded-3xl py-1 border-secondary text-secondary active:ring-transparent focus:ring-transparent active:border-secondary focus:border-secondary text-base w-full
 }
 
 /* width */

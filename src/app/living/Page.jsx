@@ -36,6 +36,7 @@ const Page = () => {
                     {/* <LivingModel /> */}
                 </CanvasEnvironment>
             </Demolayout>
+            <div></div>
         </div >
     )
 }
