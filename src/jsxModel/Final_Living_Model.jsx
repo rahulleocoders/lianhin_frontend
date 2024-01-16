@@ -49,7 +49,7 @@ const model_Walkthrough = () => {
                 },
             },
             {
-                element: ".material-conatiner .material:nth-child(1)",
+                element: ".material-conatiner .material:nth-child(2)",
                 popover: {
                     className: "first-step-popover-class",
                     title: "Select Surfaces",

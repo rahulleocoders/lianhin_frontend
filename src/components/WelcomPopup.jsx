@@ -11,8 +11,8 @@ export const StartWalkthrough = driver({
             element: "#let_start_now",
             popover: {
                 className: "first-step-popover-class",
-                title: "Title on Popover",
-                description: "Body of the popover",
+                title: "Let's Begin",
+                description: "Embark on your 3D journey with us.",
                 position: "left",
             },
         },

@@ -15,7 +15,7 @@ import { Backend_url } from '@/local_data'
 
 
 // Convert data URI to blob
-export function  dataURItoBlob(dataURI) {
+export function dataURItoBlob(dataURI) {
   const byteString = atob(dataURI.split(',')[1]);
   const ab = new ArrayBuffer(byteString.length);
   const ia = new Uint8Array(ab);
@@ -96,6 +96,19 @@ const handleSavePdf = async (ImageRef, setLoadingMessage) => {
       // Define the content of the PDF document
       const documentDefinition = {
         content: [
+          {
+            columns: [
+              // // Column 1
+              // 'This is some additional text.',
+              // // Column 2 (with the image)
+              { image: screenshotDataUrl, width: 500, innerHeight: 500 },
+            ],
+            columnGap: 10, // Adjust the gap between columns as needed
+            columns: [
+              { image: screenshotDataUrl, width: 200 },
+              { image: screenshotDataUrl, width: 200 },
+            ]
+          },
           'Hello, this bathroom created by lian hin 3D visualization Concept!',
           { text: 'try 3D word with lian hin', fontSize: 14 },
           { text: 'Up comming models', fontSize: 14 },
