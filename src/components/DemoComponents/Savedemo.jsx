@@ -173,14 +173,17 @@ const Savedemo = () => {
             <MenuItem>
               <button onClick={() => { handleSaveImage(currentModelRef, setLoadingMessage); setIsOpen(!isOpen) }} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFileImage size={20} className=' text-primary-color' /> save image</button>
             </MenuItem>
-            <MenuItem>
+            {/* <MenuItem>
               <button onClick={() => { handleSavePdf(currentModelRef, setLoadingMessage); setIsOpen(!isOpen) }} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
+            </MenuItem> */}
+            <MenuItem>
+              <button onClick={() => { setPdfpopup(!pdfpopup); setIsOpen(!isOpen) }} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
             </MenuItem>
-            <button type='button' onClick={() => { setPdfpopup(!pdfpopup) }}>ssswsswdd</button>
+            {/* <button type='button' onClick={() => { setPdfpopup(!pdfpopup) }}>ssswsswdd</button> */}
           </ul>
         )}
       </div>
-      {/* {loadingMessage && <Loadercomp message={loadingMessage} />} */}
+      {loadingMessage && <Loadercomp message={loadingMessage} />}
 
       {pdfpopup && <PdfLayout currentModelRef={currentModelRef} setPdfpopup={setPdfpopup} />}
 
