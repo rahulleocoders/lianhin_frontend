@@ -12,6 +12,9 @@ import { useSelector } from 'react-redux'
 import axios from 'axios'
 import Loadercomp from '../Loadercomp'
 import { Backend_url } from '@/local_data'
+import { Modal } from 'flowbite-react'
+import { Margin, usePDF } from 'react-to-pdf'
+import PdfLayout from '../PdfLayout'
 
 
 // Convert data URI to blob
@@ -143,10 +146,10 @@ const handleSavePdf = async (ImageRef, setLoadingMessage) => {
   }
 };
 
-
 const Savedemo = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState('')
+  const [pdfpopup, setPdfpopup] = useState(false)
   const dropdownRef = useRef(null);
   const currentModelRef = useSelector((state) => state.CommonState?.currentModelRef);
 
@@ -160,6 +163,7 @@ const Savedemo = () => {
     return () => { document.removeEventListener('click', handleClickOutside); };
   }, [isOpen]);
 
+
   return (
     <>
       <div className="relative" ref={dropdownRef}>
@@ -172,10 +176,14 @@ const Savedemo = () => {
             <MenuItem>
               <button onClick={() => { handleSavePdf(currentModelRef, setLoadingMessage); setIsOpen(!isOpen) }} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
             </MenuItem>
+            <button type='button' onClick={() => { setPdfpopup(!pdfpopup) }}>ssswsswdd</button>
           </ul>
         )}
       </div>
-      {loadingMessage && <Loadercomp message={loadingMessage} />}
+      {/* {loadingMessage && <Loadercomp message={loadingMessage} />} */}
+
+      {pdfpopup && <PdfLayout currentModelRef={currentModelRef} setPdfpopup={setPdfpopup} />}
+
     </>
   )
 }
