@@ -1,180 +1,191 @@
-'use client'
-import { useGLTF } from "@react-three/drei"
-import { useRef } from "react"
-import { useSelector } from "react-redux"
+import React, { useRef } from 'react'
+import { MeshPortalMaterial, MeshReflectorMaterial, useGLTF, useTexture } from '@react-three/drei'
+import { AdditiveBlending } from 'three'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three';
-// import { useLoader } from "@react-three/fiber";
-// import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
+
+
 
 const LivingModel = (props) => {
     const loader = new THREE.TextureLoader();
-    const group = useRef()
-    const { nodes, materials } = useGLTF('./blender_model/living.glb')
+    const texture = useTexture('./images/finalhallwithbake.jpg')
+    texture.flipY = false;
+    texture.encoding = THREE.sRGBEncoding;
     const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present);
-    const floorTexture = loader.load(LivingroomParameter.floor?.texture, (texture) => {
-        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set(10, 10);
+
+    const textureMaterial = new THREE.MeshStandardMaterial({
+        map: texture,
+        transparent: true,
+        opacity: 1,
     });
 
-    const tvTopLeft = loader.load(LivingroomParameter.TVConsole?.texture, (texture) => {
+    const floorTexture = loader.load(LivingroomParameter.floor?.texture, (texture) => {
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(5, 5);
+    });
+    const tvconsoleLeft = loader.load(LivingroomParameter.TVConsole?.texture, (texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(1, 1);
     });
-    const tvTopRight = loader.load(LivingroomParameter.TVConsole?.texture, (texture) => {
+    const tvconsoleRight = loader.load(LivingroomParameter.TVConsole?.texture, (texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(1, 1);
     });
+
+    tvconsoleRight.flipY = false; // tvconsoleRight.repeat.x = -1; tvconsoleRight.center.set(0.5, 0.5);
+    tvconsoleRight.rotation = Math.PI;
 
     const CoffeeTableTexture = loader.load(LivingroomParameter.CoffeTable?.texture, (texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(1, 1);
     });
 
+    let wall_color = LivingroomParameter?.wall.color
 
-    tvTopRight.flipY = false;
-    // tvTopRight.repeat.x = -1; tvTopRight.center.set(0.5, 0.5);
-    tvTopRight.rotation = Math.PI;
-
+    const { nodes, materials } = useGLTF("./blender_model/finalhallwithbake.glb");
     return (
-        <group ref={group} {...props} dispose={null}>
-            <group position={[-12.36, 0, 0]} scale={0.81}>
-                <mesh
-                    geometry={nodes.Cylinder001.geometry}
-                    material={materials['Old Wood']}
-                    position={[0, 0.05, 0]}
-                    scale={0.05}
-                />
-                <mesh
-                    geometry={nodes.Plane001.geometry}
-                    material={materials['Sofa_Fabric Optimus Sand']}
-                    position={[-17.52, 0.21, 22.75]}
-                    rotation={[-Math.PI, 0, -Math.PI]}
-                    scale={[10.41, 10.93, 6.6]}
-                />
-            </group>
-            <group position={[-34.19, 0.5, 4.42]} scale={[1, 1.92, 1.47]}>
-                <mesh
-                    geometry={nodes.Plane002.geometry}
-                    material={nodes.Plane002.material}
-                    position={[-0.11, 0.06, -4.37]}
-                    scale={4.58}
-                />
-                <mesh
-                    geometry={nodes.Plane003.geometry}
-                    material={nodes.Plane003.material}
-                    position={[-0.11, 0.06, 0.04]}
-                    scale={4.58}
-                />
-            </group>
-            <group position={[-12.36, 0, 17.3]}>
-                <group position={[-5.02, 3.69, -9.85]} scale={[1.21, 1.78, 1.21]}>
-                    <mesh geometry={nodes.trunk022.geometry} material={materials['trunk.020']} />
-                    <mesh geometry={nodes.trunk022_1.geometry} material={materials['Leaves.005']} />
-                </group>
-            </group>
-            <mesh
-                geometry={nodes.wall.geometry}
-                material={materials.Material}
-                position={[-15.74, 12.98, -0.06]}
-                rotation={[0, 0, -Math.PI]}
-                scale={[-19.04, -12.59, -0.33]}
-                material-color='blue'
-            />
-            <mesh
-                geometry={nodes.flore.geometry}
-                material={materials['Marble Tile 4']}
-                position={[-15.75, 0.17, 12.7]}
-                rotation={[-Math.PI, 0, -Math.PI]}
-                scale={[-20.06, -0.23, -13.15]}
-            // material-color='yellow'
-            >
-                <meshStandardMaterial
-                    map={floorTexture}
-                    side={THREE.DoubleSide}
-                    roughness={0.5}
-                    metalness={0.2}
-                />
-            </mesh>
-            <mesh
-                geometry={nodes.wall001.geometry}
-                material={materials['Material.004']}
-                position={[3.61, 12.97, 12.93]}
-                rotation={[-Math.PI, 0, 0]}
-                scale={[-0.28, -12.58, -13.33]}
-                // material-color='red'
-            />
-            <mesh
-                geometry={nodes.wall002.geometry}
-                material={materials['Material.005']}
-                position={[-35.06, 12.97, 12.99]}
-                rotation={[-Math.PI, 0, -0.01]}
-                scale={[-0.28, -12.58, -13.35]}
-            />
-            <mesh
-                geometry={nodes.celling.geometry} // material={nodes.celling.material}
-                material={new THREE.MeshBasicMaterial({ color: 'white', side: THREE.DoubleSide })}
-                position={[-15.71, 25.91, 11.98]}
-                scale={[19.75, 0.37, 12.41]}
-            />
-            <mesh
-                geometry={nodes.wall_wood.geometry}
-                material={nodes.wall_wood.material}
-                position={[-31.52, 12.93, 0.24]}
-                scale={[3.32, 12.6, 0.24]}
-            />
+        <group {...props} dispose={null}>
 
-
-            <mesh
-                geometry={nodes.wallplate1.geometry}
-                material={nodes.wallplate1.material}
-                position={[-22, 12.92, 0.33]} // scale={[6.24, 12.64, 0.11]}
-            >
-                <boxGeometry args={[12.5, 25.15, 0.15]} />
-                <meshStandardMaterial
-                    map={tvTopLeft} side={THREE.DoubleSide}
-                    roughness={0.5} metalness={0.2}
-                />
-            </mesh>
-            <mesh
-                geometry={nodes.wallplate2.geometry}
-                material={nodes.wallplate2.material}
-                position={[-9.46, 12.92, 0.33]}
-
-            >
-                <boxGeometry args={[12.5, 25.15, 0.15]} />
-                <meshStandardMaterial
-                    map={tvTopRight} side={THREE.DoubleSide}
-                    roughness={0.5} metalness={0.2}
+            {/* reflective floor surface */}
+            <mesh position={[0, -1.27, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+                <planeGeometry args={[3.85, 2.8, 10]} />
+                <MeshReflectorMaterial
+                    map={floorTexture} // Apply the texture here
+                    resolution={720}
+                    args={[35, 27]} // Adjust the size of the reflector
+                    mirror={0.3}
+                    mixBlur={8}
+                    mixStrength={0.5}
                 />
             </mesh>
 
-
-            {/* <mesh
-                geometry={nodes.wallplate1.geometry}
-                material={nodes.wallplate1.material}
-                position={[-22, 12.92, 0.33]}
-                scale={[6.24, 12.64, 0.11]}
-            /> */}
-            {/* <mesh
-                geometry={nodes.wallplate2.geometry}
-                material={nodes.wallplate2.material}
-                position={[-9.46, 12.92, 0.33]}
-                scale={[6.24, 12.64, 0.11]}
-            /> */}
-
-            <group position={[-15.69, 11.06, 0.67]} rotation={[Math.PI / 2, 0, 0]} scale={[3.89, 2.73, 3.81]}>
-                <mesh geometry={nodes.Plane.geometry} material={materials['Material.009']} />
-                <mesh geometry={nodes.Plane_1.geometry} material={materials['Material.010']} />
-            </group>
-            <group position={[-15.74, 2.58, 1.85]} scale={[12.53, 1.32, 1.45]}>
-                <mesh geometry={nodes.Cube018.geometry} material={materials['Material.011']} />
-                <mesh geometry={nodes.Cube018_1.geometry} material={materials['Material.012']} />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.left_wall.geometry}
+            // material={nodes.left_wall.material}
+            >
+                <meshStandardMaterial color={wall_color} />
+            </mesh>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.right_wall.geometry}
+            // material={nodes.right_wall.material}
+            >
+                <meshStandardMaterial color={wall_color} />
+            </mesh>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.celling.geometry}
+                material={nodes.celling.material}
+            />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.floor.geometry}
+            // material={nodes.floor.material}
+            />
+            <group position={[0.131, -1.03, -0.475]} scale={0.99}>
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Plane057.geometry}
+                    material={textureMaterial}
+                />
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Plane057_1.geometry}
+                    material={textureMaterial}
+                />
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Plane057_2.geometry}
+                    material={textureMaterial}
+                />
             </group>
             <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.tv001.geometry}
+                material={textureMaterial}
+                position={[0, 0.028, -1.257]}
+            />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Cube.geometry}
+                material={textureMaterial}
+                position={[1.651, 0.003, -1.293]}
+            />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Cube001.geometry}
+                material={textureMaterial}
+                position={[-1.655, 0.003, -1.293]}
+            />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Cube002.geometry}
+                material={textureMaterial}
+                position={[-1.417, -1.124, 0.493]}
+                scale={[1.061, 0.906, 1]}
+            />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.wall_plane001.geometry}
+                position={[-0.702, 0.03, -1.3]}
+            // material={nodes.wall_plane001.material}
+            >
+                <boxGeometry
+                    args={[1.4, 2.5, 0.03]}
+                />
+                <MeshReflectorMaterial
+                    map={tvconsoleLeft} // Apply the texture here
+                    resolution={720}
+                    args={[35, 27]} // Adjust the size of the reflector
+                    mirror={0.2}
+                    // mirror={1}
+                    mixBlur={8}
+                    mixStrength={0.5}
+                />
+            </mesh>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.wall_plane.geometry}
+                // material={nodes.wall_plane.material}
+                position={[0.702, 0.03, -1.3]}
+            >
+                <boxGeometry args={[1.4, 2.5, 0.03]} />
+                <MeshReflectorMaterial
+                    map={tvconsoleRight} // Apply the texture here
+                    resolution={720}
+                    args={[35, 27]} // Adjust the size of the reflector
+                    mirror={0.2}
+                    mixBlur={8}
+                    mixStrength={0.5}
+                />
+            </mesh>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.cabinate.geometry}
+                material={textureMaterial}
+            />
+            <mesh
+                castShadow
+                receiveShadow
                 geometry={nodes.table.geometry}
-                material={materials['Black Marble']}
-                position={[-15.43, 1.74, 8.67]}
-                scale={[2.93, 1.38, 3.28]}
+                // material={textureMaterial}
+                scale={[1.427, 1, 1]}
             >
                 <meshStandardMaterial
                     map={CoffeeTableTexture}
@@ -183,41 +194,43 @@ const LivingModel = (props) => {
                     metalness={0.2}
                 />
             </mesh>
-
-
-
-
-
             <mesh
-                geometry={nodes.wall_wood001.geometry}
-                material={nodes.wall_wood001.material}
-                position={[0.01, 12.93, 0.24]}
-                scale={[3.32, 12.6, 0.24]}
+                castShadow
+                receiveShadow
+                geometry={nodes.parda.geometry}
+                material={textureMaterial}
             />
-            <group position={[-14.61, 3.12, 8.3]} scale={9.2}>
-                <mesh geometry={nodes.Plane008.geometry} material={nodes.Plane008.material} />
-                <mesh geometry={nodes.Plane008_1.geometry} material={nodes.Plane008_1.material} />
-                <mesh geometry={nodes.Plane008_2.geometry} material={nodes.Plane008_2.material} />
-                <group position={[0.03, 0.02, 0]} rotation={[0, 0.03, 0]}>
-                    <mesh geometry={nodes.Plane006.geometry} material={nodes.Plane006.material} />
-                    <mesh geometry={nodes.Plane006_1.geometry} material={nodes.Plane006_1.material} />
-                    <mesh geometry={nodes.Plane006_2.geometry} material={nodes.Plane006_2.material} />
-                </group>
-                <group position={[0.03, 0.01, 0]} rotation={[0, -0.17, 0]}>
-                    <mesh geometry={nodes.Plane007.geometry} material={nodes.Plane007.material} />
-                    <mesh geometry={nodes.Plane007_1.geometry} material={nodes.Plane007_1.material} />
-                    <mesh geometry={nodes.Plane007_2.geometry} material={nodes.Plane007_2.material} />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.glass.geometry}
+                // material={materials.Glass}
+                position={[-0.145, 0, 0]}
+            >
+                {/* <boxGeometry /> */}
+                <meshBasicMaterial color="#ffffff" opacity={0.4} transparent />
+            </mesh>
+
+            <group position={[-0.262, -0.854, -0.564]} scale={0.115}>
+                <group position={[0, -0.794, 0]}>
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.trunk022.geometry}
+                        material={textureMaterial}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.trunk022_1.geometry}
+                        material={textureMaterial}
+                    />
                 </group>
             </group>
-            <mesh
-                geometry={nodes.Cup_Glass.geometry}
-                material={materials.Glass}
-                position={[-17.42, 3.11, 7.54]}
-                scale={9.77}
-            />
         </group>
-    )
+    );
 }
-useGLTF.preload('./blender_model/living.glb')
 
+useGLTF.preload("./blender_model/finalhallwithbake.glb");
+useTexture.preload("./images/finalhallwithbake.jpg");
 export default LivingModel

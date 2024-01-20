@@ -259,9 +259,9 @@ export let LivingroomAnnotationArray = [
             z: 20
         },
         position: {
-            x: -24,
-            y: 5,
-            z: 7
+            x: -1.1,
+            y: -1.2,
+            z: -0.5
             // x: -25,
             // y: 0,
             // z: 0
@@ -278,9 +278,9 @@ export let LivingroomAnnotationArray = [
             z: 0.66
         },
         position: {
-            x: -18,
-            y: 6.5,
-            z: 7
+            x: -0.1,
+            y: -0.9,
+            z: -0.3
         }
     },
     {
@@ -294,9 +294,9 @@ export let LivingroomAnnotationArray = [
             z: 5.06
         },
         position: {
-            x: -16.35,
-            y: 21,
-            z: 0
+            x: -0.06,
+            y: 0.7,
+            z: -1.5
         }
     },
     {
@@ -310,27 +310,97 @@ export let LivingroomAnnotationArray = [
             z: 5.06
         },
         position: {
-            x: 3,
-            y: 15,
-            z: 1
+            x: 1.7,
+            y: 0,
+            z: -0.5
         }
     },
-    // {
-    //     title: "Feature_Wall",
-    //     spotNumber: 4,
-    //     description: "<p>door</p>",
-    //     camPos: {
-    //         x: 13.05,
-    //         y: 4.35,
-    //         z: 5.06
-    //     },
-    //     position: {
-    //         x: -1,
-    //         y: 13,
-    //         z: 0
-    //     }
-    // },
+
 ]
+// export let LivingroomAnnotationArray = [
+//     {
+//         title: "floor",
+//         id: "",
+//         spotNumber: 1,
+//         description: "<p>Click on this to change the floor tiles</p>",
+//         camPos: {
+//             x: 50,
+//             y: -50,
+//             z: 20
+//         },
+//         position: {
+//             x: -24,
+//             y: 5,
+//             z: 7
+//             // x: -25,
+//             // y: 0,
+//             // z: 0
+//         }
+//     },
+//     {
+//         title: "CoffeTable",
+//         id: "",
+//         spotNumber: 2,
+//         description: "<p>wall tiles</p>",
+//         camPos: {
+//             x: 7.13,
+//             y: 1.15,
+//             z: 0.66
+//         },
+//         position: {
+//             x: -18,
+//             y: 6.5,
+//             z: 7
+//         }
+//     },
+//     {
+//         title: "TVConsole",
+//         id: "TVConsole",
+//         spotNumber: 3,
+//         description: "<p>cabibate</p>",
+//         camPos: {
+//             x: 13.05,
+//             y: 4.35,
+//             z: 5.06
+//         },
+//         position: {
+//             x: -16.35,
+//             y: 21,
+//             z: 0
+//         }
+//     },
+//     {
+//         title: "wall",
+//         id: "",
+//         spotNumber: 4,
+//         description: "<p>door</p>",
+//         camPos: {
+//             x: 13.05,
+//             y: 4.35,
+//             z: 5.06
+//         },
+//         position: {
+//             x: 3,
+//             y: 15,
+//             z: 1
+//         }
+//     },
+//     // {
+//     //     title: "Feature_Wall",
+//     //     spotNumber: 4,
+//     //     description: "<p>door</p>",
+//     //     camPos: {
+//     //         x: 13.05,
+//     //         y: 4.35,
+//     //         z: 5.06
+//     //     },
+//     //     position: {
+//     //         x: -1,
+//     //         y: 13,
+//     //         z: 0
+//     //     }
+//     // },
+// ]
 
 
 export let Marbletexture = [
