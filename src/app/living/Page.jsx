@@ -5,6 +5,11 @@ import { LivingroomAnnotationArray } from "@/local_data"
 // import Living_1_Model from "@/jsxModel/living_1_Model"
 // import LivingModel from "@/jsxModel/LivingModel"
 const Page = () => {
+    const dispatch = useDispatch()
+    const canvasRef = useRef()
+    useEffect(() => {
+        dispatch(updateCommonStateSlice({ currentModelRef: canvasRef.current }));
+    }, [])
     return (
         <>
             <div className="relative hidden">
@@ -46,7 +51,7 @@ const Page = () => {
 
             <div className="relative">
                 <Demolayout>
-                    <Canvas camera={{ fov: 45, position: [-4, 2, -4] }}>
+                    <Canvas ref={canvasRef} camera={{ fov: 45, position: [-4, 2, -4] }} gl={{ preserveDrawingBuffer: true }}>
                         {/* position: [0, 0, 3] */}
                         <ambientLight intensity={1} />
                         <pointLight position={[-0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
@@ -76,6 +81,9 @@ import Final_Living_Model from "@/jsxModel/Final_Living_Model"
 import { Canvas } from "react-three-fiber"
 import { Environment, OrbitControls } from "@react-three/drei"
 import Annotations from "../Annotations/Annotations"
+import { useEffect, useRef } from "react"
+import { useDispatch } from "react-redux"
+import { updateCommonStateSlice } from "@/redux/slices/CommonStateSlice"
 // // import BathroomModel from "@/jsxModel/BathroomModel"
 // // import { BathroomAnnotationArray } from "@/local_data"
 // // import { useState } from "react"
