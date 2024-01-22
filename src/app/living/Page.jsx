@@ -51,15 +51,29 @@ const Page = () => {
 
             <div className="relative">
                 <Demolayout>
-                    <Canvas ref={canvasRef} camera={{ fov: 45, position: [-4, 2, -4] }} gl={{ preserveDrawingBuffer: true }}>
+                    <Canvas ref={canvasRef} camera={{ fov: 25, position: [0, 0.65, 5.4] }} gl={{ preserveDrawingBuffer: true }}>
                         {/* position: [0, 0, 3] */}
                         <ambientLight intensity={1} />
                         <pointLight position={[-0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
                         <pointLight position={[0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
                         <Environment preset="apartment" />
-                        <OrbitControls />
                         <LivingModel />
                         <Annotations position={LivingroomAnnotationArray} />
+                        <OrbitControls
+                            // minPolarAngle={1} // maximum top
+                            // maxPolarAngle={2}  // maximum bottom
+                            // minPolarAngle={Math.PI / 2 } // maximum top
+                            // maxPolarAngle={Math.PI / 2}  // maximum bottom
+
+                            minPolarAngle={1.35} // maximum top
+                            maxPolarAngle={1.7}  // maximum bottom
+
+                            minAzimuthAngle={5.9} // maximum left
+                            maxAzimuthAngle={6.7} // maximum right
+
+                            minDistance={1.8} // max zoom
+                            maxDistance={5.5} // min zoom    
+                        />
                     </Canvas>
                 </Demolayout>
                 <div></div>

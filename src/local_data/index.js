@@ -259,7 +259,7 @@ export let LivingroomAnnotationArray = [
             z: 20
         },
         position: {
-            x: -1.1,
+            x: -0.97,
             y: -1.2,
             z: -0.5
             // x: -25,
@@ -279,8 +279,8 @@ export let LivingroomAnnotationArray = [
         },
         position: {
             x: -0.1,
-            y: -0.9,
-            z: -0.3
+            y: -0.95,
+            z: -0.5
         }
     },
     {
@@ -294,7 +294,7 @@ export let LivingroomAnnotationArray = [
             z: 5.06
         },
         position: {
-            x: -0.06,
+            x: -0.08,
             y: 0.7,
             z: -1.5
         }
@@ -310,7 +310,7 @@ export let LivingroomAnnotationArray = [
             z: 5.06
         },
         position: {
-            x: 1.7,
+            x: 1.9,
             y: 0,
             z: -0.5
         }

@@ -176,9 +176,9 @@ const Savedemo = () => {
             {/* <MenuItem>
               <button onClick={() => { handleSavePdf(currentModelRef, setLoadingMessage); setIsOpen(!isOpen) }} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
             </MenuItem> */}
-            {/* <MenuItem>
+            <MenuItem>
               <button onClick={() => { setPdfpopup(!pdfpopup); setIsOpen(!isOpen) }} type='button' className='text-xs tex text-secondary flex gap-1 items-center whitespace-nowrap px-1 cursor-pointer capitalize'><AiFillFilePdf size={20} className=' text-primary-color' /> save pdf</button>
-            </MenuItem> */}
+            </MenuItem>
             {/* <button type='button' onClick={() => { setPdfpopup(!pdfpopup) }}>ssswsswdd</button> */}
           </ul>
         )}

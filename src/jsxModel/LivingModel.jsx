@@ -24,6 +24,10 @@ const LivingModel = (props) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(5, 5);
     });
+    const bookCover = loader.load('./images/bookCover.jpg', (texture) => {
+        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(1, 1);
+    });
     const tvconsoleLeft = loader.load(LivingroomParameter.TVConsole?.texture, (texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(1, 1);
@@ -63,16 +67,14 @@ const LivingModel = (props) => {
             <mesh
                 castShadow
                 receiveShadow
-                geometry={nodes.left_wall.geometry}
-            // material={nodes.left_wall.material}
+                geometry={nodes.left_wall.geometry} // material={nodes.left_wall.material}
             >
                 <meshStandardMaterial color={wall_color} />
             </mesh>
             <mesh
                 castShadow
                 receiveShadow
-                geometry={nodes.right_wall.geometry}
-            // material={nodes.right_wall.material}
+                geometry={nodes.right_wall.geometry} // material={nodes.right_wall.material}
             >
                 <meshStandardMaterial color={wall_color} />
             </mesh>
@@ -85,28 +87,35 @@ const LivingModel = (props) => {
             <mesh
                 castShadow
                 receiveShadow
-                geometry={nodes.floor.geometry}
-            // material={nodes.floor.material}
+                geometry={nodes.floor.geometry} // material={nodes.floor.material}
             />
             <group position={[0.131, -1.03, -0.475]} scale={0.99}>
                 <mesh
                     castShadow
                     receiveShadow
                     geometry={nodes.Plane057.geometry}
-                    material={textureMaterial}
-                />
+                // material={nodes.Plane057.material}
+                >
+                    <meshBasicMaterial map={bookCover} />
+                </mesh>
                 <mesh
                     castShadow
                     receiveShadow
                     geometry={nodes.Plane057_1.geometry}
-                    material={textureMaterial}
-                />
+                // material={nodes.Plane057_1.material}
+                // material={textureMaterial}
+                >
+                    <meshBasicMaterial map={bookCover} />
+                </mesh>
                 <mesh
                     castShadow
                     receiveShadow
                     geometry={nodes.Plane057_2.geometry}
-                    material={textureMaterial}
-                />
+                // material={nodes.Plane057_2.material}
+                // material={textureMaterial}
+                >
+                    <meshBasicMaterial map={bookCover} />
+                </mesh>
             </group>
             <mesh
                 castShadow
@@ -217,14 +226,20 @@ const LivingModel = (props) => {
                         castShadow
                         receiveShadow
                         geometry={nodes.trunk022.geometry}
-                        material={textureMaterial}
-                    />
+                        // material={textureMaterial}
+                        scale={[1.7, 1.7, 1.7]}
+                    >
+                        <meshStandardMaterial color={'#e04d28'} />
+                    </mesh>
                     <mesh
                         castShadow
                         receiveShadow
                         geometry={nodes.trunk022_1.geometry}
-                        material={textureMaterial}
-                    />
+                        scale={[1.7, 1.7, 1.7]}
+                    // material={textureMaterial}
+                    >
+                        <meshStandardMaterial color={'green'} />
+                    </mesh>
                 </group>
             </group>
         </group>

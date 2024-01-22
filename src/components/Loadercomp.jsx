@@ -6,8 +6,7 @@ const Loadercomp = ({ message }) => {
         >
             {/* <div className="rounded-md h-12 w-12 border-4 border-t-4  duration-700 border-blue-500 animate-spin "></div> */}
             <div className="border-gray-300 h-20 w-20 animate-spin duration-700 rounded-full border-8 border-t-primary-color" />
-
-            <p className="text-2xl text-primary-color capitaliz font-bold capitalize">please wailt...</p>
+            <p className="text-2xl text-primary-color capitaliz font-bold capitalize">please wait...</p>
             <p className="text-2xl text-primary-color capitaliz font-bold capitalize">{message}</p>
         </div>
 

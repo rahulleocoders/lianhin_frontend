@@ -76,12 +76,13 @@ const SelectMaterial = ({ }) => {
         // }, []);
     }, [CommonState.SelctFilterData, CommonState.sortingParameter]);
 
-    let ApplySurface = (imgurl) => {
+    let ApplySurface = (imgurl, model_name, price) => {
+        console.log("object", imgurl, model_name, price)
         if (currentPage == "bathroom") {
             dispatch(updatebathroomSlice({ [bathroom_Active_element]: { texture: imgurl } }));
         }
         if (currentPage == "living") {
-            dispatch(updatelivingroomSlice({ [livingroom_Active_element]: { texture: imgurl } }));
+            dispatch(updatelivingroomSlice({ [livingroom_Active_element]: { texture: imgurl, model_name, price } }));
         }
     }
 
@@ -119,7 +120,7 @@ const SelectMaterial = ({ }) => {
                                 recommended={surface?.is_recommended}
                                 popular={surface?.is_most_popular}
                                 label={surface.model_name} img={`${Backend_url}${surface.model_image}`}
-                                onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`) }}
+                                onClick={() => { ApplySurface(`${Backend_url}${surface.model_image}`, surface.model_name, surface.price) }}
                             />
                         ) :
                         <div className=" text-primary-color py-2 text-center w-full font-bold ">
