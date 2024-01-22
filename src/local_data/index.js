@@ -312,7 +312,7 @@ export let LivingroomAnnotationArray = [
         position: {
             x: 1.9,
             y: 0,
-            z: -0.5
+            z: -1
         }
     },
 

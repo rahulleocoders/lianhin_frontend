@@ -1,18 +1,74 @@
-import React, { useRef } from 'react'
+'use client'
+import React, { useEffect, useRef } from 'react'
 import { MeshPortalMaterial, MeshReflectorMaterial, useGLTF, useTexture } from '@react-three/drei'
 import { AdditiveBlending } from 'three'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three';
 import { useSelector } from 'react-redux';
+import { driver } from 'driver.js'
 
 
+const model_Walkthrough = () => {
+    let driverobj = driver({
+        showProgress: true,
+        steps: [
+            {
+                element: "#TVConsole",
+                popover: {
+                    className: "first-step-popover-class",
+                    title: "Select Hotspot",
+                    description: "Explore different surfaces by selecting areas with hotspots.",
+                    position: "left",
+                    side: "left",
+                    align: 'start'
+                },
+            },
+            {
+                element: ".material-conatiner .material:nth-child(2)",
+                popover: {
+                    className: "first-step-popover-class",
+                    title: "Select Surfaces",
+                    description: "Choosing surfaces enables you to visualize changes in the selected area as you apply different surface options.",
+                    position: "left",
+                    side: "left",
+                    align: 'start'
+                },
+            },
+            {
+                element: "#filter_surface",
+                popover: {
+                    className: "first-step-popover-class",
+                    title: "Surface Filtering Options",
+                    description: "Explore advanced filtering options to refine surfaces based on brand, collection, series, and color preferences.",
+                    position: "left",
+                    side: "left",
+                    align: 'start'
+                },
+            },
+            {
+                element: "#sort_surface",
+                popover: {
+                    className: "first-step-popover-class",
+                    title: "Surface Sorting Options",
+                    description: "Sort the surfaces based on newness, popularity, and price.",
+                    position: "left",
+                    side: "left",
+                    align: 'start'
+                },
+            },
+        ]
+    });
 
+    driverobj.drive();
+};
 const LivingModel = (props) => {
     const loader = new THREE.TextureLoader();
     const texture = useTexture('./images/finalhallwithbake.jpg')
     texture.flipY = false;
     texture.encoding = THREE.sRGBEncoding;
     const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present);
+
+
 
     const textureMaterial = new THREE.MeshStandardMaterial({
         map: texture,
@@ -46,6 +102,9 @@ const LivingModel = (props) => {
     });
 
     let wall_color = LivingroomParameter?.wall.color
+    useEffect(() => {
+        setTimeout(() => model_Walkthrough(), 500);
+    }, []);
 
     const { nodes, materials } = useGLTF("./blender_model/finalhallwithbake.glb");
     return (

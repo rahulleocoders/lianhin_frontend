@@ -2,6 +2,15 @@
 import CanvasEnvironment from "@/components/CanvasEnvironment"
 import Demolayout from "@/components/DemoComponents/Demolayout"
 import { LivingroomAnnotationArray } from "@/local_data"
+import LivingModel from "@/jsxModel/LivingModel"
+import Final_Living_Model from "@/jsxModel/Final_Living_Model"
+import { Canvas } from "react-three-fiber"
+import { Environment, Html, OrbitControls } from "@react-three/drei"
+import Annotations from "../Annotations/Annotations"
+import { Suspense, useEffect, useRef } from "react"
+import { useDispatch } from "react-redux"
+import { updateCommonStateSlice } from "@/redux/slices/CommonStateSlice"
+
 // import Living_1_Model from "@/jsxModel/living_1_Model"
 // import LivingModel from "@/jsxModel/LivingModel"
 const Page = () => {
@@ -12,68 +21,27 @@ const Page = () => {
     }, [])
     return (
         <>
-            <div className="relative hidden">
-                <Demolayout>
-                    <CanvasEnvironment
-                        // CameraPosition={[-17, 12, 18.5]}
-                        // Cameratarget={[-17, 12, 8.5]}
-
-                        Cameratarget={[0, 0, 0]}
-                        CameraPosition={[0, 0, 10]}
-
-                        // minPolarAngle={-Math.PI / 8} // maximum top
-                        // maxPolarAngle={Math.PI / 2}  // maximum bottom
-
-                        // minAzimuthAngle={5} // maximum left
-                        // maxAzimuthAngle={7} // maximum right
-
-                        // minDistance={7} // max zoom
-                        // maxDistance={13} // min zoom   
-
-                        // CameraPosition={[-18.5, 12, 18.699922]}
-                        // Cameratarget={[-18.5, 12, 10]}
-
-                        // CameraPosition={[-17, 15, 100]}
-                        // Cameratarget={[-17, 10, 10]}
-
-                        // CameraPosition={[-9.0, 8.49464, 26.772]}
-                        // Cameratarget={[-9, 8, -25]}
-                        Annotationposition={LivingroomAnnotationArray}
-                    >
-                        <Final_Living_Model />
-                        {/* <Living_1_Model /> */}
-                        {/* <LivingModel /> */}
-                    </CanvasEnvironment>
-                </Demolayout>
-                <div></div>
-            </div >
-
-
-            <div className="relative">
+            <div className="relative ">
                 <Demolayout>
                     <Canvas ref={canvasRef} camera={{ fov: 25, position: [0, 0.65, 5.4] }} gl={{ preserveDrawingBuffer: true }}>
-                        {/* position: [0, 0, 3] */}
-                        <ambientLight intensity={1} />
-                        <pointLight position={[-0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
-                        <pointLight position={[0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
-                        <Environment preset="apartment" />
-                        <LivingModel />
-                        <Annotations position={LivingroomAnnotationArray} />
-                        <OrbitControls
-                            // minPolarAngle={1} // maximum top
-                            // maxPolarAngle={2}  // maximum bottom
-                            // minPolarAngle={Math.PI / 2 } // maximum top
-                            // maxPolarAngle={Math.PI / 2}  // maximum bottom
+                        <Suspense fallback={<Html center> <div className="flex items-center justify-center w-full h-full text-3xl text-primary-color font-bold">Loading...</div>  </Html>}>
+                            <ambientLight intensity={1} />
+                            <Environment preset="apartment" />
+                            <pointLight position={[-0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
+                            <pointLight position={[0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
+                            <OrbitControls
+                                minPolarAngle={1.35} // maximum top
+                                maxPolarAngle={1.7}  // maximum bottom
 
-                            minPolarAngle={1.35} // maximum top
-                            maxPolarAngle={1.7}  // maximum bottom
+                                minAzimuthAngle={5.9} // maximum left
+                                maxAzimuthAngle={6.7} // maximum right
 
-                            minAzimuthAngle={5.9} // maximum left
-                            maxAzimuthAngle={6.7} // maximum right
-
-                            minDistance={1.8} // max zoom
-                            maxDistance={5.5} // min zoom    
-                        />
+                                minDistance={1.8} // max zoom
+                                maxDistance={5.5} // min zoom    
+                            />
+                            <Annotations position={LivingroomAnnotationArray} />
+                            <LivingModel />
+                        </Suspense>
                     </Canvas>
                 </Demolayout>
                 <div></div>
@@ -90,14 +58,6 @@ export default Page
 // 'use client'
 // import CanvasEnvironment from "@/components/CanvasEnvironment"
 // import Demolayout from "@/components/DemoComponents/Demolayout"
-import LivingModel from "@/jsxModel/LivingModel"
-import Final_Living_Model from "@/jsxModel/Final_Living_Model"
-import { Canvas } from "react-three-fiber"
-import { Environment, OrbitControls } from "@react-three/drei"
-import Annotations from "../Annotations/Annotations"
-import { useEffect, useRef } from "react"
-import { useDispatch } from "react-redux"
-import { updateCommonStateSlice } from "@/redux/slices/CommonStateSlice"
 // // import BathroomModel from "@/jsxModel/BathroomModel"
 // // import { BathroomAnnotationArray } from "@/local_data"
 // // import { useState } from "react"

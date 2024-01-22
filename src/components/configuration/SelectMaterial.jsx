@@ -111,7 +111,7 @@ const SelectMaterial = ({ }) => {
             {/*on second tab call function to  to get the color pallett*/}
 
             {/* <div className={`flex gap-6 max-h-[${Is_wall_selected ? '90vh' : '52vh'}] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth`}>  max-h-[64vh] */}
-            <div className={`material-conatiner flex gap-6 max-h-[52vh] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth`}>  {/* max-h-[64vh] */}
+            <div className={`material-conatiner flex gap-6 max-h-[51vh] overflow-y-scroll flex-wrap pe-1 pb-1 scroll-smooth`}>  {/* max-h-[64vh] */}
 
                 {
                     setsurfaceData?.length > 0 ?
