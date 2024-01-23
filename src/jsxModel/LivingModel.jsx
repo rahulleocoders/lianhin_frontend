@@ -66,9 +66,7 @@ const LivingModel = (props) => {
     const texture = useTexture('./images/finalhallwithbake.jpg')
     texture.flipY = false;
     texture.encoding = THREE.sRGBEncoding;
-    const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present);
-
-
+    const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present)
 
     const textureMaterial = new THREE.MeshStandardMaterial({
         map: texture,
@@ -229,7 +227,6 @@ const LivingModel = (props) => {
                 castShadow
                 receiveShadow
                 geometry={nodes.wall_plane.geometry}
-                // material={nodes.wall_plane.material}
                 position={[0.702, 0.03, -1.3]}
             >
                 <boxGeometry args={[1.4, 2.5, 0.03]} />
@@ -285,7 +282,6 @@ const LivingModel = (props) => {
                         castShadow
                         receiveShadow
                         geometry={nodes.trunk022.geometry}
-                        // material={textureMaterial}
                         scale={[1.7, 1.7, 1.7]}
                     >
                         <meshStandardMaterial color={'#e04d28'} />
@@ -295,7 +291,6 @@ const LivingModel = (props) => {
                         receiveShadow
                         geometry={nodes.trunk022_1.geometry}
                         scale={[1.7, 1.7, 1.7]}
-                    // material={textureMaterial}
                     >
                         <meshStandardMaterial color={'green'} />
                     </mesh>
