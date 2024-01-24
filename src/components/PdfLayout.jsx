@@ -15,7 +15,7 @@ const PdfLayout = ({ currentModelRef, setPdfpopup }) => {
     let currentdate = new Date();
     let timestamp = `${currentdate.getMinutes()}_${currentdate.getSeconds()}`;
     const { toPDF, targetRef } = usePDF({
-        
+
         filename: `living${timestamp}.pdf`,
         page: { margin: Margin.SMALL },
     });
@@ -79,18 +79,20 @@ const PdfLayout = ({ currentModelRef, setPdfpopup }) => {
             <Modal className="" show={true} size="6xl" onClose={() => setPdfpopup(false)}  >
                 <Modal.Header className=" border-none p-0"></Modal.Header>
                 <Modal.Body className=" mb-5">
-                    <div className="relative">
-                        <div className='' style={{ width: "100%" }} ref={targetRef}  >
+                    <div className="relative overflow-x-scroll hide-scrollbar">
+                        <div className='w-full min-w-[896px]  md:max-w-4xl mx-auto '
+                            // style={{ width: "100%" }} 
+                            ref={targetRef}  >
 
-                            <div className="w-full max-w-4xl mx-auto ">
+                            <div className=" ">
                                 <div className=" mb-1 flr">
                                     <img src='./images/linhanlogo.png' alt="lianhin" height={100} width={100} className="w-32 h-7  md:h-10 md:w-44" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                 </div>
 
-                                <div className=" max-w-4xl mx-auto border rounded-md overflow-hidden border-primary-color" style={{ height: "550px" }}>
+                                <div className="border rounded-md overflow-hidden border-primary-color" style={{ height: "600px" }}>
                                     <img src={modelImg ? modelImg : "mkmm"} className='w-full h-full' alt="lianhin" srcSet="" />
                                 </div>
-                                <div className="  max-w-4xl mx-auto mt-5 flex gap-5">
+                                <div className=" mt-5 flex gap-5">
                                     <SurfaceUsed place='floor'
                                         src={LivingroomParameter.floor?.texture}
                                         model_name={LivingroomParameter.floor?.model_name}
@@ -113,7 +115,7 @@ const PdfLayout = ({ currentModelRef, setPdfpopup }) => {
                         <img src={modelImg ? modelImg : "mkmm"} alt="" srcSet="" width={152} height={152} /> */}
                         </div>
 
-                        <div className="max-w-4xl mx-auto flex justify-end mt-4">
+                        <div className="w-full min-w-[896px]  md:max-w-4xl mx-auto  flex justify-end mt-4">
                             <CommonBtn label={'Download PDF'} onClick={() => handleSavePdf()} />
                         </div>
 
