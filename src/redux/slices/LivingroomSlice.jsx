@@ -19,14 +19,14 @@ const initialState =
         model_name:'Striscia'
     },
     TVConsole: {
-        // texture: "https://images-eu.ssl-images-amazon.com/images/I/91UIbcyJVLL._AC_UL600_SR600,600_.jpg",
-        texture: "http://admin.interiorsparkle.com/media/model/lian_him1.png",
+        texture: "http://admin.interiorsparkle.com/media/model/DSC02671_Oro.jpg",
+        // texture: "http://admin.interiorsparkle.com/media/model/lian_him1.png",
         price:3000,
         model_name:'marble'
     },
     wall: {
         texture: "https://m.media-amazon.com/images/I/41gPXlP844L._AC_UF894,1000_QL80_.jpg",
-        color: "white"
+        color: "#fae4ae"
     },
     Feature_Wall: {
         texture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlykLyQp5Ik6LXl5gQLCiNNymmlbu2MmVIXCNDuQJoeoiCX69woZ6BQ3hflMQyAYiNes4&usqp=CAU"
