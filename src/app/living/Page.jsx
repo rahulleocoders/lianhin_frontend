@@ -24,7 +24,7 @@ const Page = () => {
     useEffect(() => {
         const handleResize = () => {
             // Update FOV based on screen width
-            const newFov = window.innerWidth <= 768 ? 30 : 25;
+            const newFov = window.innerWidth <= 768 ? 35 : 25;
             setFov(newFov);
         };
         // Initial setup
@@ -45,6 +45,7 @@ const Page = () => {
                 <Demolayout>
                     {/* <Canvas ref={canvasRef} camera={{ fov: 25, position: [0, 0.65, 5.4] }} gl={{ preserveDrawingBuffer: true }}> */}
                     <Canvas ref={canvasRef} camera={{ fov: fov, position: [0, 0.65, 5.4] }} gl={{ preserveDrawingBuffer: true }}>
+                        {/* <Canvas ref={canvasRef} camera={{ fov: fov, position: [-1, 0.65, 5.4] }} gl={{ preserveDrawingBuffer: true }}> */}
                         <Suspense fallback={<Html center> <div className="flex items-center justify-center w-full h-full text-3xl text-primary-color font-bold">Loading...</div>  </Html>}>
                             <ambientLight intensity={1} />
                             <Environment preset="apartment" />
@@ -64,8 +65,11 @@ const Page = () => {
                                 minPolarAngle={1.35} // maximum top
                                 maxPolarAngle={1.7}  // maximum bottom
 
-                                minAzimuthAngle={5.9} // maximum left
-                                maxAzimuthAngle={6.7} // maximum right
+                                // minAzimuthAngle={5.9} // maximum left
+                                // maxAzimuthAngle={6.7} // maximum right
+
+                                minAzimuthAngle={6} // maximum left
+                                maxAzimuthAngle={6.5} // maximum right
 
                                 minDistance={1.8} // max zoom
                                 maxDistance={5.5} // min zoom    

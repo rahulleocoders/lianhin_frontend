@@ -76,7 +76,7 @@ const PdfLayout = ({ currentModelRef, setPdfpopup }) => {
     return (
         <>
             {loadingMessage && <Loadercomp message={loadingMessage} />}
-            <Modal className="" show={true} size="6xl" onClose={() => setPdfpopup(false)}  >
+            <Modal className="z-[99999999]" show={true} size="6xl" onClose={() => setPdfpopup(false)}  >
                 <Modal.Header className=" border-none p-0"></Modal.Header>
                 <Modal.Body className=" mb-5">
                     <div className="relative overflow-x-scroll hide-scrollbar">
