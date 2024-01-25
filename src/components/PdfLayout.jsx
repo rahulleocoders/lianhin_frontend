@@ -63,7 +63,7 @@ const PdfLayout = ({ currentModelRef, setPdfpopup }) => {
                 <div className="px-6 py-2 text-primary-color">
                     <div className="font-bold text-xl capitalize">{place} surface</div>
                     <p className="font-medium text-base capitalize">name: {model_name} </p>
-                    <p className="font-medium text-base capitalize">price: {price} </p>
+                    <p className="font-medium text-base capitalize">price:  SGD {price} </p>
                 </div>
             </div>
         )

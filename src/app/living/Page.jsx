@@ -61,14 +61,14 @@ const Page = () => {
                                 // minAzimuthAngle={5.8} // maximum left
                                 // maxAzimuthAngle={6.75} // maximum right
 
-                                // minPolarAngle={1.35} // maximum top
-                                // maxPolarAngle={1.7}  // maximum bottom
+                                minPolarAngle={1.35} // maximum top
+                                maxPolarAngle={1.7}  // maximum bottom
 
-                                // minAzimuthAngle={5.9} // maximum left
-                                // maxAzimuthAngle={6.7} // maximum right
+                                minAzimuthAngle={5.9} // maximum left
+                                maxAzimuthAngle={6.7} // maximum right
 
-                                // minDistance={1.8} // max zoom
-                                // maxDistance={5.5} // min zoom    
+                                minDistance={1.8} // max zoom
+                                maxDistance={5.5} // min zoom    
                             />
                         </Suspense>
                     </Canvas>

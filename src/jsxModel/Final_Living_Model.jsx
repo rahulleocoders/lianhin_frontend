@@ -189,7 +189,9 @@ const Final_Living_Model = (props) => {
                 geometry={nodes.glass.geometry}
                 material={materials["Glass.001"]}
                 position={[-0.251, -0.971, 0.104]}
-            />
+            >
+                {/* <meshBasicMaterial opacity={0.4} transparent /> */}
+            </mesh>
             <mesh
                 castShadow
                 receiveShadow
