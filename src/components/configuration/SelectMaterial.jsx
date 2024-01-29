@@ -77,7 +77,6 @@ const SelectMaterial = ({ }) => {
     }, [CommonState.SelctFilterData, CommonState.sortingParameter]);
 
     let ApplySurface = (imgurl, model_name, price) => {
-        console.log("object", imgurl, model_name, price)
         if (currentPage == "bathroom") {
             dispatch(updatebathroomSlice({ [bathroom_Active_element]: { texture: imgurl } }));
         }
