@@ -79,10 +79,10 @@ const Final_Living_Model = (props) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(5, 5);
     });
-    const bookCover = loader.load('./images/bookCover.jpg', (texture) => {
-        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set(1, 1);
-    });
+    // const bookCover = loader.load('./images/bookCover.jpg', (texture) => {
+    //     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    //     texture.repeat.set(1, 1);
+    // });
     const tvconsoleLeft = loader.load(LivingroomParameter.TVConsole?.texture, (texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         texture.repeat.set(1, 1);
