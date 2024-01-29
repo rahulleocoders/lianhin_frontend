@@ -1,7 +1,6 @@
 'use client'
 import Demolayout from "@/components/DemoComponents/Demolayout"
 import { LivingroomAnnotationArray } from "@/local_data"
-import LivingModel from "@/jsxModel/LivingModel"
 // import { Canvas } from "react-three-fiber"
 import { Canvas } from "@react-three/fiber"
 import { Environment, Html, OrbitControls } from "@react-three/drei"
@@ -51,7 +50,6 @@ const Page = () => {
                             <Environment preset="apartment" />
                             <pointLight position={[-0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
                             <pointLight position={[0.85, 1.2, -1]} intensity={2} color={'#ffe191'} />
-                            {/* <LivingModel /> */}
                             <Final_Living_Model />
                             <Annotations position={LivingroomAnnotationArray} />
                             <OrbitControls
