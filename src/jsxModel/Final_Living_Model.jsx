@@ -65,7 +65,8 @@ const Final_Living_Model = (props) => {
     const loader = new THREE.TextureLoader();
     const texture = useTexture('./images/lasttry.jpg')
     texture.flipY = false;
-    texture.encoding = THREE.sRGBEncoding;
+    // texture.encoding = THREE.sRGBEncoding;
+    texture.colorSpace = THREE.SRGBColorSpace;
     const LivingroomParameter = useSelector((state) => state.LivingroomParameter?.present)
 
     const textureMaterial = new THREE.MeshStandardMaterial({
