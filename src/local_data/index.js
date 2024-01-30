@@ -1,6 +1,7 @@
 // import Bathroom_Scene_1 from './images/Bathroom_Scene_1.jpg'
 
-export let Backend_url = 'http://admin.interiorsparkle.com'
+// export let Backend_url = 'http://admin.interiorsparkle.com'
+export let Backend_url = 'https://leocoders.site'
 
 export let page_limit = 15
 export let NavLinks = [

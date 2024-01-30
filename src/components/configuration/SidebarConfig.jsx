@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import { useSelector } from 'react-redux';
 import SearchableDropdown from './SearchableDropdown'
 import SelectFilter from './SelectFilter'
@@ -26,11 +26,7 @@ const SidebarConfig = () => {
                 </div>
                 {/* <SelectMaterial // SelectFilterRef={SelectFilterRef} 
                 /> */}
-                {Is_wall_selected ?
-                    <SelectColor />
-                    :
-                    <SelectMaterial />
-                }
+                {Is_wall_selected ? <SelectColor /> : <SelectMaterial />}
             </div>
 
 
